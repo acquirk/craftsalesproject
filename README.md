@@ -1,3 +1,4 @@
 # artisansales
-==Sales Data Analysis==
+Sales Data Analysis
+===================
 A way to make better decisions using sales data.

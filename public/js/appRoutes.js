@@ -22,6 +22,21 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 			templateUrl: 'views/register.html',
 			controller: 'RegisterController'
 		})
+		
+		.when('/dashboard', {
+			templateUrl: 'views/dashboard.html',
+			controller: 'DashboardController'
+		})
+		
+		.when('/admin', {
+			templateUrl: 'views/adminacc.html',
+			controller: 'AdminAccController'
+		})
+
+		.when('/user', {
+			templateUrl: 'views/useracc.html',
+			controller: 'UserAccController'
+		})
 
 		.when('/geeks', {
 			templateUrl: 'views/geek.html',

@@ -15,8 +15,34 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 
 		.when('/geeks', {
 			templateUrl: 'views/geek.html',
-			controller: 'GeekController'	
+			controller: 'GeekController'
 		});
+
+		.when('/login', {
+			templateUrl: 'views/login.html',
+			controller: 'LoginController'
+		})
+
+		.when('/register', {
+			templateUrl: 'views/register.html',
+			controller: 'RegisterController'
+		})
+
+		.when('/dashboard', {
+			templateUrl: 'views/dashboard.html',
+			controller: 'DashboardController'
+		})
+
+		.when('/admin', {
+			templateUrl: 'views/adminacc.html',
+			controller: 'AdminAccController'
+		})
+
+		.when('/user', {
+			templateUrl: 'views/useracc.html',
+			controller: 'UserAccController'
+		})
+
 
 	$locationProvider.html5Mode(true);
 

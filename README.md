@@ -1,4 +1,4 @@
-# Craft Sales Project MEAN Stack Single Page Application (Name TBD)
+# Craft Sales Project MEAN Stack Single Page Application (Cardinal Reports)
 
 This application will be used to visualize and leverage sales data for Cardinal Spirits LLC.
 

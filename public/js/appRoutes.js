@@ -7,6 +7,16 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 			templateUrl: 'views/home.html',
 			controller: 'MainController'
 		})
+    
+        .when('/login', {
+			templateUrl: 'views/login.html',
+			controller: 'LoginController'
+		})
+    
+        .when('/register', {
+			templateUrl: 'views/register.html',
+			controller: 'RegisterController'
+		})
 
 		.when('/nerds', {
 			templateUrl: 'views/nerd.html',
@@ -16,7 +26,11 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 		.when('/geeks', {
 			templateUrl: 'views/geek.html',
 			controller: 'GeekController'	
-		});
+		})
+    
+        .otherwise({
+                redirectTo: '/'
+        });
 
 	$locationProvider.html5Mode(true);
 

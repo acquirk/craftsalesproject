@@ -1,0 +1,35 @@
+<navigation></navigation>
+
+<div class="container">
+      <h1>Cardinal Reports</h1><br>
+       <div class="row">
+         <div class="main">
+           <form role="form" ng-submit="vm.onSubmit()">
+             <div class="form-group">
+               <label for="inputEmail">Email</label>
+               <input type="text" class="form-control" id="inputEmail" ng-model="vm.credentials.email">
+             </div>
+             <div class="form-group">
+               <label for="inputFirstName">First Name</label>
+               <input type="text" class="form-control" id="inputFirstName" ng-model="vm.credentials.firstName">
+             </div>
+             <div class="form-group">
+               <label for="inputLastName">Last Name</label>
+               <input type="text" class="form-control" id="inputLastName" ng-model="vm.credentials.lastName">
+             </div>
+             <div class="form-group">
+               <label for="inputPassword">Password</label>
+               <input type="password" class="form-control" id="inputPassword">
+             </div>
+             <div class="form-group">
+               <label for="inputPassword">Confirm Password</label>
+               <input type="password" class="form-control" id="inputPassword" ng-model="vm.credentials.password">
+             </div>
+             <button type="submit" class="btn btn btn-primary pull-right black-background">Register</button><br><br>
+           </form>
+         </div><br>
+         <div class="main text-center">
+           <a class="password" href="/login">Have an account? Log In</a>
+         </div>
+       </div>
+     </div>

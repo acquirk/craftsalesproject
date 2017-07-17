@@ -5,8 +5,8 @@
   function config ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'home/home.view.html',
-        controller: 'homeCtrl',
+        templateUrl: '/auth/login/login.view.html',
+        controller: 'loginCtrl',
         controllerAs: 'vm'
       })
       .when('/register', {
@@ -19,9 +19,15 @@
         controller: 'loginCtrl',
         controllerAs: 'vm'
       })
-      .when('/profile', {
-        templateUrl: '/profile/profile.view.html',
-        controller: 'profileCtrl',
+      .when('/users', {
+        templateUrl: '/users/users.html',
+      })
+      .when('/settings', {
+        templateUrl: '/settings/settings.html',
+        controllerAs: 'vm'
+      })
+      .when('/reports', {
+        templateUrl: '/reports/reports.html',
         controllerAs: 'vm'
       })
       .otherwise({redirectTo: '/'});

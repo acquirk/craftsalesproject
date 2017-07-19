@@ -21,6 +21,8 @@
       })
       .when('/users', {
         templateUrl: '/users/users.html',
+        controller: 'usersCtrl',
+        controllerAs: 'vm'
       })
       .when('/settings', {
         templateUrl: '/settings/settings.html',

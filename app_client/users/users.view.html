@@ -4,7 +4,9 @@
 					&#9776;
 				</button>
 
-				<a class="navbar-brand float-xs-right float-sm-left" href="#"><img src="img/logo-small.png" height="40" width= "40"class="img-fluid"/></a>
+				<a class="navbar-brand float-xs-right float-sm-left" href="#">
+				  <img src="img/logo-small.png" height="40" width= "40"class="img-fluid"/>
+				  </a>
 
 			<div class="collapse navbar-toggleable-xs" id="navigation">
 				<ul class="nav navbar-nav">
@@ -36,7 +38,7 @@
 					</ul>
 			</div>
 
-		</nav>
+
 
 
 		<main>
@@ -235,3 +237,6 @@
           </div>
       </div>
 		</main>
+
+<div ng-repeat="user in users"><br>{{user}}<p>hello</p></div>
+<div>hello {{ users }}</div>

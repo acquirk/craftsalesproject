@@ -4,21 +4,22 @@
   .module('meanApp')
   .controller('usersCtrl', usersCtrl);
 
-  usersCtrl.$inject = ['$location', 'authentication'];
-  function usersCtrl($location, authentication) {
+  usersCtrl.$inject = ['$location', 'authentication', 'meanData'];
+  function usersCtrl($location, authentication, meanData) {
     var vm = this;
-
-    vm.credentials = {
-      firstName : "",
-      lastName : "",
-      email : "",
-      password : ""
-    };
     
-    users = ["hello", "hey"];
+    vm.users = [];
+    
+    authentication.usersGrab()
+      .success(function(data) {
+        vm.users = data;
+        console.log(data);
+      })
+      .error(function (e) {
+        console.log(e);
+      });
     
     
-
   }
 
 })();

@@ -16,3 +16,15 @@ module.exports.profileRead = function(req, res) {
   }
 
 };
+
+module.exports.usersGrab = function(req, res) {
+
+    User
+      .find({})
+      .exec(function(err, users) {
+        console.log(users);
+        res.status(200).json(users);
+      });
+
+
+};

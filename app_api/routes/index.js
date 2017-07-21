@@ -6,7 +6,7 @@ var auth = jwt({
   userProperty: 'payload'
 });
 
-//var ctrlProfile = require('../controllers/profile');
+
 var ctrlAuth = require('../controllers/authentication');
 
 // profile
@@ -16,8 +16,9 @@ var ctrlAuth = require('../controllers/authentication');
 router.post('/register', ctrlAuth.register);
 router.post('/login', ctrlAuth.login);
 
-router.post('/users');
 router.post('/settings');
 router.post('/reports');
+
+router.post('/users', ctrlAuth.usersGrab );
 
 module.exports = router;

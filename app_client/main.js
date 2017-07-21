@@ -20,7 +20,7 @@
         controllerAs: 'vm'
       })
       .when('/users', {
-        templateUrl: '/users/users.html',
+        templateUrl: '/users/users.view.html',
         controller: 'usersCtrl',
         controllerAs: 'vm'
       })

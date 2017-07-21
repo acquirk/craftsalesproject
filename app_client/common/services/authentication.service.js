@@ -58,6 +58,10 @@
     logout = function() {
       $window.localStorage.removeItem('mean-token');
     };
+    
+    usersGrab = function() {
+      return $http.post('/api/users');
+    };
 
     return {
       currentUser : currentUser,
@@ -66,7 +70,8 @@
       isLoggedIn : isLoggedIn,
       register : register,
       login : login,
-      logout : logout
+      logout : logout,
+      usersGrab : usersGrab
     };
   }
 

@@ -7,6 +7,22 @@ var sendJSONresponse = function(res, status, content) {
   res.json(content);
 };
 
+module.exports.usersGrab = function (req, res) {
+        User.find({}, {
+            "email": 1,
+            "firstName": 1,
+            "lastName": 1
+        }, function (err, data) {
+            if (err)
+                res.send(err);
+            else {
+                res.json(data);
+            }
+        });
+
+
+};
+
 module.exports.register = function(req, res) {
 
   // if(!req.body.name || !req.body.email || !req.body.password) {

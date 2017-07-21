@@ -11,7 +11,8 @@ module.exports.usersGrab = function (req, res) {
         User.find({}, {
             "email": 1,
             "firstName": 1,
-            "lastName": 1
+            "lastName": 1,
+            "admin": 1
         }, function (err, data) {
             if (err)
                 res.send(err);

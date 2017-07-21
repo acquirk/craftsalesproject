@@ -29,7 +29,8 @@
         controllerAs: 'vm'
       })
       .when('/reports', {
-        templateUrl: '/reports/reports.html',
+        templateUrl: '/reports/reports.view.html',
+        controller: 'reportsCtrl',
         controllerAs: 'vm'
       })
       .otherwise({redirectTo: '/'});

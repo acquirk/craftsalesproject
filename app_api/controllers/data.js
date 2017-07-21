@@ -1,4 +1,5 @@
 var mongoose = require('mongoose');
+var mongoXlsx = require('mongo-xlsx');
 var Customer = mongoose.model('Customer');
 
 var sendJSONresponse = function(res, status, content) {
@@ -6,24 +7,16 @@ var sendJSONresponse = function(res, status, content) {
   res.json(content);
 };
 
-module.exports.register = function(req, res) {
-
-  // if(!req.body.name || !req.body.email || !req.body.password) {
-  //   sendJSONresponse(res, 400, {
-  //     "message": "All fields required"
-  //   });
-  //   return;
-  // }
+module.exports.insertData = function(req, res) {
 
   var customer = new Customer();
+  
+  mongoxlsx.xlsx2MongoData(file, Customer, function(err, data) {
+  console.log(data);
+  customer = data;
+});
 
-  user.lastName = req.body.lastName;
-  user.firstName = req.body.firstName;
-  user.email = req.body.email;
-
-  user.setPassword(req.body.password);
-
-  user.save(function(err) {
+  customer.save(function(err) {
     var token;
     token = user.generateJwt();
     res.status(200);

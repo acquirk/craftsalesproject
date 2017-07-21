@@ -1,0 +1,38 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: #6D6D6D;
+  background-color: #F2F2F2;
+}
+
+a {
+  color: #6D6D6D;
+}
+
+h1 {
+  text-align: center;
+  padding: 25px;
+  font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #F2F2F2;
+}
+
+h2 {
+  text-align: left;
+  padding-top: 40px;
+  font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #F2F2F2;
+}
+
+h3 {
+  text-align: center;
+  line-height: 300%;
+}
+
+nav {
+  background-color: white;
+}
+
+label {
+  font-size: 13pt;
+  color: #3F3F3F;
+}

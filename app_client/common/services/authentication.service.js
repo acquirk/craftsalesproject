@@ -1,79 +1,102 @@
 (function () {
 
-  angular
-    .module('meanApp')
-    .service('authentication', authentication);
+    angular
+        .module('meanApp')
+        .service('authentication', authentication);
 
-  authentication.$inject = ['$http', '$window'];
-  function authentication ($http, $window) {
+    authentication.$inject = ['$http', '$window'];
 
-    var saveToken = function (token) {
-      $window.localStorage['mean-token'] = token;
-    };
+    function authentication($http, $window) {
 
-    var getToken = function () {
-      return $window.localStorage['mean-token'];
-    };
-
-    var isLoggedIn = function() {
-      var token = getToken();
-      var payload;
-
-      if(token){
-        payload = token.split('.')[1];
-        payload = $window.atob(payload);
-        payload = JSON.parse(payload);
-
-        return payload.exp > Date.now() / 1000;
-      } else {
-        return false;
-      }
-    };
-
-    var currentUser = function() {
-      if(isLoggedIn()){
-        var token = getToken();
-        var payload = token.split('.')[1];
-        payload = $window.atob(payload);
-        payload = JSON.parse(payload);
-        return {
-          email : payload.email,
-          name : payload.name
+        var saveToken = function (token) {
+            $window.localStorage['mean-token'] = token;
         };
-      }
-    };
 
-    register = function(user) {
-      return $http.post('/api/register', user).success(function(data){
-        saveToken(data.token);
-      });
-    };
+        var getToken = function () {
+            return $window.localStorage['mean-token'];
+        };
 
-    login = function(user) {
-      return $http.post('/api/login', user).success(function(data) {
-        saveToken(data.token);
-      });
-    };
+        var isLoggedIn = function () {
+            var token = getToken();
+            var payload;
 
-    logout = function() {
-      $window.localStorage.removeItem('mean-token');
-    };
-    
-    usersGrab = function() {
-      return $http.post('/api/users');
-    };
+            if (token) {
+                payload = token.split('.')[1];
+                payload = $window.atob(payload);
+                payload = JSON.parse(payload);
+                console.log(payload);
+                console.log(payload.exp);
+                console.log(payload.email);
+                console.log(payload.admin);
+                return payload.exp > Date.now() / 1000;
+            } else {
+                return false;
+            }
+        };
 
-    return {
-      currentUser : currentUser,
-      saveToken : saveToken,
-      getToken : getToken,
-      isLoggedIn : isLoggedIn,
-      register : register,
-      login : login,
-      logout : logout,
-      usersGrab : usersGrab
-    };
-  }
+        var isAdminLoggedIn = function () {
+            var token = getToken();
+            var payload;
+
+            if (token) {
+                payload = token.split('.')[1];
+                payload = $window.atob(payload);
+                payload = JSON.parse(payload);
+                if (payload.admin == 2) {
+                    return payload.exp > Date.now() / 1000;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        };
+
+        var currentUser = function () {
+            if (isLoggedIn()) {
+                var token = getToken();
+                var payload = token.split('.')[1];
+                payload = $window.atob(payload);
+                payload = JSON.parse(payload);
+                return {
+                    email: payload.email,
+                    admin: payload.admin
+                };
+            }
+        };
+
+        register = function (user) {
+            return $http.post('/api/register', user).success(function (data) {
+                saveToken(data.token);
+            });
+        };
+
+        login = function (user) {
+            return $http.post('/api/login', user).success(function (data) {
+                saveToken(data.token);
+            });
+        };
+
+        logout = function () {
+            $window.localStorage.removeItem('mean-token');
+        };
+
+        usersGrab = function () {
+            return $http.post('/api/users');
+        };
+
+        return {
+            currentUser: currentUser,
+            saveToken: saveToken,
+            getToken: getToken,
+            isLoggedIn: isLoggedIn,
+            isAdminLoggedIn: isAdminLoggedIn,
+            register: register,
+            login: login,
+            logout: logout,
+            usersGrab: usersGrab
+        };
+    }
 
 
 })();

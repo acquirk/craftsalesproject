@@ -32,6 +32,10 @@
                 templateUrl: '/reports/reports.html',
                 controllerAs: 'vm'
             })
+            .when('/dashboard', {
+                templateUrl: '/dashboard/dashboard.html',
+                controllerAs: 'vm'
+            })
             .otherwise({
                 redirectTo: '/'
             });
@@ -43,6 +47,12 @@
     function run($rootScope, $location, authentication) {
         $rootScope.$on('$routeChangeStart', function (event, nextRoute, currentRoute) {
             if ($location.path() === '/users' && !authentication.isAdminLoggedIn()) {
+                $location.path('/');
+            }
+            if ($location.path() === '/settings' && !authentication.isLoggedIn()) {
+                $location.path('/');
+            }
+            if ($location.path() === '/reports' && !authentication.isLoggedIn()) {
                 $location.path('/');
             }
         });

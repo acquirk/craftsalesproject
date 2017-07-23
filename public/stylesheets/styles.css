@@ -1,0 +1,162 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: #6D6D6D;
+  background-color: #F2F2F2;
+}
+
+a {
+  color: #6D6D6D;
+}
+
+h1 {
+  text-align: center;
+  padding: 25px;
+  font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #F2F2F2;
+}
+
+h2 {
+  text-align: left;
+  padding-top: 40px;
+  font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #F2F2F2;
+}
+
+h3 {
+  text-align: center;
+  line-height: 300%;
+}
+
+nav {
+  background-color: white;
+}
+
+label {
+  font-size: 13pt;
+  color: #3F3F3F;
+}
+
+.btn-success {
+  font-size
+  height: 100px;
+}
+
+.reports {
+  padding-top: 25px;
+  padding-bottom: 10px;
+}
+.nav-link {
+    font-size: 9px;
+    padding-left: 3px;
+}
+
+
+.nav-title {
+  padding-left: 10px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.form-control {
+    font-size: 70%;
+}
+
+.btn {
+    font-size: 70%;
+}
+
+.table {
+  background-color: #FFFFFF;
+  margin: auto;
+  box-sizing: border-box;
+  padding: 30px;
+  max-width: 70%;
+  min-width: 36%;
+  }
+
+.input-group {
+  width: 25%;
+  float: right;
+}
+
+.fa-file-text-o {
+  padding-left: 10px;
+}
+
+.fa-users {
+  padding-right: 10px;
+}
+
+#custom-search-input button{
+    margin: 2px 0 0 0;
+    background: none;
+    box-shadow: none;
+    border: 0;
+    color: #666666;
+    padding: 0 8px 0 10px;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input button:hover{
+    border: 0;
+    box-shadow: none;
+    border-left: solid 1px #ccc;
+}
+
+.remember {
+  font-size: 10pt;
+  color: #A5A5A5;
+}
+
+.container {
+  margin: auto;
+}
+
+.text-center {
+   text-align: center;
+}
+
+.main {
+  background-color: #FFFFFF;
+  margin: auto;
+  border: 1px solid #95989A;
+  box-sizing: border-box;
+  padding: 30px;
+  max-width: 36%;
+  min-width: 36%;
+  }
+
+.login-or {
+  position: relative;
+  font-size: 18px;
+  color: #aaa;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.span-or {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: -2px;
+  margin-left: -25px;
+  background-color: #fff;
+  width: 50px;
+  text-align: center;
+}
+
+.hr-or {
+  background-color: #cdcdcd;
+  height: 1px;
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+.black-background {
+  background-color: #3F3F3F;
+  border-color: #3F3F3F;
+}

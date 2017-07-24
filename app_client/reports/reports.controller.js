@@ -16,6 +16,35 @@
             var uploadUrl = "/fileUpload";
             meanData.uploadFileToUrl(file, uploadUrl);
         };
+        
+
+    vm.credentials = {
+      email : "",
+      name : "",
+      city: "",
+      street : "",
+      state : "",
+      zip : "",
+      phone : "",
+      customerType : "",
+      saleType : "",
+      accountManager : "",
+      productName : "",
+      caseCount : "",
+      bottleCount : ""
+    };
+
+    vm.onSubmit = function () {
+      console.log('Submitting registration');
+      meanData
+        .registerr(vm.credentials)
+        .error(function(err){
+          alert(err);
+        })
+        .then(function(){
+          $location.path('users');
+        });
+    };
 
 
     }

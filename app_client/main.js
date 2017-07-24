@@ -30,6 +30,7 @@
             })
             .when('/reports', {
                 templateUrl: '/reports/reports.html',
+                controller: 'reportsCtrl',
                 controllerAs: 'vm'
             })
             .when('/dashboard', {

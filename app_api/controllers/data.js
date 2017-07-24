@@ -22,31 +22,17 @@ module.exports.upload = function (req, res) {
     });
 };
 
-module.exports.register = function (req, res) {
+module.exports.registerr = function (req, res) {
 
-    // if(!req.body.name || !req.body.email || !req.body.password) {
-    //   sendJSONresponse(res, 400, {
-    //     "message": "All fields required"
-    //   });
-    //   return;
-    // }
+  var customer = new Customer();
 
-    var customer = new Customer();
+  customer.email = req.body.email;
+  customer.name = req.body.name;
 
-    user.lastName = req.body.lastName;
-    user.firstName = req.body.firstName;
-    user.email = req.body.email;
 
-    user.setPassword(req.body.password);
-
-    user.save(function (err) {
-        var token;
-        token = user.generateJwt();
-        res.status(200);
-        res.json({
-            "token": token
-        });
-    });
+  customer.save(function(err) {
+    res.status(200);
+  });
 
 };
 

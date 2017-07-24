@@ -4,7 +4,7 @@
         .module('meanApp')
         .service('meanData', meanData);
 
-    meanData.$inject = ['$http', 'authentication'];
+    meanData.$inject = ['$http', '$window'];
 
     function meanData($http, authentication) {
 
@@ -19,10 +19,16 @@
         var uploadFileToUrl = function (file, uploadUrl) {
             return $http.post('/api/upload');
         };
+        
+        registerr = function (customer) {
+            console.log(customer);
+            return $http.post('/api/reports', customer);
+        };
 
         return {
             getProfile: getProfile,
-            uploadFilToUrl: uploadFileToUrl
+            uploadFilToUrl: uploadFileToUrl,
+            registerr: registerr
         };
     }
 

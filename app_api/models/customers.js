@@ -22,6 +22,7 @@ var customerSchema = new mongoose.Schema({
     customerType: String,
     saleType: String,
     accountManager: String,
+    distributor: String,
     sales: {
         productName: String,
         caseCount: Number,

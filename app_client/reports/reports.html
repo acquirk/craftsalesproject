@@ -3,7 +3,8 @@
 <main>
     <div class="container">
         <h1 class="reports"> Reports </h1>
-        <button type="button" class="btn btn-success btn-lg">Upload Report</button>
+        <input type="file" file-model="vm.myFile" />
+        <button type="button" class="btn btn-success btn-lg" ng-click="vm.uploadFile()">Upload Report</button>
 
         <h2> Today </h2>
         <br>

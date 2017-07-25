@@ -24,7 +24,7 @@ module.exports.upload = function (req, res) {
     });
 };
 
-module.exports.registerr = function (req, res) {
+module.exports.register = function (req, res) {
 
     var customer = new Customer();
 

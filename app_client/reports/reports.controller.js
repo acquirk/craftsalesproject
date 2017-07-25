@@ -37,7 +37,7 @@
         vm.onSubmit = function () {
             console.log('Submitting registration');
             meanData
-                .registerr(vm.credentials)
+                .register(vm.credentials)
                 .error(function (err) {
                     alert(err);
                 })

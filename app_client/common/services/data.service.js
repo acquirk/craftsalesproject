@@ -20,15 +20,16 @@
             return $http.post('/api/upload');
         };
         
-        registerr = function (customer) {
+        register = function (customer) {
             console.log(customer);
-            return $http.post('/api/reports', customer);
+            return $http.post('/api/reports', customer).success(function (data) {
+            });
         };
 
         return {
             getProfile: getProfile,
             uploadFilToUrl: uploadFileToUrl,
-            registerr: registerr
+            register: register
         };
     }
 

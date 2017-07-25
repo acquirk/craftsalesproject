@@ -18,7 +18,7 @@ router.post('/register', ctrlAuth.register);
 router.post('/login', ctrlAuth.login);
 
 router.post('/settings');
-router.post('/reports', ctrlData.registerr);
+router.post('/reports', ctrlData.register);
 
 router.post('/users', ctrlAuth.usersGrab);
 

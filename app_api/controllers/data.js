@@ -1,4 +1,6 @@
+var passport = require('passport');
 var mongoose = require('mongoose');
+var User = mongoose.model('User');
 var Customer = mongoose.model('Customer');
 
 var sendJSONresponse = function (res, status, content) {
@@ -24,15 +26,25 @@ module.exports.upload = function (req, res) {
 
 module.exports.registerr = function (req, res) {
 
-  var customer = new Customer();
+    var customer = new Customer();
 
-  customer.email = req.body.email;
-  customer.name = req.body.name;
+    customer.email = req.body.email;
+    customer.name = req.body.name;
+    customer.address.city = req.body.city;
+    customer.address.street = req.body.street;
+    customer.address.state = req.body.state;
+    customer.address.zip = req.body.zip;
+    customer.phone = req.body.phone;
+    customer.customerType = req.body.customerType;
+    customer.saleType = req.body.saleType;
+    customer.accountManager = req.body.accountManager;
+    customer.sales.productName = req.body.productName;
+    customer.caseCount = req.body.caseCount;
+    customer.bottleCount = req.body.bottleCount;
 
-
-  customer.save(function(err) {
-    res.status(200);
-  });
+    customer.save(function (err) {
+        res.status(200);
+    });
 
 };
 

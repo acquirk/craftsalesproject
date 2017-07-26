@@ -2,6 +2,27 @@ var mongoose = require('mongoose');
 var crypto = require('crypto');
 var jwt = require('jsonwebtoken');
 
+var commentsSchema = new mongoose.Schema({
+        userID: String,
+        comment: String,
+        date: {
+            type: Date,
+            default: Date.now
+        }
+  
+});
+
+var salesSchema = new mongoose.Schema(
+  {
+        productName: String,
+        caseCount: Number,
+        bottleCount: Number,
+        date: {
+            type: Date,
+            default: Date.now
+        }
+    });
+
 var customerSchema = new mongoose.Schema({
     email: {
         type: String,
@@ -22,23 +43,10 @@ var customerSchema = new mongoose.Schema({
     customerType: String,
     saleType: String,
     accountManager: String,
-    sales: {
-        productName: String,
-        caseCount: Number,
-        bottleCount: Number,
-        date: {
-            type: Date,
-            default: Date.now
-        }
-    },
-    comments: {
-        userID: String,
-        comment: String,
-        date: {
-            type: Date,
-            default: Date.now
-        }
-    }
+    sales: [salesSchema],
+    comments: [commentsSchema]
 });
 
+mongoose.model('Comment', commentsSchema);
+mongoose.model('Sale', salesSchema);
 mongoose.model('Customer', customerSchema);

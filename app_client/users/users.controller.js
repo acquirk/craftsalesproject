@@ -19,15 +19,16 @@
         console.log(e);
       });
       
-      /*
-      authentication.permissions()
+      vm.permissions = function (id, type) {
+      authentication.permissions(id, type)
         .success(function(data) {
           console.log(data);
         })
       .error(function (e) {
         console.log(e);
       });
-    */
+      };
+    
   }
 
 })();

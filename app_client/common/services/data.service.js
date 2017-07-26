@@ -25,11 +25,18 @@
             return $http.post('/api/reports', customer).success(function (data) {
             });
         };
+        
+        addSale = function (customer) {
+            console.log(customer);
+            return $http.post('/api/addSale', customer).success(function (data) {
+            });
+        };
 
         return {
             getProfile: getProfile,
             uploadFilToUrl: uploadFileToUrl,
-            register: register
+            register: register,
+            addSale: addSale
         };
     }
 

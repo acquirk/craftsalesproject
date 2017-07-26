@@ -34,10 +34,22 @@
             bottleCount: ""
         };
 
-        vm.onSubmit = function () {
+        vm.onRegister = function () {
             console.log('Submitting registration');
             meanData
                 .register(vm.credentials)
+                .error(function (err) {
+                    alert(err);
+                })
+                .then(function () {
+                    $location.path('dashboard');
+                });
+        };
+        
+        vm.onAdd = function () {
+            console.log('Submitting additional sales');
+            meanData
+                .addSale(vm.credentials)
                 .error(function (err) {
                     alert(err);
                 })

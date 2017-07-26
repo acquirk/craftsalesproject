@@ -19,6 +19,7 @@ router.post('/login', ctrlAuth.login);
 
 router.post('/settings');
 router.post('/reports', ctrlData.register);
+router.post('/addSale', ctrlData.addSale);
 
 router.post('/users', ctrlAuth.usersGrab);
 

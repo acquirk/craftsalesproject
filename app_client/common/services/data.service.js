@@ -31,12 +31,19 @@
             return $http.post('/api/addSale', customer).success(function (data) {
             });
         };
+        
+        accountsGrab = function (customer) {
+            console.log(customer);
+            return $http.post('/api/accountsGrab', customer).success(function (data) {
+            });
+        };
 
         return {
             getProfile: getProfile,
             uploadFilToUrl: uploadFileToUrl,
             register: register,
-            addSale: addSale
+            addSale: addSale,
+            accountsGrab: accountsGrab
         };
     }
 

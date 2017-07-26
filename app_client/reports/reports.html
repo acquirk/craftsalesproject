@@ -41,7 +41,7 @@
 
 
 		<main>
-			<h1 class="reports"> Reports  {{vm.test}} </h1>
+			<h1 class="reports"> Reports </h1>
 			<input type="file" ng-model="vm.myFile"/>
 			<button type="button" class="btn btn-success btn-lg" ng-click="vm.uploadFile()">Upload Report</button>
 
@@ -116,6 +116,9 @@
            <div class="form-group">
                <label for="inputFirstName">Name</label>
                <input type="text" class="form-control" id="inputFirstName" ng-model="vm.credentials.name">
+               <select name="singleSelect" id="singleSelect" ng-model="data.singleSelect">
+                <option ng-repeat="name in vm.names">{{name}}</option>
+              </select>
              </div>
          <div class="form-group">
                <label for="inputPassword">Product Name</label>

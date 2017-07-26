@@ -69,3 +69,18 @@ module.exports.addSale = function (req, res) {
 });
 
 };
+
+module.exports.accountsGrab = function (req, res) {
+        Customer.find({}, {
+            "name": 1,
+            "sales": 1
+        }, function (err, data) {
+            if (err)
+                res.send(err);
+            else {
+                res.json(data);
+            }
+        });
+
+
+};

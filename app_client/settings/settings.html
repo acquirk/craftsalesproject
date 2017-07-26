@@ -36,6 +36,11 @@
                                 </div>
                             </form>
                             <div class="form-group row">
+                              <label for="inputPassword3" class="col-sm-2 col-form-label">Status:</label>
+                              <span class="label label-default" ng-if="vm.currentUser.admin == '2'">Admin</span>
+                                        <span class="btn btn-danger" ng-if="vm.currentUser.admin == '0'" ng-click="">Pending</span>
+                                        <span class="btn btn-success" ng-if="vm.currentUser.admin == '1'" ng-click="">Active</span></div>
+                            <div class="form-group row">
                                 <div class="offset-sm-2 col-sm-10">
                                     <button type="submit" class="btn btn-primary">Save</button>
                                 </div>

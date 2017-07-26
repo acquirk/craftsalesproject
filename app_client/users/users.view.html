@@ -22,13 +22,13 @@
                                 <tr>
                                     <td>
 
-                                        <a href="#" class="user-link">{{user.firstName}} {{user.lastName}}</a>
+                                        <a href="#" class="user-link">{{user.firstName}} {{user.lastName}} {{user._id}}</a>
 
                                     </td>
                                     <td class="text-center">
                                         <span class="label label-default" ng-if="user.admin == '2'">Admin</span>
-                                        <span class="btn btn-danger" ng-if="user.admin == '0'">Pending</span>
-                                        <span class="btn btn-success" ng-if="user.admin == '1'">Active</span>
+                                        <span class="btn btn-danger" ng-if="user.admin == '0'" ng-click="">Pending</span>
+                                        <span class="btn btn-success" ng-if="user.admin == '1'" ng-click="">Active</span>
                                     </td>
                                     <td>
                                         <a href="#">{{user.email}}</a>

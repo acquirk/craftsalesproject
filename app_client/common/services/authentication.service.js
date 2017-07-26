@@ -51,6 +51,24 @@
                 return false;
             }
         };
+        
+        var hasPermission = function () {
+            var token = getToken();
+            var payload;
+
+            if (token) {
+                payload = token.split('.')[1];
+                payload = $window.atob(payload);
+                payload = JSON.parse(payload);
+                if (payload.admin >= 1) {
+                    return payload.exp > Date.now() / 1000;
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        };
 
         var currentUser = function () {
             if (isLoggedIn()) {
@@ -91,6 +109,7 @@
             getToken: getToken,
             isLoggedIn: isLoggedIn,
             isAdminLoggedIn: isAdminLoggedIn,
+            hasPermission: hasPermission,
             register: register,
             login: login,
             logout: logout,

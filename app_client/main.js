@@ -26,6 +26,7 @@
             })
             .when('/settings', {
                 templateUrl: '/settings/settings.html',
+                controller: 'settingsCtrl',
                 controllerAs: 'vm'
             })
             .when('/reports', {
@@ -52,7 +53,10 @@
             if ($location.path() === '/settings' && !authentication.isLoggedIn()) {
                 $location.path('/');
             }
-            if ($location.path() === '/reports' && !authentication.isLoggedIn()) {
+            if ($location.path() === '/reports' && !authentication.isAdminLoggedIn()) {
+                $location.path('/');
+            }
+            if ($location.path() === '/dashboard' && !authentication.hasPermission()) {
                 $location.path('/');
             }
         });

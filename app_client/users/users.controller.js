@@ -18,8 +18,16 @@
       .error(function (e) {
         console.log(e);
       });
-    
-    
+      
+      /*
+      authentication.permissions()
+        .success(function(data) {
+          console.log(data);
+        })
+      .error(function (e) {
+        console.log(e);
+      });
+    */
   }
 
 })();

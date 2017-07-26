@@ -43,7 +43,7 @@ module.exports.register = function (req, res) {
     customer.sales.bottleCount = req.body.bottleCount;
 
     customer.save(function (err) {
-        res.status(200);
+        res.status(200).send("test");
     });
 
 };

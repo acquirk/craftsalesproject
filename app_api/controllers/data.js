@@ -39,8 +39,8 @@ module.exports.register = function (req, res) {
     customer.saleType = req.body.saleType;
     customer.accountManager = req.body.accountManager;
     customer.sales.productName = req.body.productName;
-    customer.caseCount = req.body.caseCount;
-    customer.bottleCount = req.body.bottleCount;
+    customer.sales.caseCount = req.body.caseCount;
+    customer.sales.bottleCount = req.body.bottleCount;
 
     customer.save(function (err) {
         res.status(200);

@@ -51,7 +51,7 @@
                 return false;
             }
         };
-        
+
         var hasPermission = function () {
             var token = getToken();
             var payload;
@@ -102,9 +102,9 @@
         usersGrab = function () {
             return $http.post('/api/users');
         };
-        
-        permissions = function (id, type) {
-            return $http.post('api/permissions', id, type);
+
+        permissions = function (user) {
+            return $http.post('api/permissions', user);
         }
 
         return {

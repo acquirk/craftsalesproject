@@ -25,9 +25,7 @@ var salesSchema = new mongoose.Schema(
 
 var customerSchema = new mongoose.Schema({
     email: {
-        type: String,
-        unique: true,
-        required: true
+        type: String
     },
     name: {
         type: String,

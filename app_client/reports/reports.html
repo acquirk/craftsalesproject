@@ -115,8 +115,7 @@
          <form role="form" ng-submit="vm.onAdd()">
            <div class="form-group">
                <label for="inputFirstName">Name</label>
-               <input type="text" class="form-control" id="inputFirstName" ng-model="vm.credentials.name">
-               <select name="singleSelect" id="singleSelect" ng-model="data.singleSelect">
+               <select name="singleSelect" id="singleSelect" ng-model="vm.credentials.name">
                 <option ng-repeat="name in vm.names">{{name}}</option>
               </select>
              </div>

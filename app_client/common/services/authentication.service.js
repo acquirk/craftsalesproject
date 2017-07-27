@@ -24,10 +24,6 @@
                 payload = token.split('.')[1];
                 payload = $window.atob(payload);
                 payload = JSON.parse(payload);
-                console.log(payload);
-                console.log(payload.exp);
-                console.log(payload.email);
-                console.log(payload.admin);
                 return payload.exp > Date.now() / 1000;
             } else {
                 return false;

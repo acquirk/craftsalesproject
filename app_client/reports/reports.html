@@ -1,15 +1,138 @@
-<navigation></navigation>
+		<!-- Alignment needs to be fixed on collapse -->
+		<!-- Admin Navbar -->
+		<navigation></navigation>
 
-<main>
-    <div class="container">
-        <h1 class="reports"> Reports </h1>
-        <button type="button" class="btn btn-success btn-lg">Upload Report</button>
+				<button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#navigation">
+					&#9776;
+				</button>
 
-        <h2> Today </h2>
-        <br>
-        <img src="img.png" alt="Mountain View" style="height:228px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img.png" alt="Mountain View" style="height:228px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img.png" alt="Mountain View" style="height:228px;">
-        <h2> This week </h2>
-        <br>
-        <img src="img.png" alt="Mountain View" style="height:228px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img.png" alt="Mountain View" style="height:228px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img.png" alt="Mountain View" style="height:228px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img.png" alt="Mountain View" style="height:228px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img.png" alt="Mountain View" style="height:228px;">
-    </div>
-</main>
+				<a class="navbar-brand float-xs-right float-sm-left" href="#"><img src="img/logo-small.png" height="40" width= "40"class="img-fluid"/></a>
+
+			<div class="collapse navbar-toggleable-xs" id="navigation">
+				<ul class="nav navbar-nav">
+					<li class="nav-item float-xs-right px-1">
+						<a class="nav-link" href="settings.html"><i class="fa fa-cog fa-2x" aria-hidden="true"></i></a>
+					</li>
+					<li class="nav-item float-xs-right px-1">
+						<a class="nav-link" href="#"><i class="fa fa-users fa-2x" aria-hidden="true"></i></a>
+					</li>
+					<li class="nav-item float-xs-right px-1">
+						<a class="nav-link" href="#"><i class="fa fa-file-text-o fa-2x" aria-hidden="true"></i></a>
+					</li>
+					<li class="divider-vertical"></li>
+					<div id="custom-search-input">
+							<div class="input-group col-md-12">
+									<input type="text" class="form-control input-lg" placeholder="Search" />
+									<span class="input-group-btn">
+											<button class="btn btn-info btn-lg" type="button">
+													<i class="glyphicon glyphicon-search"></i>
+											</button>
+									</span>
+							</div>
+					</div>
+				</ul>
+					<ul class="nav navbar-nav float-sm-left">
+							<li class="nav-item">
+									<a class="nav-title" href="#social">Dashboard</a>
+							</li>
+					</ul>
+			</div>
+
+
+
+		<main>
+			<h1 class="reports"> Reports </h1>
+			<input type="file" ng-model="vm.myFile"/>
+			<button type="button" class="btn btn-success btn-lg" ng-click="vm.uploadFile()">Upload Report</button>
+
+			<h2> Today </h2>
+			<br>
+			<img src="img.png" alt="Mountain View" style="height:228px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img.png" alt="Mountain View" style="height:228px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img.png" alt="Mountain View" style="height:228px;">
+			<h2> This week </h2>
+			<br>
+			<img src="img.png" alt="Mountain View" style="height:228px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img.png" alt="Mountain View" style="height:228px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img.png" alt="Mountain View" style="height:228px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img.png" alt="Mountain View" style="height:228px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img.png" alt="Mountain View" style="height:228px;">
+		</main>
+
+<div class="row">
+         <div class="main">
+           <form role="form" ng-submit="vm.onRegister()">
+             <div class="form-group">
+               <label for="inputEmail">Email</label>
+               <input type="text" class="form-control" id="inputEmail" ng-model="vm.credentials.email">
+             </div>
+             <div class="form-group">
+               <label for="inputFirstName">Name</label>
+               <input type="text" class="form-control" id="inputFirstName" ng-model="vm.credentials.name">
+             </div>
+             <div class="form-group">
+               <label for="inputLastName">City</label>
+               <input type="text" class="form-control" id="inputLastName" ng-model="vm.credentials.city">
+             </div>
+             <div class="form-group">
+               <label for="inputPassword">Street</label>
+               <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.street">
+             </div>
+             <div class="form-group">
+               <label for="inputPassword">State</label>
+               <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.state">
+             </div>
+             <div class="form-group">
+               <label for="inputPassword">Zip</label>
+               <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.zip">
+             </div>
+             <div class="form-group">
+               <label for="inputPassword">Phone</label>
+               <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.phone">
+             </div>
+             <div class="form-group">
+               <label for="inputPassword">Customer Type</label>
+               <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.customerType">
+             </div>
+             <div class="form-group">
+               <label for="inputPassword">Sale Type</label>
+               <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.saleType">
+             </div>
+             <div class="form-group">
+               <label for="inputPassword">Account Manager</label>
+               <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.accountManager">
+             </div>
+             <div class="form-group">
+               <label for="inputPassword">Product Name</label>
+               <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.productName">
+             </div>
+             <div class="form-group">
+               <label for="inputPassword">Case Count</label>
+               <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.caseCount">
+             </div>
+             <div class="form-group">
+               <label for="inputPassword">Bottle Count</label>
+               <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.bottleCount">
+             </div>
+             <button type="submit" class="btn btn btn-primary pull-right black-background">Register</button><br><br>
+           </form>
+         </div><br>
+         <div class="main">
+         <form role="form" ng-submit="vm.onAdd()">
+           <div class="form-group">
+               <label for="inputFirstName">Name</label>
+               <select name="singleSelect" id="singleSelect" ng-model="vm.credentials.name">
+                <option ng-repeat="name in vm.names">{{name}}</option>
+              </select>
+             </div>
+         <div class="form-group">
+               <label for="inputPassword">Product Name</label>
+               <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.productName">
+             </div>
+             <div class="form-group">
+               <label for="inputPassword">Case Count</label>
+               <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.caseCount">
+             </div>
+             <div class="form-group">
+               <label for="inputPassword">Bottle Count</label>
+               <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.bottleCount">
+             </div>
+             <button type="submit" class="btn btn btn-primary pull-right black-background">Register</button><br><br>
+           </form>
+           </div>
+       </div>
+       

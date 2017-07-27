@@ -102,6 +102,10 @@
         usersGrab = function () {
             return $http.post('/api/users');
         };
+        
+        permissions = function (id, type) {
+            return $http.post('api/permissions')
+        }
 
         return {
             currentUser: currentUser,
@@ -113,7 +117,8 @@
             register: register,
             login: login,
             logout: logout,
-            usersGrab: usersGrab
+            usersGrab: usersGrab,
+            permissions: permissions
         };
     }
 

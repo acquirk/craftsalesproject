@@ -84,3 +84,16 @@ module.exports.login = function(req, res) {
   })(req, res);
 
 };
+
+module.exports.permissions = function(req, res, id, type) {
+    
+    User.findById({ id }, function (err, user){
+      if (type) {
+      user.admin = 0;
+      }
+      else { user.admin = 1; }
+      user.save(function (err) {
+        res.status(200).send();
+    });
+});
+};

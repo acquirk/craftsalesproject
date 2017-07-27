@@ -27,8 +27,8 @@
                                     </td>
                                     <td class="text-center">
                                         <span class="label label-default" ng-if="user.admin == '2'">Admin</span>
-                                        <span class="btn btn-danger" ng-if="user.admin == '0'" ng-click="vm.permissions({{user._id}}, {{user.admin}}">Pending</span>
-                                        <span class="btn btn-success" ng-if="user.admin == '1'" ng-click="vm.permissions({{user._id}}, {{user.admin}}">Active</span>
+                                        <span class="btn btn-danger" ng-if="user.admin == '0'" ng-click="vm.permissions(user._id, user.admin)">Pending</span>
+                                        <span class="btn btn-success" ng-if="user.admin == '1'" ng-click="vm.permissions(user._id, user.admin)">Active</span>
                                     </td>
                                     <td>
                                         <a href="#">{{user.email}}</a>

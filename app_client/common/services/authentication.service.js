@@ -104,7 +104,7 @@
         };
         
         permissions = function (id, type) {
-            return $http.post('api/permissions')
+            return $http.post('api/permissions', id, type);
         }
 
         return {

@@ -21,4 +21,6 @@ router.post('/reports');
 
 router.post('/users', ctrlAuth.usersGrab );
 
+router.post('/permissions', ctrlAuth.permissions );
+
 module.exports = router;

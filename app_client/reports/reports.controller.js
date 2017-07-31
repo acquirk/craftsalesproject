@@ -11,13 +11,19 @@
         
         vm.customers = [];
         vm.names = [];
+        vm.sales = [];
     
     meanData.salesGrab()
       .success(function(data) {
         vm.customers = data;
+        var k = 0;
         for (var i = 0; i < vm.customers.length; i++) {
-        vm.names[i] = vm.customers[i].name;
-}
+          vm.names[i] = vm.customers[i].name;
+          for (var j = 0; j < vm.customers[i].sales.length; j++) {
+            vm.sales[k] = [vm.customers[i].sales[j], vm.customers[i].name];
+            k++;
+          }
+        }
         console.log(data);
       })
       .error(function (e) {

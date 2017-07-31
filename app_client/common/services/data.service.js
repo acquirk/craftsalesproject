@@ -37,13 +37,20 @@
             return $http.post('/api/accountsGrab', customer).success(function (data) {
             });
         };
+        
+        salesGrab = function (customer) {
+            console.log(customer);
+            return $http.post('/api/salesGrab', customer).success(function (data) {
+            });
+        };
 
         return {
             getProfile: getProfile,
             uploadFilToUrl: uploadFileToUrl,
             register: register,
             addSale: addSale,
-            accountsGrab: accountsGrab
+            accountsGrab: accountsGrab,
+            salesGrab: salesGrab
         };
     }
 

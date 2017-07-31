@@ -12,7 +12,7 @@
         vm.customers = [];
         vm.names = [];
     
-    meanData.accountsGrab()
+    meanData.salesGrab()
       .success(function(data) {
         vm.customers = data;
         for (var i = 0; i < vm.customers.length; i++) {

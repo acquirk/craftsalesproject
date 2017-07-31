@@ -21,6 +21,7 @@ router.post('/settings');
 router.post('/reports', ctrlData.register);
 router.post('/addSale', ctrlData.addSale);
 router.post('/accountsGrab', ctrlData.accountsGrab);
+router.post('/salesGrab', ctrlData.salesGrab);
 
 router.post('/users', ctrlAuth.usersGrab);
 

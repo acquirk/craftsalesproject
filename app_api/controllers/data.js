@@ -70,9 +70,30 @@ module.exports.addSale = function (req, res) {
 
 };
 
+module.exports.salesGrab = function (req, res) {
+        Customer.find({}, {
+            "name": 1,
+            "sales": 1
+        }, function (err, data) {
+            if (err)
+                res.send(err);
+            else {
+                res.json(data);
+            }
+        });
+
+
+};
+
 module.exports.accountsGrab = function (req, res) {
         Customer.find({}, {
             "name": 1,
+            "address": 1,
+            "phone": 1,
+            "customerType": 1,
+            "saleType": 1,
+            "accountManager": 1,
+            "distributor": 1,
             "sales": 1
         }, function (err, data) {
             if (err)

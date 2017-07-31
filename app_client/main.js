@@ -36,6 +36,7 @@
             })
             .when('/dashboard', {
                 templateUrl: '/dashboard/dashboard.html',
+                controller: 'dashboardCtrl',
                 controllerAs: 'vm'
             })
             .otherwise({

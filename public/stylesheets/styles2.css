@@ -191,6 +191,35 @@ nav {
   min-width: 36%;
   }
 
+.mainDash {
+  background-color: #FFFFFF;
+  margin: auto;
+    margin-left: 100px;
+  border: 1px solid #95989A;
+  box-sizing: border-box;
+  padding: 20px;
+  max-width: 36%;
+  min-width: 36%;
+    float: left;
+  }
+
+.mainDash2 {
+  background-color: #FFFFFF;
+  margin: auto;
+    margin-right: 100px;
+  border: 1px solid #95989A;
+  box-sizing: border-box;
+  padding: 20px;
+  max-width: 36%;
+  min-width: 36%;
+    float: right;
+  }
+
+.dashProd {
+    font-size: 10pt;
+  }
+
+
 .text-center {
   background-color: #FFFFFF;
   margin: auto;
@@ -200,6 +229,7 @@ nav {
   max-width: 36%;
   min-width: 36%;
     height:40px;
+    
   }
 
 .login-or {

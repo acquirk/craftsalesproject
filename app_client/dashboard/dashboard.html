@@ -1,22 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Dashboard</title>
-	<link rel="stylesheet" href="dashboard.css">
-	<script  type="text/javascript" src="d3.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
-    <script src="https://use.fontawesome.com/a686b3c76b.js"></script>
-    <link rel="stylesheet" href="/public/stylesheets/styles.css">
 
-		<!--[if lt IE 9]>
-    		<script src="assets/components/html5shiv/html5shiv.min.js"></script>
-		<![endif]-->
-</head>
 <body>
     <navigation></navigation>
 
     <main>
+        
+        <div class="containerLogin">
+       <br><br>
+       <div class="row">
+         <div class="mainDash">
+           <form role="form" ng-submit="vm.onSubmit()">
+             <div class="form-group">
+               <label class ="label-login" for="inputEmail">Top Products</label>
+                <p class="dashProd">1. Product</p>
+                 <p class="dashProd">2. Product</p>
+                 <p class="dashProd">3. Product</p>
+                 <p class="dashProd">4. Product</p>
+                 <p class="dashProd">5. Product</p>
+                 <p class="dashProd">6. Product</p>
+                 <p class="dashProd">7. Product</p>
+                 <p class="dashProd">8. Product</p>
+                 <p class="dashProd">9. Product</p>
+                 <p class="dashProd">10. Product</p>
+                 
+             </div>
+           </form>
+         </div><br>
+       </div>
+     </div>
+        
+        <div class="containerLogin">
+       <br><br>
+       <div class="row">
+         <div class="mainDash2">
+           <form role="form" ng-submit="vm.onSubmit()">
+             <div class="form-group">
+               <label class ="label-login" for="inputEmail">Top Locations</label>
+                <p class="dashProd">1. Location</p>
+                 <p class="dashProd">2. Location</p>
+                 <p class="dashProd">3. Location</p>
+                 <p class="dashProd">4. Location</p>
+                 <p class="dashProd">5. Location</p>
+                 <p class="dashProd">6. Location</p>
+                 <p class="dashProd">7. Location</p>
+                 <p class="dashProd">8. Location</p>
+                 <p class="dashProd">9. Location</p>
+                 <p class="dashProd">10. Location</p>
+                 
+             </div>
+           </form>
+         </div><br>
+       </div>
+     </div>       
+       
         <!--Place all DOM elements here -->
         <script>
         var data = [
@@ -174,6 +209,11 @@
         });
         </script>
         
+             
+        
+    
+        
+        
         <div id="map"></div>
         <script>
             function initMap() {
@@ -190,6 +230,9 @@
         </script>
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDzKY8UuBBcKU62Kz6fd-exuiuweG8KwjI&callback=initMap">
         </script>
+        
+        
+        
     </main>
 
 </body>

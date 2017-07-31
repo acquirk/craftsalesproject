@@ -39,6 +39,10 @@
                 controller: 'dashboardCtrl',
                 controllerAs: 'vm'
             })
+            .when('/splash', {
+                templateUrl: '/splash/splash.view.html',
+                controllerAs: 'vm'
+            })
             .otherwise({
                 redirectTo: '/'
             });

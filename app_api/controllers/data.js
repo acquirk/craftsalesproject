@@ -1,61 +1,107 @@
+var passport = require('passport');
 var mongoose = require('mongoose');
-var mongoXlsx = require('mongo-xlsx');
+var User = mongoose.model('User');
 var Customer = mongoose.model('Customer');
+var Comment = mongoose.model('Comment');
+var Sale = mongoose.model('Sale');
 
-var sendJSONresponse = function(res, status, content) {
-  res.status(status);
-  res.json(content);
+var sendJSONresponse = function (res, status, content) {
+    res.status(status);
+    res.json(content);
 };
 
-module.exports.insertData = function(req, res) {
+module.exports.upload = function (req, res) {
 
-  var customer = new Customer();
-  
-  mongoxlsx.xlsx2MongoData(file, Customer, function(err, data) {
-  console.log(data);
-  customer = data;
+    var customer = new Customer();
+    fd.append('file', file);
+    $http.post(uploadUrl, fd, {
+        transformRequest: angular.identity,
+        headers: {
+            'Content-Type': undefined
+        }
+    });
+
+    customer.save(function (err) {
+        res.status(200);
+    });
+};
+
+module.exports.register = function (req, res) {
+
+    var customer = new Customer();
+    var sale = new Sale();
+
+    customer.email = req.body.email;
+    customer.name = req.body.name;
+    customer.address.city = req.body.city;
+    customer.address.street = req.body.street;
+    customer.address.state = req.body.state;
+    customer.address.zip = req.body.zip;
+    customer.phone = req.body.phone;
+    customer.customerType = req.body.customerType;
+    customer.saleType = req.body.saleType;
+    customer.accountManager = req.body.accountManager;
+    sale.productName = req.body.productName;
+    sale.caseCount = req.body.caseCount;
+    sale.bottleCount = req.body.bottleCount;
+    customer.sales.push(sale);
+    /*
+    customer.comments = [];
+    */
+    customer.save(function (err) {
+        res.status(200).send();
+    });
+
+};
+
+module.exports.addSale = function (req, res) {
+    var sale = new Sale();
+    
+    sale.productName = req.body.productName;
+    sale.caseCount = req.body.caseCount;
+    sale.bottleCount = req.body.bottleCount;
+    
+    Customer.findOne({ name: req.body.name }, function (err, customer){
+      customer.sales.push(sale);
+      customer.save(function (err) {
+        res.status(200).send();
+    });
 });
 
-  customer.save(function(err) {
-    var token;
-    token = user.generateJwt();
-    res.status(200);
-    res.json({
-      "token" : token
-    });
-  });
+};
+
+module.exports.salesGrab = function (req, res) {
+        Customer.find({}, {
+            "name": 1,
+            "sales": 1
+        }, function (err, data) {
+            if (err)
+                res.send(err);
+            else {
+                res.json(data);
+            }
+        });
+
 
 };
 
-module.exports.login = function(req, res) {
+module.exports.accountsGrab = function (req, res) {
+        Customer.find({}, {
+            "name": 1,
+            "address": 1,
+            "phone": 1,
+            "customerType": 1,
+            "saleType": 1,
+            "accountManager": 1,
+            "distributor": 1,
+            "sales": 1
+        }, function (err, data) {
+            if (err)
+                res.send(err);
+            else {
+                res.json(data);
+            }
+        });
 
-  // if(!req.body.email || !req.body.password) {
-  //   sendJSONresponse(res, 400, {
-  //     "message": "All fields required"
-  //   });
-  //   return;
-  // }
-
-  passport.authenticate('local', function(err, user, info){
-    var token;
-
-    // If Passport throws/catches an error
-    if (err) {
-      res.status(404).json(err);
-      return;
-    }
-
-    // If a user is found
-    if(user){
-      token = user.generateJwt();
-      res.status(200);
-      res.json({
-        "token" : token
-      });
-    } else {
-      // If user is not found
-      res.status(401).json(info);
-    }
-  })(req, res);
 
 };

@@ -47,10 +47,10 @@
 
 			<h2> Today </h2>
 			<br>
-			<img src="img.png" alt="Mountain View" style="height:228px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img.png" alt="Mountain View" style="height:228px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img.png" alt="Mountain View" style="height:228px;">
-			<h2> This week </h2>
-			<br>
-			<img src="img.png" alt="Mountain View" style="height:228px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img.png" alt="Mountain View" style="height:228px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img.png" alt="Mountain View" style="height:228px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img.png" alt="Mountain View" style="height:228px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="img.png" alt="Mountain View" style="height:228px;">
+			<div class="row">
+			<div ng-repeat="sale in vm.sales | orderBy:[0].date:reverse" class="panel panel-default"><div class="panel-body">{{sale[1]}}</div><div>{{sale[0].productName}}</div><br/></div>
+			
+			</div>
 		</main>
 
 <div class="row">

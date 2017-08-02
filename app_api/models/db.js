@@ -2,6 +2,9 @@ var mongoose = require('mongoose');
 var gracefulShutdown;
 var dbURI = process.env.PROD_MONGODB;
 
+// Use bluebird
+mongoose.Promise = require('bluebird');
+
 mongoose.connect(dbURI);
 
 // CONNECTION EVENTS

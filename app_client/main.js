@@ -39,6 +39,10 @@
                 controller: 'dashboardCtrl',
                 controllerAs: 'vm'
             })
+            .when('/splash', {
+                templateUrl: '/splash/splash.view.html',
+                controllerAs: 'vm'
+            })
             .otherwise({
                 redirectTo: '/'
             });
@@ -46,29 +50,24 @@
         // use the HTML5 History API
         $locationProvider.html5Mode(true);
     }
-    
-    
+
 
     function run($rootScope, $location, authentication) {
         $rootScope.$on('$routeChangeStart', function (event, nextRoute, currentRoute) {
-            /*
             if ($location.path() === '/users' && !authentication.isAdminLoggedIn()) {
-                $location.path('/');
+                $location.path('/splash');
             }
             if ($location.path() === '/settings' && !authentication.isLoggedIn()) {
-                $location.path('/');
+                $location.path('/splash');
             }
             if ($location.path() === '/reports' && !authentication.isAdminLoggedIn()) {
-                $location.path('/');
+                $location.path('/splash');
             }
             if ($location.path() === '/dashboard' && !authentication.hasPermission()) {
-                $location.path('/');
+                $location.path('/splash');
             }
-            */
         });
-    };
-    
-    
+    }
 
     angular
         .module('meanApp')

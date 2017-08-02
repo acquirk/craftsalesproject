@@ -1,5 +1,6 @@
 		<!-- Alignment needs to be fixed on collapse -->
 		<!-- Admin Navbar -->
+
 		<navigation></navigation>
 
 				<button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#navigation">
@@ -38,12 +39,107 @@
 					</ul>
 			</div>
 
-
-
 		<main>
 			<h1 class="reports"> Reports </h1>
 			<input type="file" ng-model="vm.myFile"/>
-			<button type="button" class="btn btn-success btn-lg" ng-click="vm.uploadFile()">Upload Report</button>
+			<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#uploadmodal" ng-click="vm.uploadFile()">Upload Report</button>
+
+			<div class="show" id="uploadmodal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+			<div class="modal-dialog modal-lg" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h4 class="modal-title" id="modalTitle">Upload Report</h4>
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			          <span aria-hidden="true">&times;</span>
+			        </button>
+			      </div>
+			      <div class="modal-body">
+							<ul class="nav nav-tabs" id="tabs" role="tablist">
+							  <li class="nav-item">
+							    <a class="nav-link active" data-toggle="tab" href="#existing" role="tab">Existing Account</a>
+							  </li>
+							  <li class="nav-item">
+							    <a class="nav-link" data-toggle="tab" href="#new" role="tab">New Account</a>
+							  </li>
+							</ul>
+
+							<div class="tab-content">
+							  <div class="tab-pane active" id="existing" role="tabpanel">
+									<div class="container-fluid">
+								    <div class="row">
+								      <div class="col-md-3">
+												<label for="idNumber">ID #</label>
+												<input type="id" id="idNumber" class="form-control" aria-describedby="idHelpBlock">
+											</div>
+											<div class="col-md-3">
+												<label for="accountName">Account Name</label>
+												<input type="account" id="accountName" class="form-control" aria-describedby="accountHelpBlock">
+											</div>
+											<div class="col-md-3">
+												<label for="productName">Product</label>
+												<input type="product" id="productName" class="form-control" aria-describedby="productHelpBlock">
+											</div>
+											<div class="col-md-3">
+												<label for="date">Date</label>
+												<input type="date" id="date" class="form-control" aria-describedby="dateHelpBlock">
+											</div>
+											<div class="col-md-3">
+												<label for="quantitynumber">QTY</label>
+												<input type="quantity" id="quantityNumber" class="form-control" aria-describedby="quantityHelpBlock">
+											</div>
+										</div>
+									</div>
+								</div>
+							  <div class="tab-pane" id="new" role="tabpanel">
+									<div class="container-fluid">
+								    <div class="row">
+								      <div class="col-md-3">
+												<label for="accountName">Account Name</label>
+												<input type="account" id="accountName" class="form-control" aria-describedby="accountHelpBlock">
+											</div>
+											<div class="col-md-3">
+												<label for="streetAddress">Street Address</label>
+												<input type="address" id="streetAddress" class="form-control" aria-describedby="addressHelpBlock">
+											</div>
+											<div class="col-md-3">
+												<label for="cityName">City</label>
+												<input type="city" id="cityName" class="form-control" aria-describedby="cityHelpBlock">
+											</div>
+											<div class="col-md-3">
+												<label for="stateName">State</label>
+												<input type="state" id="stateName" class="form-control" aria-describedby="stateHelpBlock">
+											</div>
+											<div class="col-md-3">
+												<label for="zipNumber">Zip</label>
+												<input type="zip" id="zipNumber" class="form-control" aria-describedby="zipHelpBlock">
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-3">
+												<label for="phoneNumber">Phone</label>
+												<input type="phone" id="phoneNumber" class="form-control" aria-describedby="phoneHelpBlock">
+											</div>
+											<div class="col-md-3">
+												<label for="premiseType">Premise</label>
+												<input type="premise" id="premiseType" class="form-control" aria-describedby="premiseHelpBlock">
+											</div>
+											<div class="col-md-3">
+												<label for="typeVariation">Type</label>
+												<input type="type" id="typeVariation" class="form-control" aria-describedby="typeHelpBlock">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+			      <div class="modal-footer">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			        <button type="button" class="btn btn-primary">Save changes</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+
 
 			<h2> Today </h2>
 			<br>
@@ -135,6 +231,7 @@
            </form>
            </div>
        </div>
+<<<<<<< HEAD
        
        <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
@@ -159,3 +256,18 @@
     </div>
   </div>
 </div>
+=======
+
+			 <script>
+			 $('#tabs a').click(function (e) {
+					e.preventDefault()
+					$(this).tab('show')
+			 })
+			 </script>
+
+			 <script>
+			 	 $('#tabs a[href="#existing"]').tab('show')
+			 </script>
+
+</html>
+>>>>>>> reportupload

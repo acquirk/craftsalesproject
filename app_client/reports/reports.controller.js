@@ -8,12 +8,17 @@
 
     function reportsCtrl($location, meanData) {
         var vm = this;
-        
+
         vm.customers = [];
         vm.names = [];
+<<<<<<< HEAD
         vm.sales = [];
     
     meanData.salesGrab()
+=======
+
+    meanData.accountsGrab()
+>>>>>>> reportupload
       .success(function(data) {
         vm.customers = data;
         var k = 0;
@@ -29,8 +34,8 @@
       .error(function (e) {
         console.log(e);
       });
-      
-      
+
+
 
         vm.uploadFile = function () {
             var file = vm.myFile;
@@ -68,7 +73,7 @@
                     $location.path('dashboard');
                 });
         };
-        
+
         vm.onAdd = function () {
             console.log('Submitting additional sales');
             meanData
@@ -80,7 +85,6 @@
                     $location.path('dashboard');
                 });
         };
-
 
     }
 

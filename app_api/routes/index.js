@@ -17,7 +17,7 @@ var ctrlData = require('../controllers/data');
 router.post('/register', ctrlAuth.register);
 router.post('/login', ctrlAuth.login);
 
-router.post('/settings');
+router.post('/settingsChange', ctrlAuth.settingsChange);
 router.post('/reports', ctrlData.register);
 router.post('/addSale', ctrlData.addSale);
 router.post('/accountsGrab', ctrlData.accountsGrab);

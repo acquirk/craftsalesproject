@@ -72,8 +72,12 @@
                 var payload = token.split('.')[1];
                 payload = $window.atob(payload);
                 payload = JSON.parse(payload);
+                console.log(payload);
                 return {
+                    id: payload._id,
                     email: payload.email,
+                    firstName: payload.firstName,
+                    lastName: payload.lastName,
                     admin: payload.admin
                 };
             }
@@ -102,6 +106,10 @@
         permissions = function (user) {
             return $http.post('api/permissions', user);
         }
+        
+        settingsChange = function (user) {
+            return $http.post('api/settingsChange', user);
+        }
 
         return {
             currentUser: currentUser,
@@ -114,7 +122,8 @@
             login: login,
             logout: logout,
             usersGrab: usersGrab,
-            permissions: permissions
+            permissions: permissions,
+            settingsChange: settingsChange
         };
     }
 

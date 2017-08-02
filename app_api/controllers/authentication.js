@@ -111,7 +111,6 @@ module.exports.settingsChange = function (req, res) {
     var email = req.body.email;
     var firstName = req.body.firstName;
     var lastName = req.body.lastName;
-    console.log(id + " " + email);
 
     User.findOne({
         _id: id
@@ -126,6 +125,10 @@ module.exports.settingsChange = function (req, res) {
         user.save(function (err) {
             res.status(200).send();
         });
+        var token = user.generateJwt();
+        res.json({
+                "token": token
+            });
       }
     });
 };

@@ -22,7 +22,9 @@
             authentication.settingsChange(vm.credentials)
                 .success(function (data) {
                     console.log(data);
-                    vm.currentUser = authentication.currentUser();
+                    vm.currentUser = authentication.logout();
+                }).then(function(){
+                  $location.path('/login');
                 })
                 .error(function (e) {
                     console.log(e);

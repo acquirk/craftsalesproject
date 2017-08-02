@@ -23,7 +23,7 @@
           alert(err);
         })
         .then(function(){
-          $location.path('users');
+          $location.path('settings');
         });
     };
 

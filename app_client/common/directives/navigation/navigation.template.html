@@ -1,13 +1,52 @@
-<div class="navbar navbar-default">
-  <div class="container">
-    <div id="navbar-main">
-      <ul class="nav navbar-nav">
-        <li><a href="/">Home</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li ng-hide="navvm.isLoggedIn"><a href="login">Sign in</a></li>
-        <li ng-show="navvm.isLoggedIn"><a href="profile">{{ navvm.currentUser.name }}</a></li>
-      </ul>
+<!--
+<head>
+    <meta charset="utf-8">
+    <title>Navigation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+    <script src="https://use.fontawesome.com/a686b3c76b.js"></script>
+    <link rel="stylesheet" href="/public/stylesheets/navbar.css">
+</head>
+-->
+
+
+<nav>
+    <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#navigation">
+    &#9776;
+    </button>
+
+    <a class="navbar-brand float-xs-right float-sm-left" href="/"><img src="/common/directives/navigation/img/logo-small.png"class="img-fluid"/></a>
+
+    <div class="collapse navbar-toggleable-xs" id="navigation">
+        <ul class="nav navbar-nav">
+            <a class="navbar-brand float-xs-right" href="#"><img src="/common/directives/navigation/img/settings.png"class="img-icon"/></a>
+            <a class="navbar-brand float-xs-right" href="#"><img src="/common/directives/navigation/img/reports.png"class="img-icon"/></a>
+            
+            <a class="navbar-brand float-xs-right" href="#"><img src="/common/directives/navigation/img/users.png"class="img-icon"/></a>
+            
+            <a class="navbar-brand float-xs-right" href="#"><img src="/common/directives/navigation/img/line.png"class="img-line"/></a>
+            
+            <div class="col-sm-6 col-sm-offset-3 float-xs-right">
+            <div id="imaginary_container">
+                <div class="input-group stylish-input-group">
+                    <input type="text" class="form-control"  placeholder="Search" >
+                    <span class="input-group-addon">
+                        <button type="submit">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        
+        </ul>
+        <ul class="nav navbar-nav float-sm-left">
+            <li class="nav-item">
+                <a class="nav-title" href="#social">Dashboard</a>
+            </li>
+        </ul>
     </div>
-  </div>
-</div>
+</nav>

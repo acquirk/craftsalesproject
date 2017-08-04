@@ -42,8 +42,24 @@
 
 		<main>
 			<h1 class="reports"> Reports </h1>
-			<input type="file" ng-model="vm.myFile"/>
+			<input type="file" file-model="vm.myFile"/>
 			<button type="button" class="btn btn-success btn-lg" ng-click="vm.uploadFile()">Upload Report</button>
+			
+			<p id="heading">CSV to JSON Converter</p>
+    <p class="small"><a href="http://jsfiddle.net/sturtevant/vUnF9/" target="_blank">JSON to CSV Converter</a>
+    <hr />
+    <p>Paste Your CSV Here:</p>
+    <p>Example: "Id","UserName"
+"1","Sam Smith"
+"2","Fred Frankly"
+"1","Zachary Zupers"</p>
+    <p>custid,cust,addres1,city,state,zip,phone,producer,sku,desc1,acctmgr,custype,saletype,casecnt,bottcnt</p>
+    <textarea ng-model="vm.csv" class="text"></textarea>
+    <br />
+    <button ng-click="vm.convert()">Convert to JSON</button>
+    &nbsp;&nbsp;
+    <button id="download">Download JSON</button>
+    <textarea ng-model="vm.json" class="text"></textarea>
 
 			<h2> Today </h2>
 			<br>

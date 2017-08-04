@@ -11,30 +11,53 @@ var sendJSONresponse = function (res, status, content) {
 };
 
 module.exports.upload = function (req, res) {
-
+  
+  var json = eval(req.body.json);
+  //console.log(json);
+  
+  for (var i = 0; i < json.length; i++) {
+    console.log(json);
+    console.log(json[i]);
     var customer = new Customer();
-    /*fd.append('file', file);
-    $http.post(uploadUrl, fd, {
-        transformRequest: angular.identity,
-        headers: {
-            'Content-Type': undefined
-        }
-    });*/
-
-    console.log(customer);
-
-    customer.name = "test";
-    customer.email = "test";
-
-    console.log(customer);
-
-    customer.save(function (err) {
-        if (err)
-            res.send(err);
-        else {
+    var sale = new Sale();
+    Customer.findOne({
+        name: json[i].cust
+    }, function (err, data) {
+      if (data) {
+         console.log(data);
+        sale.productName = json[i].desc1;
+        sale.caseCount = json[i].casecntt;
+        sale.bottleCount = json[i].bottcnt;
+        data.sales.push(sale);
+        data.save(function (err) {
             res.status(200).send();
-        }
+        });
+      } else {
+        console.log("new");
+        console.log(json);
+        console.log(json[i]);
+        customer.email = json[i].cust;
+        customer.name = json[i].cust;
+        customer.address.city = json[i].city;
+        customer.address.street = json[i].addres1;
+        customer.address.state = json[i].state;
+        customer.address.zip = json[i].zip;
+        customer.phone = json[i].phone;
+        customer.customerType = json[i].custype;
+        customer.saleType = json[i].saletype;
+        customer.accountManager = json[i].acctmgr;
+        console.log(customer);
+        //sale.productName = json[i].desc1;
+        //sale.caseCount = json[i].casecntt;
+        //sale.bottleCount = json[i].bottcnt;
+        customer.sales.push(sale);
+        customer.save(function (err) {
+        res.status(200).send();
     });
+    }});
+    
+    
+  }
 };
 
 module.exports.register = function (req, res) {
@@ -117,9 +140,4 @@ module.exports.accountsGrab = function (req, res) {
     });
 
 
-};
-
-module.exports.uploadFileToUrl = function (req, res) {
-    console.log("hello world");
-    res.status(200).send();
 };

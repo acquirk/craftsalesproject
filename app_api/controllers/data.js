@@ -13,16 +13,27 @@ var sendJSONresponse = function (res, status, content) {
 module.exports.upload = function (req, res) {
 
     var customer = new Customer();
-    fd.append('file', file);
+    /*fd.append('file', file);
     $http.post(uploadUrl, fd, {
         transformRequest: angular.identity,
         headers: {
             'Content-Type': undefined
         }
-    });
+    });*/
+
+    console.log(customer);
+
+    customer.name = "test";
+    customer.email = "test";
+
+    console.log(customer);
 
     customer.save(function (err) {
-        res.status(200);
+        if (err)
+            res.send(err);
+        else {
+            res.status(200).send();
+        }
     });
 };
 
@@ -56,52 +67,59 @@ module.exports.register = function (req, res) {
 
 module.exports.addSale = function (req, res) {
     var sale = new Sale();
-    
+
     sale.productName = req.body.productName;
     sale.caseCount = req.body.caseCount;
     sale.bottleCount = req.body.bottleCount;
-    
-    Customer.findOne({ name: req.body.name }, function (err, customer){
-      customer.sales.push(sale);
-      customer.save(function (err) {
-        res.status(200).send();
+
+    Customer.findOne({
+        name: req.body.name
+    }, function (err, customer) {
+        customer.sales.push(sale);
+        customer.save(function (err) {
+            res.status(200).send();
+        });
     });
-});
 
 };
 
 module.exports.salesGrab = function (req, res) {
-        Customer.find({}, {
-            "name": 1,
-            "sales": 1
-        }, function (err, data) {
-            if (err)
-                res.send(err);
-            else {
-                res.json(data);
-            }
-        });
+    Customer.find({}, {
+        "name": 1,
+        "sales": 1
+    }, function (err, data) {
+        if (err)
+            res.send(err);
+        else {
+            res.json(data);
+        }
+    });
 
 
 };
 
 module.exports.accountsGrab = function (req, res) {
-        Customer.find({}, {
-            "name": 1,
-            "address": 1,
-            "phone": 1,
-            "customerType": 1,
-            "saleType": 1,
-            "accountManager": 1,
-            "distributor": 1,
-            "sales": 1
-        }, function (err, data) {
-            if (err)
-                res.send(err);
-            else {
-                res.json(data);
-            }
-        });
+    Customer.find({}, {
+        "name": 1,
+        "address": 1,
+        "phone": 1,
+        "customerType": 1,
+        "saleType": 1,
+        "accountManager": 1,
+        "distributor": 1,
+        "sales": 1
+    }, function (err, data) {
+        if (err)
+            res.send(err);
+        else {
+            res.json(data);
+        }
+    });
 
 
+};
+
+module.exports.uploadFileToUrl = function (req, res) {
+    console.log("hello world");
+    res.status(200).send();
 };

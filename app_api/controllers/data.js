@@ -13,57 +13,50 @@ var sendJSONresponse = function (res, status, content) {
 module.exports.upload = function (req, res) {
 
     var json = eval(req.body.json);
+    console.log(json);
+    console.log(json[0]);
     //console.log(json);
-
-    for (var i = 0; i < json.length - 1; i++) {
-        console.log(json.length);
-        console.log(i);
-        console.log("json");
-        console.log(json);
-        console.log("first: ");
-        console.log(json[i]);
-        console.log(json[i].custid);
         var customer = new Customer();
         var sale = new Sale();
         Customer.findOne({
-            name: json[i].cust
-        }, function (err, data) {
-            if (data) {
-                console.log("old");
-                console.log(json[i]);
-                console.log(data);
-                sale.productName = json[i].desc1;
-                sale.caseCount = json[i].casecntt;
-                sale.bottleCount = json[i].bottcnt;
-                data.sales.push(sale);
-                data.save(function (err) {});
-            } else {
-                console.log("new");
-                console.log(json);
-                console.log(i);
-                //console.log(json[i]);
-                customer.email = json[i].cust;
-                customer.name = json[i].cust;
-                customer.address.city = json[i].city;
-                customer.address.street = json[i].addres1;
-                customer.address.state = json[i].state;
-                customer.address.zip = json[i].zip;
-                customer.phone = json[i].phone;
-                customer.customerType = json[i].custype;
-                customer.saleType = json[i].saletype;
-                customer.accountManager = json[i].acctmgr;
+            name: json.cust
+        }, function (err, customer) {
+            if (customer) {
                 console.log(customer);
-                sale.productName = json[i].desc1;
-                sale.caseCount = json[i].casecntt;
-                sale.bottleCount = json[i].bottcnt;
+                console.log("old");
+                sale.productName = json.desc1;
+                sale.caseCount = json.casecntt;
+                sale.bottleCount = json.bottcnt;
                 customer.sales.push(sale);
                 customer.save(function (err) {});
+                res.status(200).send();
+            } else {
+              customer = new Customer();
+              console.log(json.cust);
+              console.log(customer);
+                console.log("new");
+                customer.email = json.cust;
+                customer.name = json.cust;
+                customer.address.city = json.city;
+                customer.address.street = json.addres1;
+                customer.address.state = json.state;
+                customer.address.zip = json.zip;
+                customer.phone = json.phone;
+                customer.customerType = json.custype;
+                customer.saleType = json.saletype;
+                customer.accountManager = json.acctmgr;
+                sale.productName = json.desc1;
+                sale.caseCount = json.casecntt;
+                sale.bottleCount = json.bottcnt;
+                customer.sales.push(sale);
+                customer.save(function (err) {});
+                res.status(200).send();
             }
         });
 
 
-    }
-    res.status(200).send();
+    
+    
 };
 
 module.exports.register = function (req, res) {

@@ -3,7 +3,7 @@
 
 		<navigation></navigation>
 
-				<button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#navigation">
+				<!-- <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#navigation">
 					&#9776;
 				</button>
 
@@ -37,14 +37,14 @@
 									<a class="nav-title" href="#social">Dashboard</a>
 							</li>
 					</ul>
-			</div>
+			</div> -->
 
 		<main>
 			<h1 class="reports"> Reports </h1>
 			<input type="file" ng-model="vm.myFile"/>
 			<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#uploadmodal" ng-click="vm.uploadFile()">Upload Report</button>
 
-			<div class="show" id="uploadmodal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+			<div class="modal fade" id="uploadmodal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
 			<div class="modal-dialog modal-lg" role="document">
 			    <div class="modal-content">
 			      <div class="modal-header">
@@ -56,85 +56,122 @@
 			      <div class="modal-body">
 							<ul class="nav nav-tabs" id="tabs" role="tablist">
 							  <li class="nav-item">
-							    <a class="nav-link active" data-toggle="tab" href="#existing" role="tab">Existing Account</a>
+							    <a class="nav-link active" id="modalTab" data-toggle="tab" href="#existing" role="tab">Existing Account</a>
 							  </li>
 							  <li class="nav-item">
-							    <a class="nav-link" data-toggle="tab" href="#new" role="tab">New Account</a>
+							    <a class="nav-link" id="modalTab" data-toggle="tab" href="#new" role="tab">New Account</a>
+							  </li>
+								<li class="nav-item">
+							    <a class="nav-link" id="modalTab" data-toggle="tab" href="#file" role="tab">File</a>
 							  </li>
 							</ul>
-
+							<br>
 							<div class="tab-content">
-							  <div class="tab-pane active" id="existing" role="tabpanel">
+							  <div class="tab-pane show active" id="existing" role="tabpanel">
 									<div class="container-fluid">
 								    <div class="row">
-								      <div class="col-md-3">
-												<label for="idNumber">ID #</label>
-												<input type="id" id="idNumber" class="form-control" aria-describedby="idHelpBlock">
+											<div class="col-md-3">
+					                <label for="inputFirstName">Name</label>
+					                <select name="singleSelect" id="singleSelect" class="form-control" ng-model="vm.credentials.name">
+					                	<option ng-repeat="name in vm.names">{{name}}</option>
+					               </select>
+					            </div>
+											<div class="col-md-3">
+												<label for="inputPassword">Product Name</label>
+				                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.productName">
 											</div>
 											<div class="col-md-3">
-												<label for="accountName">Account Name</label>
-												<input type="account" id="accountName" class="form-control" aria-describedby="accountHelpBlock">
+												<label for="inputPassword">Case Count</label>
+				                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.caseCount">
 											</div>
 											<div class="col-md-3">
-												<label for="productName">Product</label>
-												<input type="product" id="productName" class="form-control" aria-describedby="productHelpBlock">
-											</div>
-											<div class="col-md-3">
-												<label for="date">Date</label>
-												<input type="date" id="date" class="form-control" aria-describedby="dateHelpBlock">
-											</div>
-											<div class="col-md-3">
-												<label for="quantitynumber">QTY</label>
-												<input type="quantity" id="quantityNumber" class="form-control" aria-describedby="quantityHelpBlock">
+												<label for="inputPassword">Bottle Count</label>
+				                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.bottleCount">
 											</div>
 										</div>
+										<a class="btn pull-right" href="#"><i class="fa fa-plus-square-o fa-2x" aria-hidden="true"></i></a>
 									</div>
 								</div>
-							  <div class="tab-pane" id="new" role="tabpanel">
+							  <div class="tab-pane fade" id="new" role="tabpanel">
 									<div class="container-fluid">
 								    <div class="row">
-								      <div class="col-md-3">
-												<label for="accountName">Account Name</label>
-												<input type="account" id="accountName" class="form-control" aria-describedby="accountHelpBlock">
+											<div class="col-md-4">
+												<label for="inputFirstName">Name</label>
+				                <input type="text" class="form-control" id="inputFirstName" ng-model="vm.credentials.name">
 											</div>
-											<div class="col-md-3">
-												<label for="streetAddress">Street Address</label>
-												<input type="address" id="streetAddress" class="form-control" aria-describedby="addressHelpBlock">
+								      <div class="col-md-4">
+												<label for="inputEmail">Email</label>
+				                <input type="text" class="form-control" id="inputEmail" ng-model="vm.credentials.email">
 											</div>
-											<div class="col-md-3">
-												<label for="cityName">City</label>
-												<input type="city" id="cityName" class="form-control" aria-describedby="cityHelpBlock">
-											</div>
-											<div class="col-md-3">
-												<label for="stateName">State</label>
-												<input type="state" id="stateName" class="form-control" aria-describedby="stateHelpBlock">
-											</div>
-											<div class="col-md-3">
-												<label for="zipNumber">Zip</label>
-												<input type="zip" id="zipNumber" class="form-control" aria-describedby="zipHelpBlock">
+											<div class="col-md-4">
+												<label for="inputPassword">Phone</label>
+				                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.phone">
 											</div>
 										</div>
 										<div class="row">
 											<div class="col-md-3">
-												<label for="phoneNumber">Phone</label>
-												<input type="phone" id="phoneNumber" class="form-control" aria-describedby="phoneHelpBlock">
+												<label for="inputLastName">City</label>
+				                <input type="text" class="form-control" id="inputLastName" ng-model="vm.credentials.city">
 											</div>
 											<div class="col-md-3">
-												<label for="premiseType">Premise</label>
-												<input type="premise" id="premiseType" class="form-control" aria-describedby="premiseHelpBlock">
+												<label for="inputPassword">Street</label>
+				                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.street">
 											</div>
 											<div class="col-md-3">
-												<label for="typeVariation">Type</label>
-												<input type="type" id="typeVariation" class="form-control" aria-describedby="typeHelpBlock">
+												<label for="inputPassword">State</label>
+				                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.state">
+											</div>
+											<div class="col-md-3">
+												<label for="inputPassword">Zip</label>
+				                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.zip">
 											</div>
 										</div>
+										<div class="row">
+											<div class="col-md-4">
+												<label for="inputPassword">Customer Type</label>
+				                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.customerType">
+											</div>
+											<div class="col-md-4">
+												<label for="inputPassword">Sale Type</label>
+				                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.saleType">
+											</div>
+											<div class="col-md-4">
+												<label for="inputPassword">Account Manager</label>
+				                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.accountManager">
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-md-4">
+												<label for="inputPassword">Product Name</label>
+				                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.productName">
+											</div>
+											<div class="col-md-4">
+												<label for="inputPassword">Case Count</label>
+				                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.caseCount">
+											</div>
+											<div class="col-md-4">
+												<label for="inputPassword">Bottle Count</label>
+				                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.bottleCount">
+											</div>
+										</div>
+										<a class="btn pull-right" id="plus-one" href="#"><i class="fa fa-plus-square-o fa-2x" aria-hidden="true"></i></a>
 									</div>
 								</div>
-							</div>
+								<div class="tab-pane fade" id="file" role="tabpanel">
+									<div class="container">
+										<div class="row">
+			                <div class="col-md-8 offset-md-4">
+			                	<input type="file" id="fileUpload" ng-model="vm.myFile"/>
+			                </div>
+					          </div>
+									</div>
+								</div>
+								<button type="submit" class="btn btn-primary">Register</button>
+								<br>
+							</div> <!-- Tab Content -->
 
 			      <div class="modal-footer">
 			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			        <button type="button" class="btn btn-primary">Save changes</button>
 			      </div>
 			    </div>
 			  </div>
@@ -145,7 +182,7 @@
 			<br>
 			<div class="row">
 			<div ng-repeat="sale in vm.sales | orderBy:[0].date:reverse" class="panel panel-default"><div class="panel-body">{{sale[1]}}</div><div>{{sale[0].productName}}</div><br/></div>
-			
+
 			</div>
 		</main>
 
@@ -231,32 +268,6 @@
            </form>
            </div>
        </div>
-<<<<<<< HEAD
-       
-       <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-=======
 
 			 <script>
 			 $('#tabs a').click(function (e) {
@@ -265,9 +276,20 @@
 			 })
 			 </script>
 
-			 <script>
-			 	 $('#tabs a[href="#existing"]').tab('show')
-			 </script>
 
-</html>
->>>>>>> reportupload
+			 <div ng-app="angularjs-starter" ng-controller="MainCtrl">
+				 <fieldset  data-ng-repeat="choice in choices">
+						<select>
+							 <option>Mobile</option>
+							 <option>Office</option>
+							 <option>Home</option>
+						</select>
+						<input type="text" ng-model="choice.name" name="" placeholder="Enter mobile number">
+						<button class="remove" ng-show="$last" ng-click="removeChoice()">-</button>
+				 </fieldset>
+				 <button class="addfields" ng-click="addNewChoice()">Add fields</button>
+
+				 <div id="choicesDisplay">
+						{{ choices }}
+				 </div>
+			</div>

@@ -23,8 +23,10 @@ router.post('/addSale', ctrlData.addSale);
 router.post('/accountsGrab', ctrlData.accountsGrab);
 router.post('/salesGrab', ctrlData.salesGrab);
 
+router.post('/upload', ctrlData.upload);
+
 router.post('/users', ctrlAuth.usersGrab);
 
-router.post('/permissions', ctrlAuth.permissions );
+router.post('/permissions', ctrlAuth.permissions);
 
 module.exports = router;

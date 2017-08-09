@@ -12,18 +12,51 @@ var sendJSONresponse = function (res, status, content) {
 
 module.exports.upload = function (req, res) {
 
-    var customer = new Customer();
-    fd.append('file', file);
-    $http.post(uploadUrl, fd, {
-        transformRequest: angular.identity,
-        headers: {
-            'Content-Type': undefined
-        }
-    });
+    var json = eval(req.body.json);
+    console.log(json);
+    console.log(json[0]);
+    //console.log(json);
+        var customer = new Customer();
+        var sale = new Sale();
+        Customer.findOne({
+            name: json.cust
+        }, function (err, customer) {
+            if (customer) {
+                console.log(customer);
+                console.log("old");
+                sale.productName = json.desc1;
+                sale.caseCount = json.casecntt;
+                sale.bottleCount = json.bottcnt;
+                customer.sales.push(sale);
+                customer.save(function (err) {});
+                res.status(200).send();
+            } else {
+              customer = new Customer();
+              console.log(json.cust);
+              console.log(customer);
+                console.log("new");
+                customer.email = json.cust;
+                customer.name = json.cust;
+                customer.address.city = json.city;
+                customer.address.street = json.addres1;
+                customer.address.state = json.state;
+                customer.address.zip = json.zip;
+                customer.phone = json.phone;
+                customer.customerType = json.custype;
+                customer.saleType = json.saletype;
+                customer.accountManager = json.acctmgr;
+                sale.productName = json.desc1;
+                sale.caseCount = json.casecntt;
+                sale.bottleCount = json.bottcnt;
+                customer.sales.push(sale);
+                customer.save(function (err) {});
+                res.status(200).send();
+            }
+        });
 
-    customer.save(function (err) {
-        res.status(200);
-    });
+
+    
+    
 };
 
 module.exports.register = function (req, res) {
@@ -56,52 +89,54 @@ module.exports.register = function (req, res) {
 
 module.exports.addSale = function (req, res) {
     var sale = new Sale();
-    
+
     sale.productName = req.body.productName;
     sale.caseCount = req.body.caseCount;
     sale.bottleCount = req.body.bottleCount;
-    
-    Customer.findOne({ name: req.body.name }, function (err, customer){
-      customer.sales.push(sale);
-      customer.save(function (err) {
-        res.status(200).send();
+
+    Customer.findOne({
+        name: req.body.name
+    }, function (err, customer) {
+        customer.sales.push(sale);
+        customer.save(function (err) {
+            res.status(200).send();
+        });
     });
-});
 
 };
 
 module.exports.salesGrab = function (req, res) {
-        Customer.find({}, {
-            "name": 1,
-            "sales": 1
-        }, function (err, data) {
-            if (err)
-                res.send(err);
-            else {
-                res.json(data);
-            }
-        });
+    Customer.find({}, {
+        "name": 1,
+        "sales": 1
+    }, function (err, data) {
+        if (err)
+            res.send(err);
+        else {
+            res.json(data);
+        }
+    });
 
 
 };
 
 module.exports.accountsGrab = function (req, res) {
-        Customer.find({}, {
-            "name": 1,
-            "address": 1,
-            "phone": 1,
-            "customerType": 1,
-            "saleType": 1,
-            "accountManager": 1,
-            "distributor": 1,
-            "sales": 1
-        }, function (err, data) {
-            if (err)
-                res.send(err);
-            else {
-                res.json(data);
-            }
-        });
+    Customer.find({}, {
+        "name": 1,
+        "address": 1,
+        "phone": 1,
+        "customerType": 1,
+        "saleType": 1,
+        "accountManager": 1,
+        "distributor": 1,
+        "sales": 1
+    }, function (err, data) {
+        if (err)
+            res.send(err);
+        else {
+            res.json(data);
+        }
+    });
 
 
 };

@@ -2,48 +2,26 @@
 		<!-- Admin Navbar -->
 		<navigation></navigation>
 
-				<button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#navigation">
-					&#9776;
-				</button>
-
-				<a class="navbar-brand float-xs-right float-sm-left" href="#"><img src="img/logo-small.png" height="40" width= "40"class="img-fluid"/></a>
-
-			<div class="collapse navbar-toggleable-xs" id="navigation">
-				<ul class="nav navbar-nav">
-					<li class="nav-item float-xs-right px-1">
-						<a class="nav-link" href="settings.html"><i class="fa fa-cog fa-2x" aria-hidden="true"></i></a>
-					</li>
-					<li class="nav-item float-xs-right px-1">
-						<a class="nav-link" href="#"><i class="fa fa-users fa-2x" aria-hidden="true"></i></a>
-					</li>
-					<li class="nav-item float-xs-right px-1">
-						<a class="nav-link" href="#"><i class="fa fa-file-text-o fa-2x" aria-hidden="true"></i></a>
-					</li>
-					<li class="divider-vertical"></li>
-					<div id="custom-search-input">
-							<div class="input-group col-md-12">
-									<input type="text" class="form-control input-lg" placeholder="Search" />
-									<span class="input-group-btn">
-											<button class="btn btn-info btn-lg" type="button">
-													<i class="glyphicon glyphicon-search"></i>
-											</button>
-									</span>
-							</div>
-					</div>
-				</ul>
-					<ul class="nav navbar-nav float-sm-left">
-							<li class="nav-item">
-									<a class="nav-title" href="#social">Dashboard</a>
-							</li>
-					</ul>
-			</div>
-
-
-
 		<main>
 			<h1 class="reports"> Reports </h1>
-			<input type="file" ng-model="vm.myFile"/>
+			<input type="file" file-model="vm.myFile"/>
 			<button type="button" class="btn btn-success btn-lg" ng-click="vm.uploadFile()">Upload Report</button>
+			
+			<p id="heading">CSV to JSON Converter</p>
+    <p class="small"><a href="http://jsfiddle.net/sturtevant/vUnF9/" target="_blank">JSON to CSV Converter</a>
+    <hr />
+    <p>Paste Your CSV Here:</p>
+    <p>Example: "Id","UserName"
+"1","Sam Smith"
+"2","Fred Frankly"
+"1","Zachary Zupers"</p>
+    <p>custid,cust,addres1,city,state,zip,phone,producer,sku,desc1,acctmgr,custype,saletype,casecnt,bottcnt</p>
+    <textarea ng-model="vm.csv" class="text"></textarea>
+    <br />
+    <button ng-click="vm.convert()">Convert to JSON</button>
+    &nbsp;&nbsp;
+    <button id="download">Download JSON</button>
+    <textarea ng-model="vm.json" class="text"></textarea>
 
 			<h2> Today </h2>
 			<br>

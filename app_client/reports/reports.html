@@ -23,12 +23,6 @@
     <button id="download">Download JSON</button>
     <textarea ng-model="vm.json" class="text"></textarea>
 
-			<h2> Today </h2>
-			<br>
-			<div class="row">
-			<div ng-repeat="sale in vm.sales | orderBy:[0].date:reverse" class="panel panel-default"><div class="panel-body">{{sale[1]}}</div><div>{{sale[0].productName}}</div><br/></div>
-			
-			</div>
 		</main>
 
 <div class="row">

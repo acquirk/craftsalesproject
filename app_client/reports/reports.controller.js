@@ -152,12 +152,11 @@
 
   vm.convert = function() {
     var csv = vm.csv;
-    var json = vm.CSV2JSON(csv);
-    vm.json = eval(json);
+    var json = eval(vm.CSV2JSON(csv));
     console.log(csv);
     console.log(json);
-    for (var i = 0; i < vm.json.length; i++) {
-      vm.credentials = {json: vm.json[i]};
+    for (var i = 0; i < json.length; i++) {
+      vm.credentials = {json: json[i]};
       console.log(vm.credentials);
       meanData.upload(vm.credentials).error(function (e) {
                 console.log(e);

@@ -8,11 +8,12 @@
 
     function reportsCtrl($location, meanData) {
         var vm = this;
+        
+        vm.converting = false;
 
         vm.customers = [];
         vm.names = [];
         vm.sales = [];
-
         meanData.salesGrab()
             .success(function (data) {
                 vm.customers = data;
@@ -29,8 +30,6 @@
             .error(function (e) {
                 console.log(e);
             });
-
-
 
         vm.uploadFile = function () {
             var file = vm.myFile;
@@ -150,13 +149,16 @@
     return str;
 };
 
-  vm.convert = function() {
+  vm.convert1 = function() {
     var csv = vm.csv;
     var json = eval(vm.CSV2JSON(csv));
-    console.log(csv);
-    console.log(json);
+    vm.options = json[0];
+    vm.converting = true;
+};
+
+vm.convert2 = function() {
     for (var i = 0; i < json.length; i++) {
-      vm.credentials = {json: json[i]};
+      vm.credentials.json = {json: json[i]};
       console.log(vm.credentials);
       meanData.upload(vm.credentials).error(function (e) {
                 console.log(e);
@@ -165,6 +167,23 @@
 };
 
 
+        var app = angular.module('angularjs-starter', []);
+
+          app.controller('MainCtrl', function($scope) {
+
+            $scope.choices = [{id: 'choice1'}, {id: 'choice2'}];
+
+            $scope.addNewChoice = function() {
+              var newItemNo = $scope.choices.length+1;
+              $scope.choices.push({'id':'choice'+newItemNo});
+            };
+
+            $scope.removeChoice = function() {
+              var lastItem = $scope.choices.length-1;
+              $scope.choices.splice(lastItem);
+            };
+
+          });
 
     }
 

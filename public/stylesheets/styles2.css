@@ -24,7 +24,7 @@ nav {
     padding-top:5px;
     padding-right: 5px;
     height: 35px;
-    
+
 }
 
 .nav-link {
@@ -45,7 +45,7 @@ nav {
 .form-control {
     font-size: 70%;
 }
- 
+
 .input-group {
     padding-right: 10px;
     /* change the vertical position */
@@ -63,7 +63,7 @@ nav {
 }
 
 .input-group {
-    padding-top:2px;   
+    padding-top:2px;
 }
 
 #custom-search-input button{
@@ -82,11 +82,11 @@ nav {
     border-left: solid 1px #ccc;
 }
 .stylish-input-group .input-group-addon{
-    background: white !important; 
+    background: white !important;
 }
 .stylish-input-group .form-control{
-	border-right:0; 
-	box-shadow:0 0 0; 
+	border-right:0;
+	box-shadow:0 0 0;
 	border-color:#ccc;
 }
 .stylish-input-group button{
@@ -219,7 +219,7 @@ nav {
   }
 
 .ng-scope {
-   background-color: #E9E9E9; 
+   background-color: #E9E9E9;
 }
 
 
@@ -231,7 +231,7 @@ nav {
   padding: 30px;
   max-width: 36%;
   min-width: 36%;
-    height:40px;  
+    height:40px;
   }
 */
 
@@ -378,7 +378,7 @@ nav {
 }
 
 
-.radial-progress { 
+.radial-progress {
     font-family: Arial, sans-serif;
     font-size: 30px;
     font-weight: bold;
@@ -388,3 +388,78 @@ svg {
     display: block;
     margin: 0 auto;
 }
+
+/*
+  REPORTS MODAL
+*/
+
+.modal-title {
+  display: inline-block;
+}
+
+.btn {
+  color: #1c1c1c;
+}
+
+a.btn:hover {
+  color: #636363;
+}
+
+a.btn:active {
+  color: #a8a8a8;
+}
+
+a.btn:visited {
+    color: #1c1c1c ;
+}
+
+#modalTab {
+  font-size: 12px;
+}
+
+.tab-content label {
+  margin-top: 0.5em;
+}
+
+#fileUpload {
+  margin: 1.0em 0 1.0em 0;
+}
+
+/*
+  MODAL ADD FORM LINE (Not working currently)
+*/
+
+fieldset {
+    background: #FCFCFC;
+    padding: 16px;
+    border: 1px solid #D5D5D5;
+}
+.addfields{
+    margin: 10px 0;
+}
+
+#choicesDisplay {
+    padding: 10px;
+    background: rgb(227, 250, 227);
+    border: 1px solid rgb(171, 239, 171);
+    color: rgb(9, 56, 9);
+}
+
+.remove{
+    background: #C76868;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 21px;
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    padding: 4px 9px;
+    vertical-align: top;
+    line-height: 100%;
+}
+
+input[type="text"],
+select {
+    padding:5px;
+}
+

@@ -1,289 +1,334 @@
-		<!-- Alignment needs to be fixed on collapse -->
-		<!-- Admin Navbar -->
+<!-- Alignment needs to be fixed on collapse -->
+<!-- Admin Navbar -->
 
-		<navigation></navigation>
-		<main>
-			<h1 class="reports"> Reports </h1>
-			<input type="file" ng-model="vm.myFile"/>
-			<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#uploadmodal" ng-click="vm.uploadFile()">Upload Report</button>
+<navigation></navigation>
+<main>
+    <h1 class="reports"> Reports </h1>
+    <input type="file" ng-model="vm.myFile" />
+    <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#uploadmodal">Upload Report</button>
 
-			<div class="modal fade" id="uploadmodal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
-			<div class="modal-dialog modal-lg" role="document">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <h4 class="modal-title" id="modalTitle">Upload Report</h4>
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			          <span aria-hidden="true">&times;</span>
-			        </button>
-			      </div>
-			      <div class="modal-body">
-							<ul class="nav nav-tabs" id="tabs" role="tablist">
-							  <li class="nav-item">
-							    <a class="nav-link active" id="modalTab" data-toggle="tab" href="#existing" role="tab">Existing Account</a>
-							  </li>
-							  <li class="nav-item">
-							    <a class="nav-link" id="modalTab" data-toggle="tab" href="#new" role="tab">New Account</a>
-							  </li>
-								<li class="nav-item">
-							    <a class="nav-link" id="modalTab" data-toggle="tab" href="#file" role="tab">File</a>
-							  </li>
-							</ul>
-							<br>
-							<div class="tab-content">
-							  <div class="tab-pane show active" id="existing" role="tabpanel">
-									<div class="container-fluid">
-								    <div class="row">
-											<div class="col-md-3">
-					                <label for="inputFirstName">Name</label>
-					                <select name="singleSelect" id="singleSelect" class="form-control" ng-model="vm.credentials.name">
-					                	<option ng-repeat="name in vm.names">{{name}}</option>
-					               </select>
-					            </div>
-											<div class="col-md-3">
-												<label for="inputPassword">Product Name</label>
-				                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.productName">
-											</div>
-											<div class="col-md-3">
-												<label for="inputPassword">Case Count</label>
-				                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.caseCount">
-											</div>
-											<div class="col-md-3">
-												<label for="inputPassword">Bottle Count</label>
-				                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.bottleCount">
-											</div>
-										</div>
-										<a class="btn pull-right" href="#"><i class="fa fa-plus-square-o fa-2x" aria-hidden="true"></i></a>
-									</div>
-								</div>
-							  <div class="tab-pane fade" id="new" role="tabpanel">
-									<div class="container-fluid">
-								    <div class="row">
-											<div class="col-md-4">
-												<label for="inputFirstName">Name</label>
-				                <input type="text" class="form-control" id="inputFirstName" ng-model="vm.credentials.name">
-											</div>
-								      <div class="col-md-4">
-												<label for="inputEmail">Email</label>
-				                <input type="text" class="form-control" id="inputEmail" ng-model="vm.credentials.email">
-											</div>
-											<div class="col-md-4">
-												<label for="inputPassword">Phone</label>
-				                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.phone">
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-3">
-												<label for="inputLastName">City</label>
-				                <input type="text" class="form-control" id="inputLastName" ng-model="vm.credentials.city">
-											</div>
-											<div class="col-md-3">
-												<label for="inputPassword">Street</label>
-				                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.street">
-											</div>
-											<div class="col-md-3">
-												<label for="inputPassword">State</label>
-				                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.state">
-											</div>
-											<div class="col-md-3">
-												<label for="inputPassword">Zip</label>
-				                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.zip">
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-4">
-												<label for="inputPassword">Customer Type</label>
-				                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.customerType">
-											</div>
-											<div class="col-md-4">
-												<label for="inputPassword">Sale Type</label>
-				                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.saleType">
-											</div>
-											<div class="col-md-4">
-												<label for="inputPassword">Account Manager</label>
-				                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.accountManager">
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-4">
-												<label for="inputPassword">Product Name</label>
-				                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.productName">
-											</div>
-											<div class="col-md-4">
-												<label for="inputPassword">Case Count</label>
-				                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.caseCount">
-											</div>
-											<div class="col-md-4">
-												<label for="inputPassword">Bottle Count</label>
-				                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.bottleCount">
-											</div>
-										</div>
-										<a class="btn pull-right" id="plus-one" href="#"><i class="fa fa-plus-square-o fa-2x" aria-hidden="true"></i></a>
-									</div>
-								</div>
-								<div class="tab-pane fade" id="file" role="tabpanel">
-									<div class="container">
-										<div class="row">
-			                <div class="col-md-8">
-			                	<p id="heading">CSV to JSON Converter</p>
-    <p class="small"><a href="http://jsfiddle.net/sturtevant/vUnF9/" target="_blank">JSON to CSV Converter</a>
-    <hr />
-    <p>Paste Your CSV Here:</p>
-    <p>Example: "Id","UserName"
-"1","Sam Smith"
-"2","Fred Frankly"
-"1","Zachary Zupers"</p>
-    <p>custid,cust,addres1,city,state,zip,phone,producer,sku,desc1,acctmgr,custype,saletype,casecnt,bottcnt</p>
-    <textarea ng-model="vm.csv" class="text"></textarea>
-    <br />
-    <button ng-click="vm.convert1()">Convert to JSON</button>
-    &nbsp;&nbsp;
-    <button id="download">Download JSON</button>
-    <textarea ng-model="vm.json" class="text"></textarea>
-			                </div>
-			                <div class="col-sm-12">Select the column in your file that best corresponds to your customers:</div>
-			                <div ng-if="vm.converting">
-			                <div class="col-sm-12"><select ng-model="vm.credentials.email"><option ng-repeat="name in vm.names">{{name}}</option></select>:Email</div>
-			                <div class="col-sm-12"><select ng-model="vm.credentials.name"></select>:Name</div>
-			                <div class="col-sm-12"><select ng-model="vm.credentials.city"></select>:City</div>
-			                <div class="col-sm-12"><select ng-model="vm.credentials.street"></select>:Street</div>
-			                <div class="col-sm-12"><select ng-model="vm.credentials.state"></select>:State</div>
-			                <div class="col-sm-12"><select ng-model="vm.credentials.zip"></select>:Zip</div>
-			                <div class="col-sm-12"><select ng-model="vm.credentials.phone"></select>:Phone</div>
-			                <div class="col-sm-12"><select ng-model="vm.credentials.customerType"></select>:Customer Type</div>
-			                <div class="col-sm-12"><select ng-model="vm.credentials.saleType"></select>:Sale Type</div>
-			                <div class="col-sm-12"><select ng-model="vm.credentials.accountManager"></select>:Account Manager</div>
-			                <div class="col-sm-12"><select ng-model="vm.credentials.productName"></select>:Product Name</div>
-			                <div class="col-sm-12"><select ng-model="vm.credentials.caseCount"></select>:Case Count</div>
-			                <div class="col-sm-12"><select ng-model="vm.credentials.bottleCount"></select>:Bottle Count</div>
-			                </div>
-					          </div>
-									</div>
-								</div>
-								<button type="submit" class="btn btn-primary">Register</button>
-								<br>
-							</div> <!-- Tab Content -->
+    <div class="modal fade" id="uploadmodal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="modalTitle">Upload Report</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul class="nav nav-tabs" id="tabs" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="modalTab" data-toggle="tab" href="#existing" role="tab">Existing Account</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="modalTab" data-toggle="tab" href="#new" role="tab">New Account</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="modalTab" data-toggle="tab" href="#file" role="tab">File</a>
+                        </li>
+                    </ul>
+                    <br>
+                    <div class="tab-content">
+                        <div class="tab-pane show active" id="existing" role="tabpanel">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label for="inputFirstName">Name</label>
+                                        <select name="singleSelect" id="singleSelect" class="form-control" ng-model="vm.credentials.name">
+                                            <option ng-repeat="name in vm.names">{{name}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="inputPassword">Product Name</label>
+                                        <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.productName">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="inputPassword">Case Count</label>
+                                        <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.caseCount">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="inputPassword">Bottle Count</label>
+                                        <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.bottleCount">
+                                    </div>
+                                </div>
+                                <a class="btn pull-right" href="#"><i class="fa fa-plus-square-o fa-2x" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="new" role="tabpanel">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label for="inputFirstName">Name</label>
+                                        <input type="text" class="form-control" id="inputFirstName" ng-model="vm.credentials.name">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="inputEmail">Email</label>
+                                        <input type="text" class="form-control" id="inputEmail" ng-model="vm.credentials.email">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="inputPassword">Phone</label>
+                                        <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.phone">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label for="inputLastName">City</label>
+                                        <input type="text" class="form-control" id="inputLastName" ng-model="vm.credentials.city">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="inputPassword">Street</label>
+                                        <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.street">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="inputPassword">State</label>
+                                        <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.state">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="inputPassword">Zip</label>
+                                        <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.zip">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label for="inputPassword">Customer Type</label>
+                                        <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.customerType">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="inputPassword">Sale Type</label>
+                                        <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.saleType">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="inputPassword">Account Manager</label>
+                                        <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.accountManager">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label for="inputPassword">Product Name</label>
+                                        <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.productName">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="inputPassword">Case Count</label>
+                                        <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.caseCount">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="inputPassword">Bottle Count</label>
+                                        <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.bottleCount">
+                                    </div>
+                                </div>
+                                <a class="btn pull-right" id="plus-one" href="#"><i class="fa fa-plus-square-o fa-2x" aria-hidden="true"></i></a>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="file" role="tabpanel">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <p id="heading">CSV to JSON Converter</p>
+                                        <p class="small"><a href="http://jsfiddle.net/sturtevant/vUnF9/" target="_blank">JSON to CSV Converter</a>
+                                            <hr />
+                                            <p>Paste Your CSV Here:</p>
+                                            <textarea ng-model="vm.csv" class="text"></textarea>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <br />
+                                        <button ng-click="vm.convert1()">Convert to JSON</button>
+                                    </div>
+                                    <div ng-if="vm.converting">
 
-			      <div class="modal-footer">
-			        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-			      </div>
-			    </div>
-			  </div>
-			</div>
-			</div>
+                                        <div class="col-sm-12">Select the column in your file that best corresponds to your customers:</div>
+                                        <div class="col-sm-12">
+                                            <select ng-model="vm.credentials.email">
+                                                <option ng-repeat="(x,y) in vm.options[0]" value="{{x}}">{{x}} : {{y}}</option>
+                                            </select>:Email</div>
+                                        <div class="col-sm-12">
+                                            <select ng-model="vm.credentials.name">
+                                                <option ng-repeat="(x,y) in vm.options[0]" value="{{x}}">{{x}} : {{y}}</option>
+                                            </select>:Name</div>
+                                        <div class="col-sm-12">
+                                            <select ng-model="vm.credentials.city">
+                                                <option ng-repeat="(x,y) in vm.options[0]" value="{{x}}">{{x}} : {{y}}</option>
+                                            </select>:City</div>
+                                        <div class="col-sm-12">
+                                            <select ng-model="vm.credentials.street">
+                                                <option ng-repeat="(x,y) in vm.options[0]" value="{{x}}">{{x}} : {{y}}</option>
+                                            </select>:Street</div>
+                                        <div class="col-sm-12">
+                                            <select ng-model="vm.credentials.state">
+                                                <option ng-repeat="(x,y) in vm.options[0]" value="{{x}}">{{x}} : {{y}}</option>
+                                            </select>:State</div>
+                                        <div class="col-sm-12">
+                                            <select ng-model="vm.credentials.zip">
+                                                <option ng-repeat="(x,y) in vm.options[0]" value="{{x}}">{{x}} : {{y}}</option>
+                                            </select>:Zip</div>
+                                        <div class="col-sm-12">
+                                            <select ng-model="vm.credentials.phone">
+                                                <option ng-repeat="(x,y) in vm.options[0]" value="{{x}}">{{x}} : {{y}}</option>
+                                            </select>:Phone</div>
+                                        <div class="col-sm-12">
+                                            <select ng-model="vm.credentials.customerType">
+                                                <option ng-repeat="(x,y) in vm.options[0]" value="{{x}}">{{x}} : {{y}}</option>
+                                            </select>:Customer Type</div>
+                                        <div class="col-sm-12">
+                                            <select ng-model="vm.credentials.saleType">
+                                                <option ng-repeat="(x,y) in vm.options[0]" value="{{x}}">{{x}} : {{y}}</option>
+                                            </select>:Sale Type</div>
+                                        <div class="col-sm-12">
+                                            <select ng-model="vm.credentials.accountManager">
+                                                <option ng-repeat="(x,y) in vm.options[0]" value="{{x}}">{{x}} : {{y}}</option>
+                                            </select>:Account Manager</div>
+                                        <div class="col-sm-12">
+                                            <select ng-model="vm.credentials.productName">
+                                                <option ng-repeat="(x,y) in vm.options[0]" value="{{x}}">{{x}} : {{y}}</option>
+                                            </select>:Product Name</div>
+                                        <div class="col-sm-12">
+                                            <select ng-model="vm.credentials.caseCount">
+                                                <option ng-repeat="(x,y) in vm.options[0]" value="{{x}}">{{x}} : {{y}}</option>
+                                            </select>:Case Count</div>
+                                        <div class="col-sm-12">
+                                            <select ng-model="vm.credentials.bottleCount">
+                                                <option ng-repeat="(x,y) in vm.options[0]" value="{{x}}">{{x}} : {{y}}</option>
+                                            </select>:Bottle Count</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" ng-click="vm.convert2()">Register</button>
+                        <br>
+                    </div>
+                    <!-- Tab Content -->
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
-			<h2> Today </h2>
-			<br>
-			<div class="row">
-			<div ng-repeat="sale in vm.sales | orderBy:[0].date:reverse" class="panel panel-default"><div class="panel-body">{{sale[1]}}</div><div>{{sale[0].productName}}</div><br/></div>
+    <h2> Today </h2>
+    <br>
+    <div class="row">
+        <div ng-repeat="sale in vm.sales | orderBy:[0].date:reverse" class="panel panel-default">
+            <div class="panel-body">{{sale[1]}}</div>
+            <div>{{sale[0].productName}}</div>
+            <br/>
+        </div>
 
-			</div>
-		</main>
+    </div>
+</main>
 
 <div class="row">
-         <div class="main">
-           <form role="form" ng-submit="vm.onRegister()">
-             <div class="form-group">
-               <label for="inputEmail">Email</label>
-               <input type="text" class="form-control" id="inputEmail" ng-model="vm.credentials.email">
-             </div>
-             <div class="form-group">
-               <label for="inputFirstName">Name</label>
-               <input type="text" class="form-control" id="inputFirstName" ng-model="vm.credentials.name">
-             </div>
-             <div class="form-group">
-               <label for="inputLastName">City</label>
-               <input type="text" class="form-control" id="inputLastName" ng-model="vm.credentials.city">
-             </div>
-             <div class="form-group">
-               <label for="inputPassword">Street</label>
-               <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.street">
-             </div>
-             <div class="form-group">
-               <label for="inputPassword">State</label>
-               <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.state">
-             </div>
-             <div class="form-group">
-               <label for="inputPassword">Zip</label>
-               <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.zip">
-             </div>
-             <div class="form-group">
-               <label for="inputPassword">Phone</label>
-               <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.phone">
-             </div>
-             <div class="form-group">
-               <label for="inputPassword">Customer Type</label>
-               <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.customerType">
-             </div>
-             <div class="form-group">
-               <label for="inputPassword">Sale Type</label>
-               <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.saleType">
-             </div>
-             <div class="form-group">
-               <label for="inputPassword">Account Manager</label>
-               <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.accountManager">
-             </div>
-             <div class="form-group">
-               <label for="inputPassword">Product Name</label>
-               <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.productName">
-             </div>
-             <div class="form-group">
-               <label for="inputPassword">Case Count</label>
-               <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.caseCount">
-             </div>
-             <div class="form-group">
-               <label for="inputPassword">Bottle Count</label>
-               <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.bottleCount">
-             </div>
-             <button type="submit" class="btn btn btn-primary pull-right black-background">Register</button><br><br>
-           </form>
-         </div><br>
-         <div class="main">
-         <form role="form" ng-submit="vm.onAdd()">
-           <div class="form-group">
-               <label for="inputFirstName">Name</label>
-               <select name="singleSelect" id="singleSelect" ng-model="vm.credentials.name">
-                <option ng-repeat="name in vm.names">{{name}}</option>
-              </select>
-             </div>
-         <div class="form-group">
-               <label for="inputPassword">Product Name</label>
-               <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.productName">
-             </div>
-             <div class="form-group">
-               <label for="inputPassword">Case Count</label>
-               <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.caseCount">
-             </div>
-             <div class="form-group">
-               <label for="inputPassword">Bottle Count</label>
-               <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.bottleCount">
-             </div>
-             <button type="submit" class="btn btn btn-primary pull-right black-background">Register</button><br><br>
-           </form>
-           </div>
-       </div>
+    <div class="main">
+        <form role="form" ng-submit="vm.onRegister()">
+            <div class="form-group">
+                <label for="inputEmail">Email</label>
+                <input type="text" class="form-control" id="inputEmail" ng-model="vm.credentials.email">
+            </div>
+            <div class="form-group">
+                <label for="inputFirstName">Name</label>
+                <input type="text" class="form-control" id="inputFirstName" ng-model="vm.credentials.name">
+            </div>
+            <div class="form-group">
+                <label for="inputLastName">City</label>
+                <input type="text" class="form-control" id="inputLastName" ng-model="vm.credentials.city">
+            </div>
+            <div class="form-group">
+                <label for="inputPassword">Street</label>
+                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.street">
+            </div>
+            <div class="form-group">
+                <label for="inputPassword">State</label>
+                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.state">
+            </div>
+            <div class="form-group">
+                <label for="inputPassword">Zip</label>
+                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.zip">
+            </div>
+            <div class="form-group">
+                <label for="inputPassword">Phone</label>
+                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.phone">
+            </div>
+            <div class="form-group">
+                <label for="inputPassword">Customer Type</label>
+                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.customerType">
+            </div>
+            <div class="form-group">
+                <label for="inputPassword">Sale Type</label>
+                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.saleType">
+            </div>
+            <div class="form-group">
+                <label for="inputPassword">Account Manager</label>
+                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.accountManager">
+            </div>
+            <div class="form-group">
+                <label for="inputPassword">Product Name</label>
+                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.productName">
+            </div>
+            <div class="form-group">
+                <label for="inputPassword">Case Count</label>
+                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.caseCount">
+            </div>
+            <div class="form-group">
+                <label for="inputPassword">Bottle Count</label>
+                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.bottleCount">
+            </div>
+            <button type="submit" class="btn btn btn-primary pull-right black-background">Register</button>
+            <br>
+            <br>
+        </form>
+    </div>
+    <br>
+    <div class="main">
+        <form role="form" ng-submit="vm.onAdd()">
+            <div class="form-group">
+                <label for="inputFirstName">Name</label>
+                <select name="singleSelect" id="singleSelect" ng-model="vm.credentials.name">
+                    <option ng-repeat="name in vm.names">{{name}}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword">Product Name</label>
+                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.productName">
+            </div>
+            <div class="form-group">
+                <label for="inputPassword">Case Count</label>
+                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.caseCount">
+            </div>
+            <div class="form-group">
+                <label for="inputPassword">Bottle Count</label>
+                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.bottleCount">
+            </div>
+            <button type="submit" class="btn btn btn-primary pull-right black-background">Register</button>
+            <br>
+            <br>
+        </form>
+    </div>
+</div>
 
-			 <script>
-			 $('#tabs a').click(function (e) {
-					e.preventDefault()
-					$(this).tab('show')
-			 })
-			 </script>
+<script>
+    $('#tabs a').click(function(e) {
+        e.preventDefault()
+        $(this).tab('show')
+    })
+
+</script>
 
 
-			 <div ng-app="angularjs-starter" ng-controller="MainCtrl">
-				 <fieldset  data-ng-repeat="choice in choices">
-						<select>
-							 <option>Mobile</option>
-							 <option>Office</option>
-							 <option>Home</option>
-						</select>
-						<input type="text" ng-model="choice.name" name="" placeholder="Enter mobile number">
-						<button class="remove" ng-show="$last" ng-click="removeChoice()">-</button>
-				 </fieldset>
-				 <button class="addfields" ng-click="addNewChoice()">Add fields</button>
+<div ng-app="angularjs-starter" ng-controller="MainCtrl">
+    <fieldset data-ng-repeat="choice in choices">
+        <select>
+            <option>Mobile</option>
+            <option>Office</option>
+            <option>Home</option>
+        </select>
+        <input type="text" ng-model="choice.name" name="" placeholder="Enter mobile number">
+        <button class="remove" ng-show="$last" ng-click="removeChoice()">-</button>
+    </fieldset>
+    <button class="addfields" ng-click="addNewChoice()">Add fields</button>
 
-				 <div id="choicesDisplay">
-						{{ choices }}
-				 </div>
-			</div>
+    <div id="choicesDisplay">
+        {{ choices }}
+    </div>
+</div>

@@ -159,14 +159,18 @@
             vm.converting = true;
         };
 
-        vm.convert2 = function () {
-            var json = vm.options;
-            vm.credentials.json = json;
-            console.log(json);
-            meanData.upload(vm.credentials).error(function (e) {
+        vm.convert2 = function (x) {
+            var json = eval(vm.options);
+            vm.credentials.json = {
+                json: json[x]
+            };
+            console.log(vm.credentials);
+            meanData.upload(vm.credentials).success(function (data) {
+                vm.convert2(x + 1);
+            }).error(function (e) {
                 console.log(e);
             });
-
+            console.log(vm.credentials.json);
         };
 
         vm.test = function () {

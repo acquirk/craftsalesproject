@@ -17,16 +17,14 @@ var ctrlData = require('../controllers/data');
 router.post('/register', ctrlAuth.register);
 router.post('/login', ctrlAuth.login);
 
-router.post('/settingsChange', ctrlAuth.settingsChange);
+router.post('/settings');
 router.post('/reports', ctrlData.register);
 router.post('/addSale', ctrlData.addSale);
 router.post('/accountsGrab', ctrlData.accountsGrab);
 router.post('/salesGrab', ctrlData.salesGrab);
 
-router.post('/upload', ctrlData.upload);
-
 router.post('/users', ctrlAuth.usersGrab);
 
-router.post('/permissions', ctrlAuth.permissions);
+router.post('/permissions', ctrlAuth.permissions );
 
 module.exports = router;

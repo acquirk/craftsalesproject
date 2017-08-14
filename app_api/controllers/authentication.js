@@ -104,31 +104,3 @@ module.exports.permissions = function (req, res) {
         });
     });
 };
-    
-module.exports.settingsChange = function (req, res) {
-
-    var id = req.body.id;
-    var email = req.body.email;
-    var firstName = req.body.firstName;
-    var lastName = req.body.lastName;
-
-    User.findOne({
-        _id: id
-    }, function (err, user) {
-      if (err) {
-        console.log("error");
-        
-      } else {
-        user.email = email;
-        user.firstName = firstName;
-        user.lastName = lastName;
-        user.save(function (err) {
-            res.status(200).send();
-        });
-        var token = user.generateJwt();
-        res.json({
-                "token": token
-            });
-      }
-    });
-};

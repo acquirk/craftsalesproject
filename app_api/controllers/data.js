@@ -12,53 +12,17 @@ var sendJSONresponse = function (res, status, content) {
 
 module.exports.upload = function (req, res) {
 
-    var json = eval(req.body.json);
-    console.log(json);
-    console.log(json.json);
-    if (!json.json) {
-        res.status(500).send();
-    }
-
     var customer = new Customer();
-    var sale = new Sale();
-    Customer.findOne({
-        name: json.json[req.body.name]
-    }, function (err, customer) {
-        if (customer) {
-            console.log(customer);
-            console.log("old");
-            sale.productName = json.json[req.body.productName];
-            sale.caseCount = json.json[req.body.caseCount];
-            sale.bottleCount = json.json[req.body.bottleCount];
-            customer.sales.push(sale);
-            customer.save(function (err) {});
-            res.status(200).send();
-        } else {
-            customer = new Customer();
-            console.log(json.cust);
-            console.log(customer);
-            console.log("new");
-            customer.email = json.json[req.body.email];
-            customer.name = json.json[req.body.name];
-            customer.address.city = json.json[req.body.city];
-            customer.address.street = json.json[req.body.street];
-            customer.address.state = json.json[req.body.state];
-            customer.address.zip = json.json[req.body.zip];
-            customer.phone = json.json[req.body.phone];
-            customer.customerType = json.json[req.body.customerType];
-            customer.saleType = json.json[req.body.saleType];
-            customer.accountManager = json.json[req.body.accountManager];
-            sale.productName = json.json[req.body.productName];
-            sale.caseCount = json.json[req.body.caseCount];
-            sale.bottleCount = json.json[req.body.bottleCount];
-            console.log(json);
-            console.log(json.json[req.body.email]);
-            console.log(req.body.email);
-            console.log(customer);
-            customer.sales.push(sale);
-            customer.save(function (err) {});
-            res.status(200).send();
+    fd.append('file', file);
+    $http.post(uploadUrl, fd, {
+        transformRequest: angular.identity,
+        headers: {
+            'Content-Type': undefined
         }
+    });
+
+    customer.save(function (err) {
+        res.status(200);
     });
 };
 
@@ -92,54 +56,52 @@ module.exports.register = function (req, res) {
 
 module.exports.addSale = function (req, res) {
     var sale = new Sale();
-
+    
     sale.productName = req.body.productName;
     sale.caseCount = req.body.caseCount;
     sale.bottleCount = req.body.bottleCount;
-
-    Customer.findOne({
-        name: req.body.name
-    }, function (err, customer) {
-        customer.sales.push(sale);
-        customer.save(function (err) {
-            res.status(200).send();
-        });
+    
+    Customer.findOne({ name: req.body.name }, function (err, customer){
+      customer.sales.push(sale);
+      customer.save(function (err) {
+        res.status(200).send();
     });
+});
 
 };
 
 module.exports.salesGrab = function (req, res) {
-    Customer.find({}, {
-        "name": 1,
-        "sales": 1
-    }, function (err, data) {
-        if (err)
-            res.send(err);
-        else {
-            res.json(data);
-        }
-    });
+        Customer.find({}, {
+            "name": 1,
+            "sales": 1
+        }, function (err, data) {
+            if (err)
+                res.send(err);
+            else {
+                res.json(data);
+            }
+        });
 
 
 };
 
 module.exports.accountsGrab = function (req, res) {
-    Customer.find({}, {
-        "name": 1,
-        "address": 1,
-        "phone": 1,
-        "customerType": 1,
-        "saleType": 1,
-        "accountManager": 1,
-        "distributor": 1,
-        "sales": 1
-    }, function (err, data) {
-        if (err)
-            res.send(err);
-        else {
-            res.json(data);
-        }
-    });
+        Customer.find({}, {
+            "name": 1,
+            "address": 1,
+            "phone": 1,
+            "customerType": 1,
+            "saleType": 1,
+            "accountManager": 1,
+            "distributor": 1,
+            "sales": 1
+        }, function (err, data) {
+            if (err)
+                res.send(err);
+            else {
+                res.json(data);
+            }
+        });
 
 
 };

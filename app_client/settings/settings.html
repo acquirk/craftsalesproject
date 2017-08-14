@@ -11,37 +11,38 @@
                             <div class="form-group row pt-1">
                                 <label for="inputFirstName3" class="col-sm-2 col-form-label">First Name:</label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" ng-model="vm.currentUser.firstName">
+                                    <input type="email" class="form-control" id="inputEmail3" placeholder="First Name">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="inputPassword3" class="col-sm-2 col-form-label">Last Name:</label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" ng-model="vm.currentUser.lastName">
+                                    <input type="password" class="form-control" id="inputPassword3" placeholder="Last Name">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="inputPassword3" class="col-sm-2 col-form-label">Email:</label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" ng-model="vm.currentUser.email">
+                                    <input type="password" class="form-control" id="inputPassword3" placeholder="Email">
                                 </div>
                             </div>
+                            <form class="form-inline">
                                 <div class="form-group row">
                                     <label for="inputPassword3" class="col-sm-2 col-form-label">Password:</label>
                                     <div class="col-md-6">
-                                        <a href="#">Change Password</a>
+                                        <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
                                     </div>
+                                    <a href="#">Change Password</a>
                                 </div>
+                            </form>
                             <div class="form-group row">
                               <label for="inputPassword3" class="col-sm-2 col-form-label">Status:</label>
-                              <div class="col-md-6">
-                                        <span class="label label-default" ng-if="vm.currentUser.admin == '2'">Admin</span>
+                              <span class="label label-default" ng-if="vm.currentUser.admin == '2'">Admin</span>
                                         <span class="btn btn-danger" ng-if="vm.currentUser.admin == '0'" ng-click="">Pending</span>
                                         <span class="btn btn-success" ng-if="vm.currentUser.admin == '1'" ng-click="">Active</span></div>
-                              </div>
                             <div class="form-group row">
                                 <div class="offset-sm-2 col-sm-10">
-                                    <button type="submit" class="btn btn-primary" ng-click="vm.settingsChange()">Save</button>
+                                    <button type="submit" class="btn btn-primary">Save</button>
                                 </div>
                             </div>
                         </form>

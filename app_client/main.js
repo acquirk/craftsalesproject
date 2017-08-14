@@ -51,6 +51,7 @@
         $locationProvider.html5Mode(true);
     }
 
+
     function run($rootScope, $location, authentication) {
         $rootScope.$on('$routeChangeStart', function (event, nextRoute, currentRoute) {
             if ($location.path() === '/users' && !authentication.isAdminLoggedIn()) {
@@ -66,7 +67,7 @@
                 $location.path('/splash');
             }
         });
-    };
+    }
 
     angular
         .module('meanApp')

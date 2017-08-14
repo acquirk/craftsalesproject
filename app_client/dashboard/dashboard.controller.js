@@ -11,24 +11,22 @@
         
         vm.customers = [];
         vm.names = [];
+        vm.sales = [];
+        vm.products = [];
     
-    //all the arrays (data) are in vm.customers
-    meanData.accountsGrab()
-      .success(function(data) {
-        vm.customers = data;
-        for (var i = 0; i < vm.customers.length; i++) {
-        vm.names[i] = vm.customers[i].name;
-        }
-        console.log(data);
-      })
-      .error(function (e) {
-        console.log(e);
-      });
-        
-        
+
     // Line Graph
     function lineGraph() {
-        var data = [
+        function compareNumbers(a, b) {
+            return b.value - a.value;
+        }
+        var data = vm.customers;
+        //log all data unsorted
+        console.log(data);
+        //log accounts in descending order
+        console.log('Accounts sorted with compareNumbers:', vm.sales.sort(compareNumbers)); 
+
+        /* var data = [
             {key: "Vodka", value: 60, date: "2014/01/01" },
             {key: "Vodka", value: 58, date: "2014/01/02" },
             {key: "Vodka", value: 59, date: "2014/01/03" },
@@ -60,7 +58,17 @@
             {key: "Vodka", value: 39, date: "2014/01/29" },
             {key: "Vodka", value: 40, date: "2014/01/30" },
             {key: "Vodka", value: 39, date: "2014/01/31" }
-        ];
+        ]; */
+        
+       /*  for(var i = 0, len = data.length; i < len; i++){
+            console.log(data[i]);
+        } */
+        
+        
+        /* for(var i = 0, len = vm.sales.length; i < len; i++){
+            console.log(vm.sales[i]);
+        }  */
+        
         
         var w = 1400;
         var h = 570;
@@ -182,11 +190,14 @@
                 y: yAxis
             }
         });
+        
     }
     
     //Bar Graph
     function barGraph() {
-        var data = [
+        var data = vm.customers;
+        console.log(data);
+       /* var data = [
             {key: "Whisky",		value: 132},
             {key: "Vodka",		value: 71},
             {key: "Bourbon",	value: 337},
@@ -199,7 +210,7 @@
             {key: "Your Mom", 	value: 8},
             {key: "Fritter", 	value: 17},
             {key: "Bearclaw", 	value: 21}
-        ];
+        ]; */
 
         var w = 1400;
         var h = 570;
@@ -264,7 +275,7 @@
         plot.call(chart, {data: data});       
     }
         
-    //Progresss Graph
+    //Progress Graph
     function progressGraph() {    
         var wrapper = document.getElementById('progress');
         var start = 0;
@@ -347,10 +358,33 @@
         })();
     }
     
-    lineGraph();
-    barGraph();
-    progressGraph();    
-    console.log(data)
+ 
+    meanData.accountsGrab()
+      .success(function(data) {
+        vm.customers = data;
+        var k = 0;
+        var vodkaCount = 0;
+        for (var i = 0; i < vm.customers.length; i++) {
+          vm.names[i] = vm.customers[i].name;
+          for (var j = 0; j < vm.customers[i].sales.length; j++) {22
+            vm.products[j] = vm.customers[i].sales[j].productName;
+            console.log(vm.products[j]);
+            //count the total number of bottles sold for each account
+            var totalCount = vm.customers[i].sales[j].bottleCount + (vm.customers[i].sales[j].caseCount*6);
+            //vm.sales[k] = {vm.customers[i].name : totalCount};
+            vm.sales[k] = {"value" : totalCount};
+            k++;
+            
+          }
+        }
+        lineGraph();
+        barGraph();
+        progressGraph();
+        console.log(data);
+      })
+      .error(function (e) {
+        console.log(e);
+      });   
 }
         
 })();

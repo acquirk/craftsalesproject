@@ -206,17 +206,8 @@
         </div>
     </div>
 
-
+    <ng-csv-import content="csv.content" material md-button-class="md-icon-button md-raised md-accent" md-svg-icon="file:ic_file_upload_24px" header="csv.header" separator="csv.separator" result="csv.result" accept="csv.accept"></ng-csv-import>
     <h2> Today </h2>
-    <br>
-    <div class="row">
-        <div ng-repeat="sale in vm.sales | orderBy:[0].date:reverse" class="panel panel-default">
-            <div class="panel-body">{{sale[1]}}</div>
-            <div>{{sale[0].productName}}</div>
-            <br/>
-        </div>
-
-    </div>
 </main>
 
 <div class="row">
@@ -314,21 +305,3 @@
     })
 
 </script>
-
-
-<div ng-app="angularjs-starter" ng-controller="MainCtrl">
-    <fieldset data-ng-repeat="choice in choices">
-        <select>
-            <option>Mobile</option>
-            <option>Office</option>
-            <option>Home</option>
-        </select>
-        <input type="text" ng-model="choice.name" name="" placeholder="Enter mobile number">
-        <button class="remove" ng-show="$last" ng-click="removeChoice()">-</button>
-    </fieldset>
-    <button class="addfields" ng-click="addNewChoice()">Add fields</button>
-
-    <div id="choicesDisplay">
-        {{ choices }}
-    </div>
-</div>

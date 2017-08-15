@@ -6,7 +6,7 @@
 
     reportsCtrl.$inject = ['$location', 'meanData'];
 
-    function reportsCtrl($location, meanData) {
+    function reportsCtrl($location, meanData, ngCsvImport) {
         var vm = this;
 
         vm.converting = false;

@@ -2,36 +2,29 @@ nav {
     background-color: white;
     height: 60px;
 }
-
 .label-forgotpw {
     text-align: right;
 }
-
 .img-fluid {
     padding-top: 9px;
     padding-left: 20px;
     width: 70px;
 }
-
 .img-icon {
     padding-top: 10px;
     padding-bottom: 5px;
     padding-right: 15px;
     width: 35px;
 }
-
 .img-line {
-    padding-top:5px;
+    padding-top: 5px;
     padding-right: 5px;
     height: 35px;
-
 }
-
 .nav-link {
     font-size: 9px;
     padding-left: 3px;
 }
-
 .nav-title {
     padding-left: 10px;
     position: absolute;
@@ -40,12 +33,9 @@ nav {
     transform: translateY(-50%);
     color: #6D6D6D;
 }
-
-
 .form-control {
     font-size: 70%;
 }
-
 .input-group {
     padding-right: 10px;
     /* change the vertical position */
@@ -53,20 +43,16 @@ nav {
     width: 15%;
     float: right;
 }
-
 .fa-file-text-o {
-  padding-left: 10px;
+    padding-left: 10px;
 }
-
 .fa-users {
-  padding-right: px;
+    padding-right: px;
 }
-
 .input-group {
-    padding-top:2px;
+    padding-top: 2px;
 }
-
-#custom-search-input button{
+#custom-search-input button {
     margin: 2px 0 0 0;
     background: none;
     box-shadow: none;
@@ -75,84 +61,70 @@ nav {
     padding: 0 8px 0 10px;
     border-left: solid 1px #ccc;
 }
-
-#custom-search-input button:hover{
+#custom-search-input button:hover {
     border: 0;
     box-shadow: none;
     border-left: solid 1px #ccc;
 }
-.stylish-input-group .input-group-addon{
+.stylish-input-group .input-group-addon {
     background: white !important;
 }
-.stylish-input-group .form-control{
-	border-right:0;
-	box-shadow:0 0 0;
-	border-color:#ccc;
+.stylish-input-group .form-control {
+    border-right: 0;
+    box-shadow: 0 0 0;
+    border-color: #ccc;
 }
-.stylish-input-group button{
-    border:0;
-    background:transparent;
+.stylish-input-group button {
+    border: 0;
+    background: transparent;
 }
-
 .h1-login {
-  text-align: center;
-  font: "Lucida Grande", Helvetica, Arial, sans-serif;
+    text-align: center;
+    font: "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-
 .label-login {
     font-size: 13pt;
     color: #3F3F3F;
 }
-
 .btn-success {
-  font-size
-  height: 100px;
+    font-size height: 100px;
 }
-
 .reports {
-  padding-top: 25px;
-  padding-bottom: 10px;
+    padding-top: 25px;
+    padding-bottom: 10px;
 }
 .nav-link {
     font-size: 9px;
     padding-left: 3px;
 }
-
 .password {
     margin: auto;
 }
-
 .form-control {
     font-size: 70%;
 }
-
 .btn {
     font-size: 70%;
 }
-
 .table {
-  background-color: #FFFFFF;
-  margin: auto;
-  box-sizing: border-box;
-  padding: 30px;
-  max-width: 70%;
-  min-width: 36%;
-  }
-
+    background-color: #FFFFFF;
+    margin: auto;
+    box-sizing: border-box;
+    padding: 30px;
+    max-width: 70%;
+    min-width: 36%;
+}
 .input-group {
-  width: 25%;
-  float: right;
+    width: 25%;
+    float: right;
 }
-
 .fa-file-text-o {
-  padding-left: 10px;
+    padding-left: 10px;
 }
-
 .fa-users {
-  padding-right: 10px;
+    padding-right: 10px;
 }
-
-#custom-search-input button{
+#custom-search-input button {
     margin: 2px 0 0 0;
     background: none;
     box-shadow: none;
@@ -161,67 +133,56 @@ nav {
     padding: 0 8px 0 10px;
     border-left: solid 1px #ccc;
 }
-
-#custom-search-input button:hover{
+#custom-search-input button:hover {
     border: 0;
     box-shadow: none;
     border-left: solid 1px #ccc;
 }
-
 .remember {
-  font-size: 10pt;
-  color: #A5A5A5;
+    font-size: 10pt;
+    color: #A5A5A5;
 }
-
 .container {
     margin: auto;
 }
-
 .text-center {
-   text-align: center;
+    text-align: center;
 }
-
 .main {
-  background-color: #E9E9E9;
-  margin: auto;
-  border: 1px solid #95989A;
-  box-sizing: border-box;
-  padding: 30px;
-  max-width: 36%;
-  min-width: 36%;
-  }
-
-
+    background-color: #E9E9E9;
+    margin: auto;
+    border: 1px solid #95989A;
+    box-sizing: border-box;
+    padding: 30px;
+    max-width: 36%;
+    min-width: 36%;
+}
 .mainDash {
-  background-color: #FFFFFF;
-  box-sizing: border-box;
-  padding: 20px;
-  max-width: 40%;
-  min-width: 40%;
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+    padding: 20px;
+    max-width: 40%;
+    min-width: 40%;
     float: left;
     margin-left: 114px;
     box-shadow: 2px 2px 1px #A7A7A7;
-  }
-
+}
 .mainDash2 {
-  background-color: #FFFFFF;
-  box-sizing: border-box;
-  padding: 20px;
-  max-width: 40%;
-  min-width: 40%;
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+    padding: 20px;
+    max-width: 40%;
+    min-width: 40%;
     float: right;
     margin-right: 115px;
     box-shadow: 2px 2px 1px #A7A7A7;
-  }
-
+}
 .dashProd {
     font-size: 10pt;
-  }
-
-.ng-scope {
-   background-color: #E9E9E9;
 }
-
+.ng-scope {
+    background-color: #E9E9E9;
+}
 
 /*.text-center {
   background-color: #FFFFFF;
@@ -236,99 +197,91 @@ nav {
 */
 
 .login-or {
-  position: relative;
-  font-size: 18px;
-  color: #aaa;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+    position: relative;
+    font-size: 18px;
+    color: #aaa;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
-
 .span-or {
-  display: block;
-  position: absolute;
-  left: 50%;
-  top: -2px;
-  margin-left: -25px;
-  background-color: #fff;
-  width: 50px;
-  text-align: center;
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: -2px;
+    margin-left: -25px;
+    background-color: #fff;
+    width: 50px;
+    text-align: center;
 }
-
 .hr-or {
-  background-color: #cdcdcd;
-  height: 1px;
-  margin-top: 0px !important;
-  margin-bottom: 0px !important;
+    background-color: #cdcdcd;
+    height: 1px;
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
 }
-
 .black-background {
-  background-color: #3F3F3F;
-  border-color: #3F3F3F;
+    background-color: #3F3F3F;
+    border-color: #3F3F3F;
 }
 
 /* Line Chart */
 
-#line{
-	background-color: white;
-	width:1400px;
+#line {
+    background-color: white;
+    width: 1400px;
     display: block;
     margin: 0 auto;
     box-shadow: 2px 2px 1px #A7A7A7;
     text-align: center;
     padding-top: 40px;
 }
-
 .salesTrends {
     font-size: 30px;
 }
-
-
-
-#chart{
-	background-color: white;
-	border: ;
+#chart {
+    background-color: white;
+    border: ;
 }
-
-.bar{
-	fill: #A5A5A5;
-	shape-rendering: crispEdges;
+.bar {
+    fill: #A5A5A5;
+    shape-rendering: crispEdges;
 }
-.bar-label{
-	fill: black;
-	text-anchor: middle;
-	font-size: 18px;
+.bar-label {
+    fill: black;
+    text-anchor: middle;
+    font-size: 18px;
 }
 .axis path,
-.axis line{
-	fill: none;
-	stroke: #000;
-	shape-rendering: crispEdges;
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
 }
 .gridline path,
-.gridline line{
-	fill: none;
-	stroke: #ccc;
-	shape-rendering: crispEdges;
+.gridline line {
+    fill: none;
+    stroke: #ccc;
+    shape-rendering: crispEdges;
 }
-.trendline{
-	fill: none;
-	stroke: #ccc;
-	stroke-width: 2px;
+.trendline {
+    fill: none;
+    stroke: #ccc;
+    stroke-width: 2px;
 }
-.area{
-	opacity: 0;
-	fill: #ccc;
-	stroke: #ccc;
-	stroke-width: 1px;
+.area {
+    opacity: 0;
+    fill: #ccc;
+    stroke: #ccc;
+    stroke-width: 1px;
 }
 
 /*Bar Chart */
 
-#bar{
-	background-color: white;
-	width:1400px;
+#bar {
+    background-color: white;
+    width: 1400px;
     display: block;
     margin: 0 auto;
     box-shadow: 2px 2px 1px #A7A7A7;
@@ -336,54 +289,47 @@ nav {
     padding-top: 40px;
     padding-bottom: 30px;
 }
-
 .totalSales {
     font-size: 30px;
 }
-
-#chart2{
-	background-color: #F5F2EB;
-	border: 1px solid #CCC;
+#chart2 {
+    background-color: #F5F2EB;
+    border: 1px solid #CCC;
     box-shadow: 2px 2px 1px #A7A7A7;
 }
-.bar2{
-	fill: purple;
-	shape-rendering: crispEdges;
+.bar2 {
+    fill: purple;
+    shape-rendering: crispEdges;
 }
-.bar-label2{
-	fill: white;
-	text-anchor: end;
-	font-size: 18px;
+.bar-label2 {
+    fill: white;
+    text-anchor: end;
+    font-size: 18px;
 }
 
 /* Progress Bar */
 
 #progress {
-  padding: 20px;
-    transform:;
+    padding: 20px;
+    transform: ;
 }
-
 .progress {
     font-size: 50px;
     color: #4DA557;
     text-align: center;
     margin: 0 auto;
 }
-
 .progress2 {
     font-size: 30px;
     color: #393939;
     text-align: center;
     margin: 0 auto;
 }
-
-
 .radial-progress {
     font-family: Arial, sans-serif;
     font-size: 30px;
     font-weight: bold;
 }
-
 svg {
     display: block;
     margin: 0 auto;
@@ -393,73 +339,73 @@ svg {
   REPORTS MODAL
 */
 
+#modal-button {
+    margin-bottom: 2.0em;
+}
 .modal-title {
-  display: inline-block;
+    display: inline-block;
 }
-
 .btn {
-  color: #1c1c1c;
+    color: #1c1c1c;
 }
-
 a.btn:hover {
-  color: #636363;
+    color: #636363;
 }
-
 a.btn:active {
-  color: #a8a8a8;
+    color: #a8a8a8;
 }
-
 a.btn:visited {
-    color: #1c1c1c ;
+    color: #1c1c1c;
 }
-
 #modalTab {
-  font-size: 12px;
+    font-size: 12px;
 }
-
 .tab-content label {
-  margin-top: 0.5em;
+    margin-top: 0.5em;
 }
-
 #fileUpload {
-  margin: 1.0em 0 1.0em 0;
+    margin: 1.0em 0 1.0em 0;
+}
+#modal-btn {
+    margin: 1.0em 0.5em 0em 0.5em;
 }
 
 /*
-  MODAL ADD FORM LINE (Not working currently)
+  REPORTS LIST
 */
 
-fieldset {
-    background: #FCFCFC;
-    padding: 16px;
-    border: 1px solid #D5D5D5;
-}
-.addfields{
-    margin: 10px 0;
+
+/* use for grid display if needed
+.grid-item {
+  border: 0.5px solid #d8d8d8;
+  border-radius: 5px;
+  padding: 0.5em 0.5em 0.5em 0.5em;
+  display: inline;
+  -webkit-box-shadow: -3px 3px 13px 0px rgba(0,0,0,0.08);
+  -moz-box-shadow: -3px 3px 13px 0px rgba(0,0,0,0.08);
+  box-shadow: -3px 3px 13px 0px rgba(0,0,0,0.08);
 }
 
-#choicesDisplay {
-    padding: 10px;
-    background: rgb(227, 250, 227);
-    border: 1px solid rgb(171, 239, 171);
-    color: rgb(9, 56, 9);
+.grid-container {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 15px 15px;
 }
+*/
 
-.remove{
-    background: #C76868;
-    color: #FFF;
-    font-weight: bold;
-    font-size: 21px;
-    border: 0;
-    cursor: pointer;
-    display: inline-block;
-    padding: 4px 9px;
-    vertical-align: top;
-    line-height: 100%;
+.reportLabel {
+    font-weight: 200;
+    font-size: 12px;
+    padding-top: 1.0em;
+    display: inline;
 }
-
-input[type="text"],
-select {
-    padding:5px;
+#report-cell {
+    border: 0.5px solid #d8d8d8;
+    border-radius: 5px;
+    padding: 0.5em 0.5em 0.5em 0.5em;
+    margin: 0.25em 0.25em 0.25em 0.25em;
+    -webkit-box-shadow: -3px 3px 13px 0px rgba(0, 0, 0, 0.08);
+    -moz-box-shadow: -3px 3px 13px 0px rgba(0, 0, 0, 0.08);
+    box-shadow: -3px 3px 13px 0px rgba(0, 0, 0, 0.08);
 }
-

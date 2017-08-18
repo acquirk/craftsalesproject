@@ -11,8 +11,11 @@ This application will be used to visualize and leverage sales data for Cardinal 
 ## Future Additions
 - Graphs
 - Data
- Import XSLX
- Import PDF
+
+Import XSLX
+
+Import PDF
+
 - Style
 - Map
 - Change Password

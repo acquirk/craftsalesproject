@@ -1,0 +1,26 @@
+nav {
+    background-color: white;
+    height: 60px;
+}
+
+.nav-link {
+    font-size: 9px;
+    padding-left: 3px;
+}
+
+.nav-title {
+    padding-left: 10px;
+    position: absolute;
+    /* change the vertical position */
+    top: 3.3%;
+    transform: translateY(-50%);
+    color: #6D6D6D;
+}
+
+.fa-file-text-o {
+    padding-left: 10px;
+}
+
+.fa-users {
+    padding-right: 10px;
+}

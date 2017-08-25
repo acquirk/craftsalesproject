@@ -5,42 +5,30 @@
             <div class="col-md-6 col-sm-12">
               <h3> Adam's Favorite Liquor </h3>
               <ol>
-                  <li>Songbird Coffee</li>
-                  <li>Flora</li>
-                  <li>Lake House</li>
-                  <li>Tiki Rum</li>
-                  <li>Gin</li>
-                  <li>Bramble</li>
-                  <li>Vodka</li>
+                  <li ng-repeat = "x in vm.spirits">{{ x }}</li>
               </ol>
             </div>
             <div class="col-md-6 col-sm-12">
               <h3> Adam's Projects</h3>
                <ul>
-                   <li> Cardinal Spirits Website</li>
-                   <li> Spirit Finder</li>
-                   <li> Quirk Adventures</li>
-                   <li> Foundation: WordPress Theme</li>
-                   <li> bespoke </li>
+                   <li ng-repeat = "(x,y) in vm.projects | orderBy:y[1]">{{ y[0] }}</li>
               </ul>
             </div>
             </div>
             <h3> Adam's Favorite Places</h3>
             <div class="row">
                 <div class="col-md-6 col-sm-12">
-                    <select class="form-control">
-                        <option>Bloomington</option>
-                        <option>Space</option>
-                        <option>Cincinnati</option>
+                    <select class="form-control" ng-model = "vm.pic">
+                        <option ng-repeat = "x in vm.places">{{ x }}</option>
                     </select>
                 </div>
                 <div class="col-md-2">
-                    <button type="button" class="btn btn-primary">Button</button>
+                    <button type="button" class="btn btn-primary" ng-click="vm.click()">Button</button>
                 </div>
-            
+
             </div>
-        
-      <img src="http://static1.squarespace.com/static/5249c667e4b085b754f2b0e7/t/53614887e4b0b9aa739ba5eb/1503438601932/?format=1500w">
+
+      <img src="{{ vm.pic }}.jpg">
         </div>
       <div>
         {{vm.test}}

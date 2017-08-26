@@ -1,0 +1,8 @@
+.table {
+    background-color: #FFFFFF;
+    margin: auto;
+    box-sizing: border-box;
+    padding: 30px;
+    max-width: 70%;
+    min-width: 36%;
+}

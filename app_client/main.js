@@ -12,36 +12,43 @@
             .when('/register', {
                 templateUrl: '/auth/register/register.view.html',
                 controller: 'registerCtrl',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                css: '/public/stylesheets/main.css'
             })
             .when('/login', {
                 templateUrl: '/auth/login/login.view.html',
                 controller: 'loginCtrl',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                css: ['/public/stylesheets/main.css', '/public/stylesheets/login.css']
             })
             .when('/users', {
                 templateUrl: '/users/users.view.html',
                 controller: 'usersCtrl',
                 controllerAs: 'vm',
+                css: ['/public/stylesheets/main.css', '/public/stylesheets/users.css']
             })
             .when('/settings', {
                 templateUrl: '/settings/settings.html',
                 controller: 'settingsCtrl',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                css: '/public/stylesheets/main.css'
             })
             .when('/reports', {
                 templateUrl: '/reports/reports.html',
                 controller: 'reportsCtrl',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                css: ['/public/stylesheets/main.css', '/public/stylesheets/reports.css']
             })
             .when('/dashboard', {
                 templateUrl: '/dashboard/dashboard.html',
                 controller: 'dashboardCtrl',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                css: ['/public/stylesheets/main.css', '/public/stylesheets/dashboard.css']
             })
             .when('/splash', {
                 templateUrl: '/splash/splash.view.html',
-                controllerAs: 'vm'
+                controllerAs: 'vm',
+                css: '/public/stylesheets/main.css'
             })
             .otherwise({
                 redirectTo: '/'

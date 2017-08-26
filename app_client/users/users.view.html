@@ -1,7 +1,5 @@
 <navigation></navigation>
 
-
-
 <div class="container bootstrap snippet">
     <div class="row">
         <h1> Users </h1>
@@ -17,42 +15,40 @@
                                     <th><span>Email</span></th>
                                     <th>&nbsp;</th>
                                 </tr>
-                            </thead>
+                            </thead> <!-- Column Header -->
                             <tbody ng-repeat="user in vm.users">
                                 <tr>
                                     <td>
-
                                         <a href="#" class="user-link">{{user.firstName}} {{user.lastName}} {{user._id}}</a>
-
-                                    </td>
+                                    </td> <!-- User Name -->
                                     <td class="text-center">
                                         <span class="label label-default" ng-if="user.admin == '2'">Admin</span>
                                         <span class="btn btn-danger" ng-if="user.admin == '0'" ng-click="vm.permissions(user._id, user.admin)">Pending</span>
                                         <span class="btn btn-success" ng-if="user.admin == '1'" ng-click="vm.permissions(user._id, user.admin)">Active</span>
-                                    </td>
+                                    </td> <!-- User Status -->
                                     <td>
                                         <a href="#">{{user.email}}</a>
-                                    </td>
+                                    </td> <!-- User Email -->
                                     <td style="width: 20%;">
                                         <a href="#" class="table-link">
                                             <span class="fa-stack">
-                                                      <i class="fa fa-square fa-stack-2x"></i>
-                                                      <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
-                                                  </span>
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                                            </span>
                                         </a>
                                         <a href="#" class="table-link danger">
                                             <span class="fa-stack">
-                                                      <i class="fa fa-square fa-stack-2x"></i>
-                                                      <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-                                                  </span>
+                                                <i class="fa fa-square fa-stack-2x"></i>
+                                                <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                                            </span>
                                         </a>
-                                    </td>
+                                    </td> <!-- User Buttons -->
                                 </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                            </tbody> <!-- User List -->
+                        </table> <!-- Table User List -->
+                    </div> <!-- Responsive Table -->
+                </div> <!-- Main Box Body -->
+            </div> <!-- Main Box No Header -->
+        </div> <!-- Column -->
+    </div> <!-- Row -->
+</div> <!-- Container -->

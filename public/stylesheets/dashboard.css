@@ -1,38 +1,137 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  color: #6D6D6D;
-  background-color: #F2F2F2;
-}
-
-a {
-  color: #6D6D6D;
-}
-
-h1 {
-  text-align: center;
-  padding: 25px;
-  font: 20px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #F2F2F2;
-}
-
-h2 {
-  text-align: left;
-  padding-top: 40px;
-  font: 15px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #F2F2F2;
-}
-
-h3 {
-  text-align: center;
-  line-height: 300%;
-}
-
-nav {
-  background-color: white;
-}
-
-label {
+.label {
   font-size: 13pt;
   color: #3F3F3F;
+}
+.mainDash {
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+    padding: 20px;
+    max-width: 40%;
+    min-width: 40%;
+    float: left;
+    margin-left: 114px;
+    box-shadow: 2px 2px 1px #A7A7A7;
+}
+.mainDash2 {
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+    padding: 20px;
+    max-width: 40%;
+    min-width: 40%;
+    float: right;
+    margin-right: 115px;
+    box-shadow: 2px 2px 1px #A7A7A7;
+}
+
+.dashProd {
+    font-size: 10pt;
+}
+
+/* Line Chart */
+
+#line {
+    background-color: white;
+    width: 1400px;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 2px 2px 1px #A7A7A7;
+    text-align: center;
+    padding-top: 40px;
+}
+.salesTrends {
+    font-size: 30px;
+}
+.bar {
+    fill: #A5A5A5;
+    shape-rendering: crispEdges;
+}
+#chart {
+    background-color: white;
+    border: ;
+}
+.bar-label {
+    fill: black;
+    text-anchor: middle;
+    font-size: 18px;
+}
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+.gridline path,
+.gridline line {
+    fill: none;
+    stroke: #ccc;
+    shape-rendering: crispEdges;
+}
+.trendline {
+    fill: none;
+    stroke: #ccc;
+    stroke-width: 2px;
+}
+.area {
+    opacity: 0;
+    fill: #ccc;
+    stroke: #ccc;
+    stroke-width: 1px;
+}
+
+/*Bar Chart */
+
+#bar {
+    background-color: white;
+    width: 1400px;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 2px 2px 1px #A7A7A7;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 30px;
+}
+.totalSales {
+    font-size: 30px;
+}
+#chart2 {
+    background-color: #F5F2EB;
+    border: 1px solid #CCC;
+    box-shadow: 2px 2px 1px #A7A7A7;
+}
+.bar2 {
+    fill: purple;
+    shape-rendering: crispEdges;
+}
+.bar-label2 {
+    fill: white;
+    text-anchor: end;
+    font-size: 18px;
+}
+
+/* Progress Bar */
+
+#progress {
+    padding: 20px;
+    transform: ;
+}
+.progress {
+    font-size: 50px;
+    color: #4DA557;
+    text-align: center;
+    margin: 0 auto;
+}
+.progress2 {
+    font-size: 30px;
+    color: #393939;
+    text-align: center;
+    margin: 0 auto;
+}
+.radial-progress {
+    font-family: Arial, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+}
+svg {
+    display: block;
+    margin: 0 auto;
 }

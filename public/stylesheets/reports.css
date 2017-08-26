@@ -1,0 +1,77 @@
+/*
+  REPORTS MODAL
+*/
+
+#modal-button {
+    margin-bottom: 2.0em;
+}
+.modal-title {
+    display: inline-block;
+}
+.btn {
+    color: #1c1c1c;
+}
+a.btn:hover {
+    color: #636363;
+}
+a.btn:active {
+    color: #a8a8a8;
+}
+a.btn:visited {
+    color: #1c1c1c;
+}
+#modalTab {
+    font-size: 12px;
+}
+.tab-content label {
+    margin-top: 0.5em;
+}
+#fileUpload {
+    margin: 1.0em 0 1.0em 0;
+}
+#modal-btn {
+    margin: 1.0em 0.5em 0em 0.5em;
+}
+
+/*
+  REPORTS LIST
+*/
+
+/* use for grid display if needed
+.grid-item {
+  border: 0.5px solid #d8d8d8;
+  border-radius: 5px;
+  padding: 0.5em 0.5em 0.5em 0.5em;
+  display: inline;
+  -webkit-box-shadow: -3px 3px 13px 0px rgba(0,0,0,0.08);
+  -moz-box-shadow: -3px 3px 13px 0px rgba(0,0,0,0.08);
+  box-shadow: -3px 3px 13px 0px rgba(0,0,0,0.08);
+}
+
+.grid-container {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 15px 15px;
+}
+*/
+
+.reports {
+    padding-top: 25px;
+    padding-bottom: 10px;
+}
+.reportLabel {
+    font-weight: 200;
+    font-size: 12px;
+    padding-top: 1.0em;
+    display: inline;
+}
+#report-cell {
+    border: 0.5px solid #d8d8d8;
+    border-radius: 5px;
+    padding: 0.5em 0.5em 0.5em 0.5em;
+    margin: 0.25em 0.25em 0.25em 0.25em;
+    -webkit-box-shadow: -3px 3px 13px 0px rgba(0, 0, 0, 0.08);
+    -moz-box-shadow: -3px 3px 13px 0px rgba(0, 0, 0, 0.08);
+    box-shadow: -3px 3px 13px 0px rgba(0, 0, 0, 0.08);
+}

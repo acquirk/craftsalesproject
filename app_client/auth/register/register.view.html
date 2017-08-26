@@ -4,6 +4,7 @@
     <h1>Cardinal Reports</h1>
     <div class="row">
         <div class="main">
+            <!-- Input Group -->
             <form role="form" ng-submit="vm.onSubmit()">
                 <div class="form-group">
                     <label for="inputEmail">Email</label>
@@ -25,12 +26,13 @@
                     <label for="inputPassword">Confirm Password</label>
                     <input type="password" class="form-control" id="inputPassword" ng-model="vm.credentials.password">
                 </div>
-                <button type="submit" class="btn btn btn-primary pull-right black-background">Register</button>
+                <button type="submit" class="btn btn btn-primary pull-right">Register</button>
                 <br>
                 <br>
             </form>
         </div>
         <br>
+        <!-- Existing Account Redirection -->
         <div class="main text-center">
             <a class="password" href="/login">Have an account? Log In</a>
         </div>

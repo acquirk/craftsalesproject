@@ -1,0 +1,22 @@
+.label-forgotpw {
+    text-align: right;
+}
+
+.h1-login {
+    text-align: center;
+    font: "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+.label-login {
+    font-size: 13pt;
+    color: #3F3F3F;
+}
+
+.password {
+    margin: auto;
+}
+
+.remember {
+    font-size: 10pt;
+    color: #A5A5A5;
+}

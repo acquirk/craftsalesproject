@@ -1,4 +1,4 @@
-nav {
+/*nav {
     background-color: white;
     height: 60px;
 }
@@ -28,17 +28,16 @@ nav {
 .nav-title {
     padding-left: 10px;
     position: absolute;
-    /* change the vertical position */
     top: 3.3%;
     transform: translateY(-50%);
     color: #6D6D6D;
 }
+
 .form-control {
     font-size: 70%;
 }
 .input-group {
     padding-right: 10px;
-    /* change the vertical position */
     transform: translateY(20%);
     width: 15%;
     float: right;
@@ -49,9 +48,7 @@ nav {
 .fa-users {
     padding-right: px;
 }
-.input-group {
-    padding-top: 2px;
-}
+
 #custom-search-input button {
     margin: 2px 0 0 0;
     background: none;
@@ -78,6 +75,7 @@ nav {
     border: 0;
     background: transparent;
 }
+
 .h1-login {
     text-align: center;
     font: "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -93,13 +91,11 @@ nav {
     padding-top: 25px;
     padding-bottom: 10px;
 }
-.nav-link {
-    font-size: 9px;
-    padding-left: 3px;
-}
+
 .password {
     margin: auto;
 }
+
 .form-control {
     font-size: 70%;
 }
@@ -184,7 +180,7 @@ nav {
     background-color: #E9E9E9;
 }
 
-/*.text-center {
+.text-center {
   background-color: #FFFFFF;
   margin: auto;
   border: 1px solid #95989A;
@@ -194,7 +190,6 @@ nav {
   min-width: 36%;
     height:40px;
   }
-*/
 
 .login-or {
     position: relative;
@@ -220,10 +215,6 @@ nav {
     height: 1px;
     margin-top: 0px !important;
     margin-bottom: 0px !important;
-}
-.black-background {
-    background-color: #3F3F3F;
-    border-color: #3F3F3F;
 }
 
 /* Line Chart */

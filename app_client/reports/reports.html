@@ -2,6 +2,7 @@
 <main>
     <div class="container">
         <h1 class="reports"> Reports </h1>
+        <!-- Upload Report Modal -->
         <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#uploadmodal">Upload Report</button>
 
         <div class="modal fade" id="uploadmodal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
@@ -14,6 +15,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
+                      <!-- Modal Nav Tabs -->
                         <ul class="nav nav-tabs" id="tabs" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link active" id="modalTab" data-toggle="tab" href="#existing" role="tab">Existing Account</a>
@@ -24,9 +26,11 @@
                             <li class="nav-item">
                                 <a class="nav-link" id="modalTab" data-toggle="tab" href="#file" role="tab">File</a>
                             </li>
-                        </ul>
+                        </ul> <!-- End Modal Nav Tabs -->
                         <br>
+                        <!-- Modal Tab Content -->
                         <div class="tab-content">
+                            <!-- Existing Account Tab -->
                             <div class="tab-pane show active" id="existing" role="tabpanel">
                                 <div class="container-fluid" ng-submit="vm.onAdd()">
                                     <div class="row">
@@ -53,7 +57,9 @@
                                     <button type="button" class="btn btn-secondary pull-right" id="modal-btn" data-dismiss="modal">Close</button>
                                     <button type="submit" class="btn btn-primary pull-right" id="modal-btn">Add</button>
                                 </div>
-                            </div>
+                            </div> <!-- Existing Account End -->
+
+                            <!-- New Account Tab -->
                             <div class="tab-pane fade" id="new" role="tabpanel">
                                 <div class="container-fluid" ng-submit="vm.onRegister()">
                                     <div class="row">
@@ -120,7 +126,9 @@
                                     <button type="button" class="btn btn-secondary pull-right" id="modal-btn" data-dismiss="modal">Close</button>
                                     <button type="submit" class="btn btn-primary pull-right" id="modal-btn">Register</button>
                                 </div>
-                            </div>
+                            </div> <!-- New Account Tab End -->
+
+                            <!-- File Tab -->
                             <div class="tab-pane fade" id="file" role="tabpanel">
                                 <div class="container">
                                     <div class="row">
@@ -195,28 +203,24 @@
                                     </div>
                                     <button type="button" class="btn btn-secondary pull-right" id="modal-btn" data-dismiss="modal">Close</button>
                                 </div>
-                            </div>
-                        </div>
-                        <!-- Tab Content -->
+                            </div> <!-- File Tab End -->
+                        </div> <!-- Modal Tab Content End -->
 
                         <!-- <div class="modal-footer">
-								<button type="submit" class="btn btn-primary">Register</button>
-				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				      </div> -->
-                    </div>
-                    <!-- Modal Body -->
-                </div>
-                <!-- Modal Content -->
-            </div>
-            <!-- Modal Dialog -->
-        </div>
-        <!-- Modal End -->
+          								<button type="submit" class="btn btn-primary">Register</button>
+          				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          				      </div> -->
+                    </div> <!-- Modal Body End -->
+                </div> <!-- Modal Content End -->
+            </div> <!-- Modal Dialog End -->
+        </div> <!-- Modal End -->
 
         <br>
         <h2> Today </h2>
         <br>
 
         <!-- <div class="grid-container"> -->
+        <!-- Reports List -->
         <div class="container">
             <div class="row">
                 <div ng-repeat="sale in vm.sales | orderBy:[0].date:reverse" class="col-md-3" id="report-cell">
@@ -242,10 +246,8 @@
                     <br/>
                 </div>
             </div>
-        </div>
-
+        </div> <!-- End Reports List -->
     </div>
-    <!-- Main Container -->
 </main>
 <script>
     $('#tabs a').click(function(e) {

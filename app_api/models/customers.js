@@ -6,8 +6,7 @@ var commentsSchema = new mongoose.Schema({
     userID: String,
     comment: String,
     date: {
-        type: Date,
-        default: Date.now
+        type: Date
     }
 
 });
@@ -17,9 +16,9 @@ var salesSchema = new mongoose.Schema({
     caseCount: Number,
     bottleCount: Number,
     date: {
-        type: Date,
-        default: Date.now
-    }
+        type: Date
+    },
+    reportID: String
 });
 
 var customerSchema = new mongoose.Schema({

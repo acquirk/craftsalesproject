@@ -1,6 +1,7 @@
 <navigation></navigation>
 <main>
-    <div class="container">
+  <div ng-hide="!vm.load">Uploading. Please be patient. Should we put a loading gif here? Do you say gif with a hard or soft g?</div>
+    <div class="container" ng-hide="vm.load">
         <h1 class="reports"> Reports </h1>
         <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#uploadmodal">Upload Report</button>
 
@@ -47,6 +48,12 @@
                                         <div class="col-md-3">
                                             <label for="inputPassword">Bottle Count</label>
                                             <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.bottleCount">
+                                        </div>
+                                        <div class="col-md-3">
+                                          <div id="wrapper" ng-app="myApp">
+                                            <p>{{datePicker || "00/00/0000"}}</p>
+                                            <input type="text" ng-model="datePicker" datepicker />
+                                          </div>
                                         </div>
                                     </div>
                                     <!-- <a class="btn pull-right" href="#"><i class="fa fa-plus-square-o fa-2x" aria-hidden="true"></i></a> -->
@@ -115,12 +122,17 @@
                                             <label for="inputPassword">Bottle Count</label>
                                             <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.bottleCount">
                                         </div>
+                                         <div id="wrapper" ng-app="myApp">
+                                            <p>{{datePicker || "00/00/0000"}}</p>
+                                            <input type="text" ng-model="datePicker" datepicker />
+                                          </div>
+                                        </div>
                                     </div>
                                     <!-- <a class="btn pull-right" id="plus-one" href="#"><i class="fa fa-plus-square-o fa-2x" aria-hidden="true"></i></a> -->
                                     <button type="button" class="btn btn-secondary pull-right" id="modal-btn" data-dismiss="modal">Close</button>
                                     <button type="submit" class="btn btn-primary pull-right" id="modal-btn">Register</button>
                                 </div>
-                            </div>
+                            
                             <div class="tab-pane fade" id="file" role="tabpanel">
                                 <div class="container">
                                     <div class="row">
@@ -190,11 +202,12 @@
                                                 <select ng-model="vm.credentials.bottleCount">
                                                     <option ng-repeat="(x,y) in vm.options[0]" value="{{x}}">{{x}} : {{y}}</option>
                                                 </select>:Bottle Count</div>
-                                            <button ng-click="vm.convert2(0)" class="col-sm-12">Convert to JSON</button>
+                                            <button ng-click="vm.convert2(0)" class="col-sm-12" data-dismiss="modal">Convert to JSON</button>
                                         </div>
                                     </div>
                                     <button type="button" class="btn btn-secondary pull-right" id="modal-btn" data-dismiss="modal">Close</button>
                                 </div>
+                            </div>
                             </div>
                         </div>
                         <!-- Tab Content -->
@@ -209,7 +222,6 @@
                 <!-- Modal Content -->
             </div>
             <!-- Modal Dialog -->
-        </div>
         <!-- Modal End -->
 
         <br>
@@ -240,11 +252,16 @@
                     <label class="reportLabel">Case Count:</label>
                     <div>{{sale[0].caseCount}}</div>
                     <br/>
+                    <label class="reportLabel">Date:</label>
+                    <div>{{sale[0].date}}</div>
+                    <br/>
+                    <div flex-gt-xs>
+      <md-datepicker ng-model="vm.myDate" md-placeholder="Enter date"></md-datepicker>
+    </div>
                 </div>
             </div>
         </div>
-
-    </div>
+  </div>
     <!-- Main Container -->
 </main>
 <script>

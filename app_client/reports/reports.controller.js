@@ -10,10 +10,11 @@
         var vm = this;
 
         vm.converting = false;
-
+        vm.load = false;
         vm.customers = [];
         vm.names = [];
         vm.sales = [];
+        vm.myDate;
         meanData.salesGrab()
             .success(function (data) {
                 vm.customers = data;
@@ -54,6 +55,7 @@
             productName: "",
             caseCount: "",
             bottleCount: "",
+            reportID: "",
             json: ""
         };
 
@@ -157,10 +159,12 @@
             vm.example = JSON.stringify(vm.options[0]);
             console.log("options: " + JSON.stringify(vm.options[0]));
             vm.converting = true;
+            vm.credentials.reportID = Date.now();
         };
 
         vm.convert2 = function (x) {
             var json = eval(vm.options);
+            vm.load = true;
             vm.credentials.json = {
                 json: json[x]
             };
@@ -168,6 +172,7 @@
             meanData.upload(vm.credentials).success(function (data) {
                 vm.convert2(x + 1);
             }).error(function (e) {
+                vm.load = false;
                 console.log(e);
             });
             console.log(vm.credentials.json);

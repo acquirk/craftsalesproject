@@ -45,16 +45,7 @@
            <form role="form" ng-submit="vm.onSubmit()">
              <div class="form-group">
                <label class ="label-login" for="inputEmail">Top Locations</label>
-                <p class="dashProd">1. Location</p>
-                 <p class="dashProd">2. Location</p>
-                 <p class="dashProd">3. Location</p>
-                 <p class="dashProd">4. Location</p>
-                 <p class="dashProd">5. Location</p>
-                 <p class="dashProd">6. Location</p>
-                 <p class="dashProd">7. Location</p>
-                 <p class="dashProd">8. Location</p>
-                 <p class="dashProd">9. Location</p>
-                 <p class="dashProd">10. Location</p>
+                 <p class="dashProd" ng-repeat="(x,y) in vm.sales|limitTo:10"> {{x + 1}}  {{y[0]}} {{y[1]}}</p>
              </div>
            </form>
          </div><br>

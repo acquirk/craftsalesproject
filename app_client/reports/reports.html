@@ -49,12 +49,6 @@
                                             <label for="inputPassword">Bottle Count</label>
                                             <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.bottleCount">
                                         </div>
-                                        <div class="col-md-3">
-                                          <div id="wrapper" ng-app="myApp">
-                                            <p>{{datePicker || "00/00/0000"}}</p>
-                                            <input type="text" ng-model="datePicker" datepicker />
-                                          </div>
-                                        </div>
                                     </div>
                                     <!-- <a class="btn pull-right" href="#"><i class="fa fa-plus-square-o fa-2x" aria-hidden="true"></i></a> -->
                                     <button type="button" class="btn btn-secondary pull-right" id="modal-btn" data-dismiss="modal">Close</button>
@@ -122,10 +116,6 @@
                                             <label for="inputPassword">Bottle Count</label>
                                             <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.bottleCount">
                                         </div>
-                                         <div id="wrapper" ng-app="myApp">
-                                            <p>{{datePicker || "00/00/0000"}}</p>
-                                            <input type="text" ng-model="datePicker" datepicker />
-                                          </div>
                                         </div>
                                     </div>
                                     <!-- <a class="btn pull-right" id="plus-one" href="#"><i class="fa fa-plus-square-o fa-2x" aria-hidden="true"></i></a> -->
@@ -202,6 +192,17 @@
                                                 <select ng-model="vm.credentials.bottleCount">
                                                     <option ng-repeat="(x,y) in vm.options[0]" value="{{x}}">{{x}} : {{y}}</option>
                                                 </select>:Bottle Count</div>
+                                            <div class="col-sm-12">Date:
+                                                <select ng-model="vm.credentials.date">
+                                                    <option value="false">Use today's date</option>
+                                                    <option value="">Input date</option>
+                                                    <option ng-repeat="(x,y) in vm.options[0]" value="{{x}}">{{x}} : {{y}}</option>
+                                                </select>
+                                                <div ng-hide="vm.credentials.date">
+                                                Month: <select ng-model="vm.date.month"><option ng-repeat="month in vm.months" value="month">{{month}}</option></select>
+                                                Day: <select ng-model="vm.date.day"><option ng-repeat="day in vm.days">{{day}}</option></select>
+                                                Year: <select ng-model="vm.date.year"><option ng-repeat="year in vm.years">{{year}}</option></select>
+                                                </div></div>
                                             <button ng-click="vm.convert2(0)" class="col-sm-12" data-dismiss="modal">Convert to JSON</button>
                                         </div>
                                     </div>
@@ -229,11 +230,11 @@
         <br>
 
         <!-- <div class="grid-container"> -->
-        <div class="container">
+        <!-- working on creating an editing feature -->
             <div class="row">
-                <div ng-repeat="sale in vm.sales | orderBy:[0].date:reverse" class="col-md-3" id="report-cell">
+                <div ng-repeat="sale in vm.sales | orderBy:[0].date:reverse" ng-init="vm.sale[id] = false" class="col-md-3" id="report-cell">
                     <label class="reportLabel">Name:</label>
-                    <div>{{sale[1]}}</div>
+                    <div ng-hide="vm.sale[id]">{{sale[1]}}</div>
                     <label class="reportLabel">City:</label>
                     <div>{{sale[0].city}}</div>
                     <br/>
@@ -255,13 +256,10 @@
                     <label class="reportLabel">Date:</label>
                     <div>{{sale[0].date}}</div>
                     <br/>
-                    <div flex-gt-xs>
-      <md-datepicker ng-model="vm.myDate" md-placeholder="Enter date"></md-datepicker>
-    </div>
-                </div>
-            </div>
+                    <button ng-click="vm.switch(vm.sale[id])">Edit!</button>
         </div>
   </div>
+</div>
     <!-- Main Container -->
 </main>
 <script>

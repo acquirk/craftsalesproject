@@ -15,6 +15,19 @@
         vm.names = [];
         vm.sales = [];
         vm.myDate;
+        vm.date = {
+          month: "",
+          day: "",
+          year: ""
+        };
+        vm.months=[1,2,3,4,5,6,7,8,9,10,11,12];
+        vm.days=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31];
+        vm.years=[];
+        vm.currentYear = new Date().getFullYear();
+        for (i = 99; i >= 0; i--) {
+          y = vm.currentYear - i;
+          vm.years[i] = y;
+        }
         meanData.salesGrab()
             .success(function (data) {
                 vm.customers = data;
@@ -56,7 +69,13 @@
             caseCount: "",
             bottleCount: "",
             reportID: "",
+            date: "",
             json: ""
+        };
+        
+        vm.switch = function (x) {
+          if (x) { x = false }
+          else { x = true }
         };
 
         vm.onRegister = function () {

@@ -14,6 +14,7 @@
         vm.sales = [];
         vm.product = [];
         vm.prodSales = {};
+        vm.prodSalesAr = [];
         
     
 
@@ -24,16 +25,12 @@
         }
         
         vm.sales = vm.sales.sort(compareNumbers);
+        vm.prodSalesAr = vm.prodSalesAr.sort(compareNumbers);
         
         
         var data = vm.customers;
-        //log all data unsorted
-        console.log(data);
-        //console.log(vm.sales); 
-        //log accounts in descending order
-        //console.log('Accounts sorted with compareNumbers:', vm.sales.sort(compareNumbers)); 
 
-        /* var data = [
+         var data = [
             {key: "Vodka", value: 60, date: "2014/01/01" },
             {key: "Vodka", value: 58, date: "2014/01/02" },
             {key: "Vodka", value: 59, date: "2014/01/03" },
@@ -65,16 +62,8 @@
             {key: "Vodka", value: 39, date: "2014/01/29" },
             {key: "Vodka", value: 40, date: "2014/01/30" },
             {key: "Vodka", value: 39, date: "2014/01/31" }
-        ]; */
+        ]; 
         
-       /*  for(var i = 0, len = data.length; i < len; i++){
-            console.log(data[i]);
-        } */
-        
-        
-        /* for(var i = 0, len = vm.sales.length; i < len; i++){
-            console.log(vm.sales[i]);
-        }  */
         
         
         var w = 1400;
@@ -203,8 +192,8 @@
     //Bar Graph
     function barGraph() {
         var data = vm.customers;
-        console.log(data);
-       /* var data = [
+        console.log(vm.prodSales);
+        var data = [
             {key: "Whisky",		value: 132},
             {key: "Vodka",		value: 71},
             {key: "Bourbon",	value: 337},
@@ -217,7 +206,7 @@
             {key: "Your Mom", 	value: 8},
             {key: "Fritter", 	value: 17},
             {key: "Bearclaw", 	value: 21}
-        ]; */
+        ]; 
 
         var w = 1400;
         var h = 570;
@@ -373,31 +362,39 @@
         var vodkaCount = 0;
         for (var i = 0; i < vm.customers.length; i++) {
           vm.names[i] = vm.customers[i].name;
-           console.log(vm.names[i]);
           for (var j = 0; j < vm.customers[i].sales.length; j++) {
-              console.log(vm.names[i]);
+
             
             vm.product[j] = vm.customers[i].sales[j].productName;
             
             if (vm.product[j] in vm.prodSales) {
-                vm.prodSales[vm.product] = vm.prodSales[vm.product] + vm.customers[i].sales[j].bottleCount + (vm.customers[i].sales[j].caseCount*6);
+                vm.prodSales[vm.product[j]] = vm.prodSales[vm.product[j]] + vm.customers[i].sales[j].bottleCount + (vm.customers[i].sales[j].caseCount*6);
             }           
             else { 
-                vm.prodSales[vm.product] = vm.customers[i].sales[j].bottleCount + (vm.customers[i].sales[j].caseCount*6);
+                vm.prodSales[vm.product[j]] = vm.customers[i].sales[j].bottleCount + (vm.customers[i].sales[j].caseCount*6);
             }  ;
-
                                                                                                                    
             //count the total number of bottles sold for each account
             var totalCount = vm.customers[i].sales[j].bottleCount + (vm.customers[i].sales[j].caseCount*6);
             vm.sales[k] = [vm.customers[i].name, totalCount];
-            k++;  
-            
+            k++;    
           }
         }
+        
+        //create an array version of vm.prodSales
+        for (var product in vm.prodSales) {
+            vm.prodSalesAr.push([product, vm.prodSales[product]]);
+        }
+        console.log(vm.prodSalesAr);
+        console.log(vm.sales);
+
+        console.log("create d3 graphs");
         lineGraph();
+        console.log("line Graph");
         barGraph();
+        console.log("bar Graph");
         progressGraph();
-        console.log(vm.prodSales);
+        console.log("prog Graph");
       })
       .error(function (e) {
         console.log(e);

@@ -27,16 +27,7 @@
            <form role="form" ng-submit="vm.onSubmit()">
              <div class="form-group">
                <label class ="label-login" for="inputEmail">Top Products</label>
-                 <p class="dashProd">1. Product</p>
-                 <p class="dashProd">2. Product</p>
-                 <p class="dashProd">3. Product</p>
-                 <p class="dashProd">4. Product</p>
-                 <p class="dashProd">5. Product</p>
-                 <p class="dashProd">6. Product</p>
-                 <p class="dashProd">7. Product</p>
-                 <p class="dashProd">8. Product</p>
-                 <p class="dashProd">9. Product</p>
-                 <p class="dashProd">10. Product</p>
+                 <p class="dashProd" ng-repeat="(x,y) in vm.prodSalesAr|limitTo:10"> {{x + 1}}  {{y[0]}} {{y[1]}}</p>
              </div>
            </form>
          </div>

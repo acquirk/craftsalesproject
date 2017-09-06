@@ -11,24 +11,27 @@
         
         vm.customers = [];
         vm.names = [];
+        vm.sales = [];
+        vm.product = [];
+        vm.prodSales = {};
+        vm.prodSalesAr = [];
+        vm.barData = [];
+        
     
-    //all the arrays (data) are in vm.customers
-    meanData.accountsGrab()
-      .success(function(data) {
-        vm.customers = data;
-        for (var i = 0; i < vm.customers.length; i++) {
-        vm.names[i] = vm.customers[i].name;
-        }
-        console.log(data);
-      })
-      .error(function (e) {
-        console.log(e);
-      });
-        
-        
+
     // Line Graph
     function lineGraph() {
-        var data = [
+        function compareNumbers(a, b) {
+            return b[1] - a[1];
+        }
+        
+        vm.sales = vm.sales.sort(compareNumbers);
+        vm.prodSalesAr = vm.prodSalesAr.sort(compareNumbers);
+        
+        
+        var data = vm.customers;
+
+         var data = [
             {key: "Vodka", value: 60, date: "2014/01/01" },
             {key: "Vodka", value: 58, date: "2014/01/02" },
             {key: "Vodka", value: 59, date: "2014/01/03" },
@@ -60,7 +63,9 @@
             {key: "Vodka", value: 39, date: "2014/01/29" },
             {key: "Vodka", value: 40, date: "2014/01/30" },
             {key: "Vodka", value: 39, date: "2014/01/31" }
-        ];
+        ]; 
+        
+        
         
         var w = 1400;
         var h = 570;
@@ -182,24 +187,12 @@
                 y: yAxis
             }
         });
+        
     }
     
     //Bar Graph
     function barGraph() {
-        var data = [
-            {key: "Whisky",		value: 132},
-            {key: "Vodka",		value: 71},
-            {key: "Bourbon",	value: 337},
-            {key: "Gin",	    value: 93},
-            {key: "Coffee",		value: 78},
-            {key: "Rum",	    value: 43},
-            {key: "Water",  	value: 20},
-            {key: "Cognac",		value: 16},
-            {key: "Cruller", 	value: 30},
-            {key: "Your Mom", 	value: 8},
-            {key: "Fritter", 	value: 17},
-            {key: "Bearclaw", 	value: 21}
-        ];
+        var data = vm.barData;
 
         var w = 1400;
         var h = 570;
@@ -264,7 +257,7 @@
         plot.call(chart, {data: data});       
     }
         
-    //Progresss Graph
+    //Progress Graph
     function progressGraph() {    
         var wrapper = document.getElementById('progress');
         var start = 0;
@@ -347,10 +340,58 @@
         })();
     }
     
-    lineGraph();
-    barGraph();
-    progressGraph();    
-    console.log(data)
+ 
+    meanData.accountsGrab()
+      .success(function(data) {
+        vm.customers = data;
+        var k = 0;
+        var vodkaCount = 0;
+        for (var i = 0; i < vm.customers.length; i++) {
+          vm.names[i] = vm.customers[i].name;
+          for (var j = 0; j < vm.customers[i].sales.length; j++) {
+
+            
+            vm.product[j] = vm.customers[i].sales[j].productName;
+            
+            if (vm.product[j] in vm.prodSales) {
+                vm.prodSales[vm.product[j]] = vm.prodSales[vm.product[j]] + vm.customers[i].sales[j].bottleCount + (vm.customers[i].sales[j].caseCount*6);
+            }           
+            else { 
+                vm.prodSales[vm.product[j]] = vm.customers[i].sales[j].bottleCount + (vm.customers[i].sales[j].caseCount*6);
+            }  ;
+              
+              
+              
+            //count the total number of bottles sold for each account
+            var totalCount = vm.customers[i].sales[j].bottleCount + (vm.customers[i].sales[j].caseCount*6);
+            vm.sales[k] = [vm.customers[i].name, totalCount];
+            k++;    
+          }
+        }
+        
+        //create an array version of vm.prodSales
+        for (var product in vm.prodSales) {
+            vm.prodSalesAr.push([product, vm.prodSales[product]]);
+        }
+        for (var product in vm.prodSales) {
+            vm.barData.push({"key":product, "value":vm.prodSales[product]})
+        }
+        console.log(vm.prodSales);
+        console.log(vm.prodSalesAr);
+        console.log(vm.barData);
+        console.log(vm.sales);
+
+        console.log("create d3 graphs");
+        lineGraph();
+        console.log("line Graph");
+        barGraph();
+        console.log("bar Graph");
+        progressGraph();
+        console.log("prog Graph");
+      })
+      .error(function (e) {
+        console.log(e);
+      });   
 }
         
 })();

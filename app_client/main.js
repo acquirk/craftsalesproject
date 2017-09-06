@@ -5,8 +5,8 @@
     function config($routeProvider, $locationProvider) {
         $routeProvider
             .when('/', {
-                templateUrl: '/auth/login/login.view.html',
-                controller: 'loginCtrl',
+                templateUrl: '/test/test.html',
+                controller: 'testCtrl',
                 controllerAs: 'vm'
             })
             .when('/register', {

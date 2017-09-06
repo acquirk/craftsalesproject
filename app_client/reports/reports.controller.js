@@ -35,7 +35,7 @@
                 for (var i = 0; i < vm.customers.length; i++) {
                     vm.names[i] = vm.customers[i].name;
                     for (var j = 0; j < vm.customers[i].sales.length; j++) {
-                        vm.sales[k] = [vm.customers[i].sales[j], vm.customers[i].name];
+                        vm.sales[k] = [vm.customers[i].sales[j], vm.customers[i].name, vm.customers[i].address, vm.customers[i].accountManager];
                         k++;
                     }
                 }
@@ -74,8 +74,13 @@
         };
         
         vm.switch = function (x) {
-          if (x) { x = false }
-          else { x = true }
+          if (x) {
+            x = false;
+          }
+          else {
+            x = true;
+          }
+          return x;
         };
 
         vm.onRegister = function () {

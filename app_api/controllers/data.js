@@ -117,6 +117,8 @@ module.exports.addSale = function (req, res) {
 module.exports.salesGrab = function (req, res) {
     Customer.find({}, {
         "name": 1,
+        "address": 1,
+        "accountManager": 1,
         "sales": 1
     }, function (err, data) {
         if (err)

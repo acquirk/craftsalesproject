@@ -15,6 +15,7 @@
         vm.product = [];
         vm.prodSales = {};
         vm.prodSalesAr = [];
+        vm.barData = [];
         
     
 
@@ -191,22 +192,7 @@
     
     //Bar Graph
     function barGraph() {
-        var data = vm.customers;
-        console.log(vm.prodSales);
-        var data = [
-            {key: "Whisky",		value: 132},
-            {key: "Vodka",		value: 71},
-            {key: "Bourbon",	value: 337},
-            {key: "Gin",	    value: 93},
-            {key: "Coffee",		value: 78},
-            {key: "Rum",	    value: 43},
-            {key: "Water",  	value: 20},
-            {key: "Cognac",		value: 16},
-            {key: "Cruller", 	value: 30},
-            {key: "Your Mom", 	value: 8},
-            {key: "Fritter", 	value: 17},
-            {key: "Bearclaw", 	value: 21}
-        ]; 
+        var data = vm.barData;
 
         var w = 1400;
         var h = 570;
@@ -373,7 +359,9 @@
             else { 
                 vm.prodSales[vm.product[j]] = vm.customers[i].sales[j].bottleCount + (vm.customers[i].sales[j].caseCount*6);
             }  ;
-                                                                                                                   
+              
+              
+              
             //count the total number of bottles sold for each account
             var totalCount = vm.customers[i].sales[j].bottleCount + (vm.customers[i].sales[j].caseCount*6);
             vm.sales[k] = [vm.customers[i].name, totalCount];
@@ -385,7 +373,12 @@
         for (var product in vm.prodSales) {
             vm.prodSalesAr.push([product, vm.prodSales[product]]);
         }
+        for (var product in vm.prodSales) {
+            vm.barData.push({"key":product, "value":vm.prodSales[product]})
+        }
+        console.log(vm.prodSales);
         console.log(vm.prodSalesAr);
+        console.log(vm.barData);
         console.log(vm.sales);
 
         console.log("create d3 graphs");

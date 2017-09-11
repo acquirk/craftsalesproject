@@ -32,7 +32,15 @@ module.exports.upload = function (req, res) {
             sale.bottleCount = json.json[req.body.bottleCount];
             sale.reportID = req.body.reportID;
             //set if to determine where we are getting date
-            sale.date = json.json[req.body.date];
+            if (json.json[req.body.date] == "today") {
+              sale.date = Date().now;
+            }
+            else if (json.json[req.body.date] === "") {
+              sale.date = new Date(req.body.year + "-" + req.body.month + "-" + req.body.day + "T00:00:00.000Z");
+            }
+            else {
+              sale.date = json.json[req.body.date];
+            }
             customer.sales.push(sale);
             customer.save(function (err) {});
             res.status(200).send();
@@ -56,7 +64,16 @@ module.exports.upload = function (req, res) {
             sale.bottleCount = json.json[req.body.bottleCount];
             sale.reportID = req.body.reportID;
             //set if to determine where we are getting date
-            sale.date = json.json[req.body.date];
+            if (json.json[req.body.date] == "today") {
+              sale.date = Date().now;
+            }
+            else if (json.json[req.body.date] === "") {
+              sale.date = new Date(req.body.year + "-" + req.body.month + "-" + req.body.day + "T00:00:00.000Z");
+              console.log("DATE:" + sale.date);
+            }
+            else {
+              sale.date = json.json[req.body.date];
+            }
             console.log(json);
             console.log(json.json[req.body.email]);
             console.log(req.body.email);
@@ -150,4 +167,34 @@ module.exports.accountsGrab = function (req, res) {
     });
 
 
+};
+
+module.exports.updateSale = function (req, res) {
+  
+  // This is the Settings Change function from the authentication controller!!!!! Similar but not what we want!!! Will change soon
+
+    var id = req.body.id;
+    var email = req.body.email;
+    var firstName = req.body.firstName;
+    var lastName = req.body.lastName;
+
+    User.findOne({
+        _id: id
+    }, function (err, user) {
+      if (err) {
+        console.log("error");
+        
+      } else {
+        user.email = email;
+        user.firstName = firstName;
+        user.lastName = lastName;
+        user.save(function (err) {
+            res.status(200).send();
+        });
+        var token = user.generateJwt();
+        res.json({
+                "token": token
+            });
+      }
+    });
 };

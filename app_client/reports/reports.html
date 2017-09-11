@@ -1,6 +1,6 @@
 <navigation></navigation>
 <main>
-  <div ng-hide="!vm.load">Uploading. Please be patient. Should we put a loading gif here? Do you say gif with a hard or soft g?</div>
+    <div ng-hide="!vm.load">Uploading. Please be patient. Should we put a loading gif here? Do you say gif with a hard or soft g?</div>
     <div class="container" ng-hide="vm.load">
         <h1 class="reports"> Reports </h1>
         <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#uploadmodal">Upload Report</button>
@@ -116,13 +116,13 @@
                                             <label for="inputPassword">Bottle Count</label>
                                             <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.bottleCount">
                                         </div>
-                                        </div>
                                     </div>
-                                    <!-- <a class="btn pull-right" id="plus-one" href="#"><i class="fa fa-plus-square-o fa-2x" aria-hidden="true"></i></a> -->
-                                    <button type="button" class="btn btn-secondary pull-right" id="modal-btn" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary pull-right" id="modal-btn">Register</button>
                                 </div>
-                            
+                                <!-- <a class="btn pull-right" id="plus-one" href="#"><i class="fa fa-plus-square-o fa-2x" aria-hidden="true"></i></a> -->
+                                <button type="button" class="btn btn-secondary pull-right" id="modal-btn" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary pull-right" id="modal-btn">Register</button>
+                            </div>
+
                             <div class="tab-pane fade" id="file" role="tabpanel">
                                 <div class="container">
                                     <div class="row">
@@ -194,35 +194,45 @@
                                                 </select>:Bottle Count</div>
                                             <div class="col-sm-12">Date:
                                                 <select ng-model="vm.credentials.date">
-                                                    <option value="false">Use today's date</option>
-                                                    <option value="">Input date</option>
+                                                    <option value="today">Use today's date</option>
+                                                    <option value="input">Input date</option>
                                                     <option ng-repeat="(x,y) in vm.options[0]" value="{{x}}">{{x}} : {{y}}</option>
                                                 </select>
-                                                <div ng-hide="vm.credentials.date">
-                                                Month: <select ng-model="vm.date.month"><option ng-repeat="month in vm.months" value="month">{{month}}</option></select>
-                                                Day: <select ng-model="vm.date.day"><option ng-repeat="day in vm.days">{{day}}</option></select>
-                                                Year: <select ng-model="vm.date.year"><option ng-repeat="year in vm.years">{{year}}</option></select>
-                                                </div></div>
+                                                <div ng-hide="!(vm.credentials.date == 'input')">
+                                                    Month:
+                                                    <select ng-model="vm.date.month">
+                                                        <option ng-repeat="month in vm.months">{{month}}</option>
+                                                    </select>
+                                                    Day:
+                                                    <select ng-model="vm.date.day">
+                                                        <option ng-repeat="day in vm.days">{{day}}</option>
+                                                    </select>
+                                                    Year:
+                                                    <select ng-model="vm.date.year">
+                                                        <option ng-repeat="year in vm.years">{{year}}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
                                             <button ng-click="vm.convert2(0)" class="col-sm-12" data-dismiss="modal">Convert to JSON</button>
                                         </div>
                                     </div>
                                     <button type="button" class="btn btn-secondary pull-right" id="modal-btn" data-dismiss="modal">Close</button>
                                 </div>
                             </div>
-                            </div>
                         </div>
-                        <!-- Tab Content -->
+                    </div>
+                    <!-- Tab Content -->
 
-                        <!-- <div class="modal-footer">
+                    <!-- <div class="modal-footer">
 								<button type="submit" class="btn btn-primary">Register</button>
 				        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 				      </div> -->
-                    </div>
-                    <!-- Modal Body -->
                 </div>
-                <!-- Modal Content -->
+                <!-- Modal Body -->
             </div>
-            <!-- Modal Dialog -->
+            <!-- Modal Content -->
+        </div>
+        <!-- Modal Dialog -->
         <!-- Modal End -->
 
         <br>
@@ -231,45 +241,45 @@
 
         <!-- <div class="grid-container"> -->
         <!-- working on creating an editing feature -->
-            <div class="row">
-                <div ng-repeat="sale in vm.sales | orderBy:[0].date:reverse" ng-init="sale.show = false" class="col-md-3" id="report-cell">
-                    <label class="reportLabel">Name:</label>
-                    <div ng-hide="sale.show">{{sale[1]}}</div>
-                    <input ng-hide="!sale.show" type="text" class="form-control" ng-model="sale[1]">
-                    <label class="reportLabel">City:</label>
-                    <div ng-hide="sale.show">{{sale[2].city}}</div>
-                    <input ng-hide="!sale.show" type="text" class="form-control" ng-model="sale[2].city">
-                    <br/>
-                    <label class="reportLabel">State:</label>
-                    <div ng-hide="sale.show">{{sale[2].state}}</div>
-                    <input ng-hide="!sale.show" type="text" class="form-control" ng-model="sale[2].state">
-                    <br/>
-                    <label class="reportLabel">Manager:</label>
-                    <div ng-hide="sale.show">{{sale[3]}}</div>
-                    <input ng-hide="!sale.show" type="text" class="form-control" ng-model="sale[3]">
-                    <br/>
-                    <label class="reportLabel">Product(s):</label>
-                    <div ng-hide="sale.show">{{sale[0].productName}}</div>
-                    <input ng-hide="!sale.show" type="text" class="form-control" ng-model="sale[0].productName">
-                    <br/>
-                    <label class="reportLabel">Bottle Count:</label>
-                    <div ng-hide="sale.show">{{sale[0].bottleCount}}</div>
-                    <input ng-hide="!sale.show" type="text" class="form-control" ng-model="sale[0].bottleCount">
-                    <br/>
-                    <label class="reportLabel">Case Count:</label>
-                    <div ng-hide="sale.show">{{sale[0].caseCount}}</div>
-                    <input ng-hide="!sale.show" type="text" class="form-control" ng-model="sale[0].caseCount">
-                    <br/>
-                    <label class="reportLabel">Date:</label>
-                    <div ng-hide="sale.show">{{sale[0].date}}</div>
-                    <input ng-hide="!sale.show" type="text" class="form-control" ng-model="sale[0].date">
-                    <br/>
-                    <button ng-hide="sale.show" ng-click="sale.show = vm.switch(sale.show)">Edit</button>
-                    <button ng-hide="!sale.show" ng-click="sale.show = vm.switch(sale.show)">Close Edit</button>
-                    <button ng-hide="!sale.show" ng-click="sale.show = vm.switch(sale.show)">Save</button>
-                </div>
+        <div class="row">
+            <div ng-repeat="sale in vm.sales | orderBy:[0].date:reverse" ng-init="sale.show = false" class="col-md-3" id="report-cell">
+                <label class="reportLabel">Name:</label>
+                <div ng-hide="sale.show">{{sale[1]}}</div>
+                <input ng-hide="!sale.show" type="text" class="form-control" ng-model="sale[1]">
+                <label class="reportLabel">City:</label>
+                <div ng-hide="sale.show">{{sale[2].city}}</div>
+                <input ng-hide="!sale.show" type="text" class="form-control" ng-model="sale[2].city">
+                <br/>
+                <label class="reportLabel">State:</label>
+                <div ng-hide="sale.show">{{sale[2].state}}</div>
+                <input ng-hide="!sale.show" type="text" class="form-control" ng-model="sale[2].state">
+                <br/>
+                <label class="reportLabel">Manager:</label>
+                <div ng-hide="sale.show">{{sale[3]}}</div>
+                <input ng-hide="!sale.show" type="text" class="form-control" ng-model="sale[3]">
+                <br/>
+                <label class="reportLabel">Product(s):</label>
+                <div ng-hide="sale.show">{{sale[0].productName}}</div>
+                <input ng-hide="!sale.show" type="text" class="form-control" ng-model="sale[0].productName">
+                <br/>
+                <label class="reportLabel">Bottle Count:</label>
+                <div ng-hide="sale.show">{{sale[0].bottleCount}}</div>
+                <input ng-hide="!sale.show" type="text" class="form-control" ng-model="sale[0].bottleCount">
+                <br/>
+                <label class="reportLabel">Case Count:</label>
+                <div ng-hide="sale.show">{{sale[0].caseCount}}</div>
+                <input ng-hide="!sale.show" type="text" class="form-control" ng-model="sale[0].caseCount">
+                <br/>
+                <label class="reportLabel">Date:</label>
+                <div ng-hide="sale.show">{{sale[0].date}}</div>
+                <input ng-hide="!sale.show" type="text" class="form-control" ng-model="sale[0].date">
+                <br/>
+                <button ng-hide="sale.show" ng-click="sale.show = vm.switch(sale.show)">Edit</button>
+                <button ng-hide="!sale.show" ng-click="sale.show = vm.switch(sale.show)">Close Edit</button>
+                <button ng-hide="!sale.show" ng-click="sale.show = vm.switch(sale.show)">Save</button>
             </div>
-</div>
+        </div>
+    </div>
     <!-- Main Container -->
 </main>
 <script>

@@ -16,17 +16,17 @@
         vm.sales = [];
         vm.myDate;
         vm.date = {
-          month: "",
-          day: "",
-          year: ""
+            month: new Date().getMonth(),
+            day: new Date().getDate(),
+            year: new Date().getFullYear()
         };
-        vm.months=[1,2,3,4,5,6,7,8,9,10,11,12];
-        vm.days=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31];
-        vm.years=[];
+        vm.months = [01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12];
+        vm.days = [01, 02, 03, 04, 05, 06, 07, 08, 09, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31];
+        vm.years = [];
         vm.currentYear = new Date().getFullYear();
         for (i = 99; i >= 0; i--) {
-          y = vm.currentYear - i;
-          vm.years[i] = y;
+            y = vm.currentYear - i;
+            vm.years[i] = y;
         }
         meanData.salesGrab()
             .success(function (data) {
@@ -70,18 +70,20 @@
             caseCount: "",
             bottleCount: "",
             reportID: "",
-            date: "",
-            json: ""
+            date: "input",
+            json: "",
+            year: vm.date.year,
+            month: vm.date.month,
+            day: vm.date.day
         };
-        
+
         vm.switch = function (x) {
-          if (x) {
-            x = false;
-          }
-          else {
-            x = true;
-          }
-          return x;
+            if (x) {
+                x = false;
+            } else {
+                x = true;
+            }
+            return x;
         };
 
         vm.onRegister = function () {
@@ -193,6 +195,9 @@
             vm.credentials.json = {
                 json: json[x]
             };
+            vm.credentials.year = vm.date.year;
+            vm.credentials.month = vm.date.month;
+            vm.credentials.day = vm.date.day;
             console.log(vm.credentials);
             meanData.upload(vm.credentials).success(function (data) {
                 vm.convert2(x + 1);
@@ -203,37 +208,5 @@
             console.log(vm.credentials.json);
         };
 
-        vm.test = function () {
-            console.log(vm.credentials);
-        };
-
-
-        var app = angular.module('angularjs-starter', []);
-
-        app.controller('MainCtrl', function ($scope) {
-
-            $scope.choices = [{
-                id: 'choice1'
-            }, {
-                id: 'choice2'
-            }];
-
-            $scope.addNewChoice = function () {
-                var newItemNo = $scope.choices.length + 1;
-                $scope.choices.push({
-                    'id': 'choice' + newItemNo
-                });
-            };
-
-            $scope.removeChoice = function () {
-                var lastItem = $scope.choices.length - 1;
-                $scope.choices.splice(lastItem);
-            };
-
-        });
-
-
-
     }
-
 })();

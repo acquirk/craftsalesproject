@@ -353,12 +353,14 @@
             
             vm.product[j] = vm.customers[i].sales[j].productName;
             
+            
             if (vm.product[j] in vm.prodSales) {
                 vm.prodSales[vm.product[j]] = vm.prodSales[vm.product[j]] + vm.customers[i].sales[j].bottleCount + (vm.customers[i].sales[j].caseCount*6);
             }           
             else { 
                 vm.prodSales[vm.product[j]] = vm.customers[i].sales[j].bottleCount + (vm.customers[i].sales[j].caseCount*6);
             }  ;
+            
               
               
               
@@ -379,7 +381,7 @@
         console.log(vm.prodSales);
         console.log(vm.prodSalesAr);
         console.log(vm.barData);
-        console.log(vm.sales);
+        console.log(vm.customers);
 
         console.log("create d3 graphs");
         lineGraph();

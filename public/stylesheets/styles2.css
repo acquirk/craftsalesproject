@@ -144,6 +144,7 @@ nav {
 }
 .container {
     margin: auto;
+    text-align: center;
 }
 .text-center {
     text-align: center;
@@ -157,14 +158,18 @@ nav {
     max-width: 36%;
     min-width: 36%;
 }
+
+.row {
+}
+
+.container {
+    
+}
+
 .mainDash {
     background-color: #FFFFFF;
     box-sizing: border-box;
     padding: 20px;
-    max-width: 40%;
-    min-width: 40%;
-    float: left;
-    margin-left: 114px;
     box-shadow: 2px 2px 1px #A7A7A7;
 }
 .mainDash2 {
@@ -173,8 +178,8 @@ nav {
     padding: 20px;
     max-width: 40%;
     min-width: 40%;
-    float: right;
-    margin-right: 115px;
+    float: left;
+    margin-left: 20px;
     box-shadow: 2px 2px 1px #A7A7A7;
 }
 .dashProd {
@@ -230,13 +235,20 @@ nav {
 
 #line {
     background-color: white;
-    width: 1400px;
-    display: block;
-    margin: 0 auto;
     box-shadow: 2px 2px 1px #A7A7A7;
     text-align: center;
     padding-top: 40px;
+    padding-bottom: 40px;
 }
+
+#bar {
+    background-color: white;
+    box-shadow: 2px 2px 1px #A7A7A7;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
 .salesTrends {
     font-size: 30px;
 }
@@ -279,16 +291,7 @@ nav {
 
 /*Bar Chart */
 
-#bar {
-    background-color: white;
-    width: 1400px;
-    display: block;
-    margin: 0 auto;
-    box-shadow: 2px 2px 1px #A7A7A7;
-    text-align: center;
-    padding-top: 40px;
-    padding-bottom: 30px;
-}
+
 .totalSales {
     font-size: 30px;
 }
@@ -307,6 +310,9 @@ nav {
     font-size: 18px;
 }
 
+.user-body {
+    background-color: white;  
+}
 /* Progress Bar */
 
 #progress {

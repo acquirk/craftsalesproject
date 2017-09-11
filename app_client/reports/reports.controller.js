@@ -40,6 +40,7 @@
                     }
                 }
                 console.log(data);
+                console.log(vm.names);
             })
             .error(function (e) {
                 console.log(e);

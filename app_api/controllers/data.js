@@ -42,7 +42,15 @@ module.exports.upload = function (req, res) {
                 sale.date = Date().now;
             } else if (req.body.date === "input") {
                 console.log("input");
-                sale.date = new Date(req.body.year + "-" + req.body.month + "-" + req.body.day + "T00:00:00.000Z");
+                if (req.body.month < 10) {
+                  req.body.month = "0" + req.body.month;
+                }
+                if (req.body.day < 10) {
+                  req.body.day = "0" + req.body.day;
+                }
+                var d = req.body.year + "-" + req.body.month + "-" + req.body.day + "T00:00:00.000Z";
+                sale.date = new Date(d);
+                console.log(d);
                 console.log(sale.date);
             } else {
                 sale.date = new Date(req.body.date);
@@ -81,7 +89,15 @@ module.exports.upload = function (req, res) {
                 sale.date = Date().now;
             } else if (req.body.date === "input") {
                 console.log("input");
-                sale.date = new Date(req.body.year + "-" + req.body.month + "-" + req.body.day + "T00:00:00.000Z");
+                if (req.body.month < 10) {
+                  req.body.month = "0" + req.body.month;
+                }
+                if (req.body.day < 10) {
+                  req.body.day = "0" + req.body.day;
+                }
+                var d = req.body.year + "-" + req.body.month + "-" + req.body.day + "T00:00:00.000Z";
+                sale.date = new Date(d);
+                console.log(d);
                 console.log(sale.date);
             } else {
                 sale.date = new Date(req.body.date);

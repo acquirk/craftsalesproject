@@ -32,11 +32,6 @@ module.exports.upload = function (req, res) {
             sale.bottleCount = json.json[req.body.bottleCount];
             sale.reportID = req.body.reportID;
             //set if to determine where we are getting date
-            console.log("Date: ");
-            console.log(req.body.date);
-            console.log(req.body.year);
-            console.log(req.body.month);
-            console.log(req.body.day);
             if (req.body.date == "today") {
                 console.log("today");
                 sale.date = Date().now;
@@ -50,8 +45,6 @@ module.exports.upload = function (req, res) {
                 }
                 var d = req.body.year + "-" + req.body.month + "-" + req.body.day + "T00:00:00.000Z";
                 sale.date = new Date(d);
-                console.log(d);
-                console.log(sale.date);
             } else {
                 sale.date = new Date(req.body.date);
                 console.log("other");
@@ -79,11 +72,6 @@ module.exports.upload = function (req, res) {
             sale.bottleCount = json.json[req.body.bottleCount];
             sale.reportID = req.body.reportID;
             //set if to determine where we are getting date
-            console.log("Date: ");
-            console.log(req.body.date);
-            console.log(req.body.year);
-            console.log(req.body.month);
-            console.log(req.body.day);
             if (req.body.date == "today") {
                 console.log("today");
                 sale.date = Date().now;
@@ -97,8 +85,6 @@ module.exports.upload = function (req, res) {
                 }
                 var d = req.body.year + "-" + req.body.month + "-" + req.body.day + "T00:00:00.000Z";
                 sale.date = new Date(d);
-                console.log(d);
-                console.log(sale.date);
             } else {
                 sale.date = new Date(req.body.date);
                 console.log("other");

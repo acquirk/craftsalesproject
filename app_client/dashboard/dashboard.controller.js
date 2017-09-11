@@ -352,7 +352,6 @@
 
             
             vm.product[j] = vm.customers[i].sales[j].productName;
-            vm.date[j] = vm.customers[i].sales[j].date;
             
             
             if (vm.product[j] in vm.prodSales) {

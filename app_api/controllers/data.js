@@ -31,6 +31,7 @@ module.exports.upload = function (req, res) {
             sale.caseCount = json.json[req.body.caseCount];
             sale.bottleCount = json.json[req.body.bottleCount];
             sale.reportID = req.body.reportID;
+            sale.reportLabel = req.body.reportLabel;
             //set if to determine where we are getting date
             sale.date = json.json[req.body.date];
             customer.sales.push(sale);
@@ -55,6 +56,7 @@ module.exports.upload = function (req, res) {
             sale.caseCount = json.json[req.body.caseCount];
             sale.bottleCount = json.json[req.body.bottleCount];
             sale.reportID = req.body.reportID;
+            sale.reportLabel = req.body.reportLabel;
             //set if to determine where we are getting date
             sale.date = json.json[req.body.date];
             console.log(json);

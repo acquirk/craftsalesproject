@@ -67,8 +67,8 @@
         
         
         
-        var w = 1400;
-        var h = 570;
+        var w = 1000;
+        var h = 500;
         var margin = {
             top: 58,
             bottom: 100,
@@ -194,8 +194,8 @@
     function barGraph() {
         var data = vm.barData;
 
-        var w = 1400;
-        var h = 570;
+        var w = 1000;
+        var h = 500;
         var margin = {
             top: 20,
             bottom: 20,

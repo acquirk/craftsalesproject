@@ -63,7 +63,7 @@
             {key: "Vodka", value: 39, date: "2014/01/29" },
             {key: "Vodka", value: 40, date: "2014/01/30" },
             {key: "Vodka", value: 39, date: "2014/01/31" }
-        ]; 
+        ];
         
         
         
@@ -193,72 +193,82 @@
     //Bar Graph
     function barGraph() {
         var data = vm.barData;
+        console.log(data);
 
-        var w = 1400;
-        var h = 570;
-        var margin = {
-            top: 20,
-            bottom: 20,
-            left: 20,
-            right: 20
-        };
-        var width = w - margin.left - margin.right;
-        var height = h - margin.top - margin.bottom;
-        var x = d3.scale.linear()
-                .domain([0, d3.max(data, function(d){
-                    return d.value;
-                })])
-                .range([0, width]);
-        var y = d3.scale.linear()
-                .domain([0, data.length])
-                .range([0, height]);
-        var svg = d3.select("#bar").append("svg")
-                    .attr("id", "chart")
-                    .attr("width", w)
-                    .attr("height", h);
-        var chart = svg.append("g")
-                    .classed("display", true)
-                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-        function plot(params){
-            this.selectAll(".bar")
-                .data(params.data)
-                .enter()
-                    .append("rect")
-                    .classed("bar", true)
-                    .attr("x", 0)
-                    .attr("y", function(d,i){
-                        return y(i);
-                    })
-                    .attr("height", function(d,i){
-                        return y(1)-1;
-                    })
-                    .attr("width", function(d){
-                        return x(d.value);
-                    });
-            this.selectAll(".bar-label")
-                .data(params.data)
-                .enter()
-                    .append("text")
-                    .classed("bar-label", true)
-                    .attr("x", function(d){
-                        return x(d.value);
-                    })
-                    .attr("dx", -4)
-                    .attr("y", function(d,i){
-                        return y(i);
-                    })
-                    .attr("dy", function(d,i){
-                        return y(1)/1.5+2;
-                    })
-                    .text(function(d){
-                        return d.value;
-                    })
-        }
-        plot.call(chart, {data: data});       
+var margin = {top: 40, right: 20, bottom: 30, left: 40},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var formatPercent = d3.format("20");
+
+var x = d3.scale.ordinal()
+    .rangeRoundBands([0, width], .1);
+
+var y = d3.scale.linear()
+    .range([height, 0]);
+
+var xAxis = d3.svg.axis()
+    .scale(x)
+    .orient("bottom");
+
+var yAxis = d3.svg.axis()
+    .scale(y)
+    .orient("left")
+    .tickFormat(formatPercent);
+
+var tip = d3.tip()
+  .attr('class', 'd3-tip')
+  .offset([-10, 0])
+  .html(function(d) {
+    return "<strong>Bottle Sales:</strong> <span style='color:red'>" + d.value + "</span><br/><strong>" + d.label + "</strong>";
+  });
+
+var svg = d3.select("body").append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+svg.call(tip);
+
+// The following code was contained in the callback function.
+x.domain(data.map(function(d) { return d.label; }));
+y.domain([0, d3.max(data, function(d) { return d.value; })]);
+
+svg.append("g")
+    .attr("class", "x axis")
+    .attr("transform", "translate(0," + height + ")")
+    .call(xAxis);
+
+svg.append("g")
+    .attr("class", "y axis")
+    .call(yAxis)
+  .append("text")
+    .attr("transform", "rotate(-90)")
+    .attr("y", 6)
+    .attr("dy", ".71em")
+    .style("text-anchor", "end")
+    .text("Frequency");
+
+svg.selectAll(".bar")
+    .data(data)
+  .enter().append("rect")
+    .attr("class", "bar")
+    .attr("x", function(d) { return x(d.label); })
+    .attr("width", x.rangeBand())
+    .attr("y", function(d) { return y(d.value); })
+    .attr("height", function(d) { return height - y(d.value); })
+    .on('mouseover', tip.show)
+    .on('mouseout', tip.hide)
+
+function type(d) {
+  d.value = +d.value;
+  return d;
+}
     }
         
     //Progress Graph
-    function progressGraph() {    
+    function progressGraph() {
         var wrapper = document.getElementById('progress');
         var start = 0;
         var end = parseFloat(wrapper.dataset.percentage);
@@ -324,7 +334,7 @@
           value.attr('d', circle.endAngle(endAngle * progress));
           //update text value
           numberText.text(formatText(progress));
-        } 
+        }
 
         (function iterate() {
           //call update to begin animation
@@ -356,8 +366,8 @@
             
             if (vm.product[j] in vm.prodSales) {
                 vm.prodSales[vm.product[j]] = vm.prodSales[vm.product[j]] + vm.customers[i].sales[j].bottleCount + (vm.customers[i].sales[j].caseCount*6);
-            }           
-            else { 
+            }
+            else {
                 vm.prodSales[vm.product[j]] = vm.customers[i].sales[j].bottleCount + (vm.customers[i].sales[j].caseCount*6);
             }  ;
             
@@ -366,17 +376,24 @@
               
             //count the total number of bottles sold for each account
             var totalCount = vm.customers[i].sales[j].bottleCount + (vm.customers[i].sales[j].caseCount*6);
-            vm.sales[k] = [vm.customers[i].name, totalCount];
-            k++;    
+            if (vm.sales[k]) {
+              vm.sales[k] = [vm.customers[i].name, vm.sales[k][1] + totalCount];
+            }
+            else {
+              vm.sales[k] = [vm.customers[i].name, totalCount];
+            }
           }
+          k++;
         }
+        console.log("SALES");
+        console.log(vm.sales);
         
         //create an array version of vm.prodSales
         for (var product in vm.prodSales) {
             vm.prodSalesAr.push([product, vm.prodSales[product]]);
         }
         for (var product in vm.prodSales) {
-            vm.barData.push({"key":product, "value":vm.prodSales[product]})
+            vm.barData.push({"label":product, "value":vm.prodSales[product]})
         }
         console.log(vm.prodSales);
         console.log(vm.prodSalesAr);
@@ -393,7 +410,7 @@
       })
       .error(function (e) {
         console.log(e);
-      });   
+      });
 }
         
 })();

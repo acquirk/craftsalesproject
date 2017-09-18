@@ -207,6 +207,7 @@
             meanData.upload(vm.credentials).success(function (data) {
                 vm.convert2(x + 1);
             }).error(function (e) {
+              location.reload(true)
                 vm.load = false;
                 console.log(e);
             });

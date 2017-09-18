@@ -26,7 +26,8 @@ var salesSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    reportID: String
+    reportID: String,
+    reportLabel: String
 });
 
 var customerSchema = new mongoose.Schema({

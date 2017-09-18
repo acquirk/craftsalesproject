@@ -141,6 +141,10 @@
 
                                             <div class="col-sm-12">Select the column in your file that best corresponds to your customers:</div>
                                             <div class="col-sm-12">
+                                              <div>Report Label</div>
+                                                <input type="text" class="form-control" id="inputPassword" ng-model="vm.credentials.reportLabel">
+                                              </div>
+                                            <div class="col-sm-12">
                                                 <select ng-model="vm.credentials.email">
                                                     <option ng-repeat="(x,y) in vm.options[0]" value="{{x}}">{{x}} : {{y}}</option>
                                                 </select>:Email</div>
@@ -241,45 +245,13 @@
 
         <!-- <div class="grid-container"> -->
         <!-- working on creating an editing feature -->
-        <div class="row">
-            <div ng-repeat="sale in vm.sales | orderBy:[0].date:reverse" ng-init="sale.show = false" class="col-md-3" id="report-cell">
-                <label class="reportLabel">Name:</label>
-                <div ng-hide="sale.show">{{sale[1]}}</div>
-                <input ng-hide="!sale.show" type="text" class="form-control" ng-model="sale[1]">
-                <label class="reportLabel">City:</label>
-                <div ng-hide="sale.show">{{sale[2].city}}</div>
-                <input ng-hide="!sale.show" type="text" class="form-control" ng-model="sale[2].city">
-                <br/>
-                <label class="reportLabel">State:</label>
-                <div ng-hide="sale.show">{{sale[2].state}}</div>
-                <input ng-hide="!sale.show" type="text" class="form-control" ng-model="sale[2].state">
-                <br/>
-                <label class="reportLabel">Manager:</label>
-                <div ng-hide="sale.show">{{sale[3]}}</div>
-                <input ng-hide="!sale.show" type="text" class="form-control" ng-model="sale[3]">
-                <br/>
-                <label class="reportLabel">Product(s):</label>
-                <div ng-hide="sale.show">{{sale[0].productName}}</div>
-                <input ng-hide="!sale.show" type="text" class="form-control" ng-model="sale[0].productName">
-                <br/>
-                <label class="reportLabel">Bottle Count:</label>
-                <div ng-hide="sale.show">{{sale[0].bottleCount}}</div>
-                <input ng-hide="!sale.show" type="text" class="form-control" ng-model="sale[0].bottleCount">
-                <br/>
-                <label class="reportLabel">Case Count:</label>
-                <div ng-hide="sale.show">{{sale[0].caseCount}}</div>
-                <input ng-hide="!sale.show" type="text" class="form-control" ng-model="sale[0].caseCount">
-                <br/>
-                <label class="reportLabel">Date:</label>
-                <div ng-hide="sale.show">{{sale[0].date}}</div>
-                <input ng-hide="!sale.show" type="text" class="form-control" ng-model="sale[0].date">
-                <br/>
-                <button ng-hide="sale.show" ng-click="sale.show = vm.switch(sale.show)">Edit</button>
-                <button ng-hide="!sale.show" ng-click="sale.show = vm.switch(sale.show)">Close Edit</button>
-                <button ng-hide="!sale.show" ng-click="sale.show = vm.switch(sale.show)">Save</button>
+            <div class="row">
+                <div ng-repeat="sale in vm.sales" class="col-md-3" id="report-cell">
+                    <label class="reportLabel">Name:</label>
+                    <div>{{sale}}</div>
+                </div>
             </div>
         </div>
-    </div>
     <!-- Main Container -->
 </main>
 <script>

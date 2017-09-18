@@ -31,16 +31,25 @@
         meanData.salesGrab()
             .success(function (data) {
                 vm.customers = data;
+                vm.reports = {};
                 var k = 0;
                 for (var i = 0; i < vm.customers.length; i++) {
                     vm.names[i] = vm.customers[i].name;
                     for (var j = 0; j < vm.customers[i].sales.length; j++) {
-                        vm.sales[k] = [vm.customers[i].sales[j], vm.customers[i].name, vm.customers[i].address, vm.customers[i].accountManager];
-                        k++;
+                        if (vm.customers[i].sales[j].reportID in vm.reports) {
+                          console.log("pass");
+                        }
+                        else {
+                          vm.sales[k] = vm.customers[i].sales[j].reportLabel;
+                          vm.reports[vm.customers[i].sales[j].reportID] = k;
+                          k++;
+                        }
                     }
                 }
-                console.log(data);
-                console.log(vm.names);
+                console.log("customers");
+                console.log(vm.customers);
+                console.log("sales");
+                console.log(vm.sales);
             })
             .error(function (e) {
                 console.log(e);
@@ -74,7 +83,8 @@
             json: "",
             year: vm.date.year,
             month: vm.date.month,
-            day: vm.date.day
+            day: vm.date.day,
+            reportLabel: ""
         };
 
         vm.switch = function (x) {
@@ -202,6 +212,7 @@
             meanData.upload(vm.credentials).success(function (data) {
                 vm.convert2(x + 1);
             }).error(function (e) {
+              location.reload(true)
                 vm.load = false;
                 console.log(e);
             });

@@ -31,6 +31,7 @@ module.exports.upload = function (req, res) {
             sale.caseCount = json.json[req.body.caseCount];
             sale.bottleCount = json.json[req.body.bottleCount];
             sale.reportID = req.body.reportID;
+            sale.reportLabel = req.body.reportLabel;
             //set if to determine where we are getting date
             if (req.body.date == "today") {
                 console.log("today");
@@ -71,6 +72,7 @@ module.exports.upload = function (req, res) {
             sale.caseCount = json.json[req.body.caseCount];
             sale.bottleCount = json.json[req.body.bottleCount];
             sale.reportID = req.body.reportID;
+            sale.reportLabel = req.body.reportLabel;
             //set if to determine where we are getting date
             if (req.body.date == "today") {
                 console.log("today");

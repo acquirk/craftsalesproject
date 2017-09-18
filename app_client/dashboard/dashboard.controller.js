@@ -16,6 +16,7 @@
         vm.prodSales = {};
         vm.prodSalesAr = [];
         vm.barData = [];
+        vm.lineData = [];
         
     
 
@@ -27,43 +28,8 @@
         
         vm.sales = vm.sales.sort(compareNumbers);
         vm.prodSalesAr = vm.prodSalesAr.sort(compareNumbers);
-        
-        
-        var data = vm.customers;
 
-         var data = [
-            {key: "Vodka", value: 60, date: "2014/01/01" },
-            {key: "Vodka", value: 58, date: "2014/01/02" },
-            {key: "Vodka", value: 59, date: "2014/01/03" },
-            {key: "Vodka", value: 56, date: "2014/01/04" },
-            {key: "Vodka", value: 57, date: "2014/01/05" },
-            {key: "Vodka", value: 55, date: "2014/01/06" },
-            {key: "Vodka", value: 56, date: "2014/01/07" },
-            {key: "Vodka", value: 52, date: "2014/01/08" },
-            {key: "Vodka", value: 54, date: "2014/01/09" },
-            {key: "Vodka", value: 57, date: "2014/01/10" },
-            {key: "Vodka", value: 56, date: "2014/01/11" },
-            {key: "Vodka", value: 59, date: "2014/01/12" },
-            {key: "Vodka", value: 56, date: "2014/01/13" },
-            {key: "Vodka", value: 52, date: "2014/01/14" },
-            {key: "Vodka", value: 48, date: "2014/01/15" },
-            {key: "Vodka", value: 47, date: "2014/01/16" },
-            {key: "Vodka", value: 48, date: "2014/01/17" },
-            {key: "Vodka", value: 45, date: "2014/01/18" },
-            {key: "Vodka", value: 43, date: "2014/01/19" },
-            {key: "Vodka", value: 41, date: "2014/01/20" },
-            {key: "Vodka", value: 37, date: "2014/01/21" },
-            {key: "Vodka", value: 36, date: "2014/01/22" },
-            {key: "Vodka", value: 39, date: "2014/01/23" },
-            {key: "Vodka", value: 41, date: "2014/01/24" },
-            {key: "Vodka", value: 42, date: "2014/01/25" },
-            {key: "Vodka", value: 40, date: "2014/01/26" },
-            {key: "Vodka", value: 43, date: "2014/01/27" },
-            {key: "Vodka", value: 41, date: "2014/01/28" },
-            {key: "Vodka", value: 39, date: "2014/01/29" },
-            {key: "Vodka", value: 40, date: "2014/01/30" },
-            {key: "Vodka", value: 39, date: "2014/01/31" }
-        ];
+         var data = vm.lineData;
         
         
         
@@ -355,12 +321,14 @@ function type(d) {
       .success(function(data) {
         vm.customers = data;
         var k = 0;
+        var l = 0;
         var vodkaCount = 0;
         for (var i = 0; i < vm.customers.length; i++) {
           vm.names[i] = vm.customers[i].name;
           for (var j = 0; j < vm.customers[i].sales.length; j++) {
 
-            
+            vm.lineData[l] = {key: vm.customers[i].sales[j].productName, value: vm.customers[i].sales[j].bottleCount + (vm.customers[i].sales[j].caseCount*6), date: vm.customers[i].sales[j].date.substr(0,9) };
+            l++;
             vm.product[j] = vm.customers[i].sales[j].productName;
             
             
@@ -385,8 +353,6 @@ function type(d) {
           }
           k++;
         }
-        console.log("SALES");
-        console.log(vm.sales);
         
         //create an array version of vm.prodSales
         for (var product in vm.prodSales) {
@@ -395,13 +361,12 @@ function type(d) {
         for (var product in vm.prodSales) {
             vm.barData.push({"label":product, "value":vm.prodSales[product]})
         }
+        console.log("prodsales");
         console.log(vm.prodSales);
-        console.log(vm.prodSalesAr);
-        console.log(vm.barData);
-        console.log(vm.customers);
 
         console.log("create d3 graphs");
         lineGraph();
+        console.log(vm.lineData);
         console.log("line Graph");
         barGraph();
         console.log("bar Graph");

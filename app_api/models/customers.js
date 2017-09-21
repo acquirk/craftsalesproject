@@ -14,13 +14,20 @@ var commentsSchema = new mongoose.Schema({
 
 var salesSchema = new mongoose.Schema({
     productName: String,
-    caseCount: Number,
-    bottleCount: Number,
+    caseCount: {
+        type: Number,
+        default: 0
+    },
+    bottleCount: {
+        type: Number,
+        default: 0
+    },
     date: {
         type: Date,
         default: Date.now
     },
-    reportID: String
+    reportID: String,
+    reportLabel: String
 });
 
 var customerSchema = new mongoose.Schema({

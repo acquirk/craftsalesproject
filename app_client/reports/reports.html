@@ -247,8 +247,9 @@
 
         <!-- <div class="grid-container"> -->
         <!-- working on creating an editing feature -->
+
             <div class="row">
-                <div ng-repeat="sale in vm.sales | orderBy:[0].date:reverse" ng-init="" class="col-md-3" id="report-cell">
+                <div ng-repeat="sale in vm.sales | orderBy:[0].date:reverse" ng-init="sale.show = false" class="col-md-3" id="report-cell">
                     <label class="reportLabel  right-buffer">Report Title:</label>
                     <div>{{sale[0]}}</div>
                     <br/>

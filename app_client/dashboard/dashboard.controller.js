@@ -184,6 +184,68 @@ vm.myDataSource = {
     function barGraph() {
         var data = vm.barData;
 
+
+        var w = 1000;
+        var h = 500;
+        var margin = {
+            top: 20,
+            bottom: 20,
+            left: 20,
+            right: 20
+        };
+        var width = w - margin.left - margin.right;
+        var height = h - margin.top - margin.bottom;
+        var x = d3.scale.linear()
+                .domain([0, d3.max(data, function(d){
+                    return d.value;
+                })])
+                .range([0, width]);
+        var y = d3.scale.linear()
+                .domain([0, data.length])
+                .range([0, height]);
+        var svg = d3.select("#bar").append("svg")
+                    .attr("id", "chart")
+                    .attr("width", w)
+                    .attr("height", h);
+        var chart = svg.append("g")
+                    .classed("display", true)
+                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+        function plot(params){
+            this.selectAll(".bar")
+                .data(params.data)
+                .enter()
+                    .append("rect")
+                    .classed("bar", true)
+                    .attr("x", 0)
+                    .attr("y", function(d,i){
+                        return y(i);
+                    })
+                    .attr("height", function(d,i){
+                        return y(1)-1;
+                    })
+                    .attr("width", function(d){
+                        return x(d.value);
+                    });
+            this.selectAll(".bar-label")
+                .data(params.data)
+                .enter()
+                    .append("text")
+                    .classed("bar-label", true)
+                    .attr("x", function(d){
+                        return x(d.value);
+                    })
+                    .attr("dx", -4)
+                    .attr("y", function(d,i){
+                        return y(i);
+                    })
+                    .attr("dy", function(d,i){
+                        return y(1)/1.5+2;
+                    })
+                    .text(function(d){
+                        return d.value;
+                    })
+        }
+        plot.call(chart, {data: data});
 var margin = {top: 40, right: 20, bottom: 30, left: 40},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;

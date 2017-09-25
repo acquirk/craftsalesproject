@@ -86,7 +86,8 @@
             reportLabel: "",
             year: vm.date.year,
             month: vm.date.month,
-            day: vm.date.day
+            day: vm.date.day,
+            reportLabel: ""
         };
 
         vm.switch = function (x) {

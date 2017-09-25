@@ -40,7 +40,7 @@
                           console.log("pass");
                         }
                         else {
-                          vm.sales[k] = vm.customers[i].sales[j].reportLabel;
+                          vm.sales[k] = [vm.customers[i].sales[j].reportLabel, vm.customers[i].sales[j].reportID];
                           vm.reports[vm.customers[i].sales[j].reportID] = k;
                           k++;
                         }
@@ -50,6 +50,8 @@
                 console.log(vm.customers);
                 console.log("sales");
                 console.log(vm.sales);
+                console.log("reports");
+                console.log(vm.reports);
             })
             .error(function (e) {
                 console.log(e);
@@ -81,10 +83,10 @@
             reportID: "",
             date: "input",
             json: "",
+            reportLabel: "",
             year: vm.date.year,
             month: vm.date.month,
-            day: vm.date.day,
-            reportLabel: ""
+            day: vm.date.day
         };
 
         vm.switch = function (x) {

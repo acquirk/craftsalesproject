@@ -1,42 +1,32 @@
 <navigation></navigation>
 
-
-	<head>
-		<meta charset="utf-8">
-		<title>User Profile</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    	<meta http-equiv="x-ua-compatible" content="ie=edge">
-
-
-		<!-- Stylesheets -->
-
-		<!--[if lt IE 9]>
-    		<script src="assets/components/html5shiv/html5shiv.min.js"></script>
-		<![endif]-->
-	</head>
-
 <div class="container">
-  <br><h1 class="h1-login">Cardinal Reports</h1><br>
-       <div class="row">
-         <div class="main">
-           <form role="form" ng-submit="vm.onSubmit()">
-             <div class="form-group">
-               <label class ="label-login" for="inputEmail">Email</label>
-               <input type="text" class="form-control" id="inputEmail" ng-model="vm.credentials.email">
-             </div>
-             <div class="form-group">
-               <label class ="label-login" for="inputPassword" >Password</label><a class="pull-right" href="#">Forgot password?</a>
-               <input type="password" class="form-control" id="inputPassword" ng-model="vm.credentials.password">
-             </div>
-             <div class="checkbox pull-left">
-               <label class="remember"><input type="checkbox">Remember me </label>
-             </div>
-             <button type="submit" class="btn btn btn-primary pull-right black-background">Log In</button><br><br>
-           </form>
-         </div><br>
-         <div class="main text-center">
-               <a class="password" href="/register">New User? Create Account</a>
-         </div>
-       </div>
-     </div>
-<br><br>
+    <div class="row top-buffer">
+        <h1 class="h1-login">Cardinal Reports</h1><br>
+    </div>
+    <div class="row">
+        <div class="main">
+            <form role="form" ng-submit="vm.onSubmit()">
+                <div class="form-group">
+                    <label class ="label-login" for="inputEmail">Email</label>
+                    <input type="text" class="form-control" id="inputEmail" ng-model="vm.credentials.email">
+                </div>
+                <div class="form-group">
+                    <label class ="label-login" for="inputPassword" >Password</label><a class="pull-right" href="#">Forgot password?</a>
+                    <input type="password" class="form-control" id="inputPassword" ng-model="vm.credentials.password">
+                </div>
+                <div class="checkbox pull-left">
+                    <label class="remember"><input type="checkbox">Remember me </label>
+                </div>
+                <div>
+                <button type="submit" class="btn btn btn-primary pull-right black-background">Log In</button><br><br>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row top-buffer">
+        <div class="main">
+            <a class="password" href="/register">New User? Create Account</a>
+        </div>
+    </div>  
+</div>

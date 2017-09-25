@@ -1,10 +1,12 @@
 <navigation></navigation>
-<main>
     <div ng-hide="!vm.load">Uploading. Please be patient. Should we put a loading gif here? Do you say gif with a hard or soft g?</div>
     <div class="container" ng-hide="vm.load">
-        <h1 class="reports"> Reports </h1>
-        <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#uploadmodal">Upload Report</button>
-
+        <div class="row top-buffer">
+            <h1 class="rep-h1"> Reports </h1>
+        </div>
+        <div class="row top-buffer">
+            <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#uploadmodal">Upload Report</button>
+        </div>
         <div class="modal fade" id="uploadmodal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
@@ -246,14 +248,28 @@
         <!-- <div class="grid-container"> -->
         <!-- working on creating an editing feature -->
             <div class="row">
-                <div ng-repeat="sale in vm.sales" class="col-md-3" id="report-cell">
-                    <label class="reportLabel">Name:</label>
-                    <div>{{sale}}</div>
+                <div ng-repeat="sale in vm.sales | orderBy:[0].date:reverse" ng-init="" class="col-md-3" id="report-cell">
+                    <label class="reportLabel  right-buffer">Report Title:</label>
+                    <div>{{sale[0]}}</div>
+                    <br/>
+                    <label class="reportLabel">Account:</label>
+                    <div ng-hide="sale.show"></div>
+                    <input ng-hide="!sale.show" type="text" class="form-control" ng-model="sale[2].city">
+                    <br/>
+                    <label class="reportLabel">Date:</label>
+                    <div>{{sale[1]}}</div>
+                    <div ng-hide="sale.show"></div>
+                    <input ng-hide="!sale.show" type="text" class="form-control" ng-model="sale[2].state">
+                    <br/>
+                    <label class="reportLabel">Total Sales:</label>
+                    <div ng-hide="sale.show"></div>
+                    <input ng-hide="!sale.show" type="text" class="form-control" ng-model="sale[3]">
+                    <br/>
                 </div>
             </div>
-        </div>
+        
+</div>
     <!-- Main Container -->
-</main>
 <script>
     $('#tabs a').click(function(e) {
         e.preventDefault()

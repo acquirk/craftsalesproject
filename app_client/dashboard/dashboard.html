@@ -1,47 +1,39 @@
 <navigation></navigation>
 
-    <main>
-        <div class="container">
-        <br><br>
-        <!-- Progress Bar -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-14 col-sm-12">
+            <!-- Progress Bar -->
             <div id="progress"
-                 data-percentage="63"
-                 data-track-width="15"
-                 data-track-colour="FFFFFF"
-                 data-fill-colour="4DA557"
-                 data-text-colour="4DA557"
-                 data-stroke-colour="E9E9E9"
-                 data-stroke-spacing="4">
+                data-percentage="63"
+                data-track-width="15"
+                data-track-colour="FFFFFF"
+                data-fill-colour="4DA557"
+                data-text-colour="4DA557"
+                data-stroke-colour="E9E9E9"
+                data-stroke-spacing="4">
             </div>
-            <div class="progressText">
-                <p class="progress"> 632 / 1000</p>
-                <br>
-                <p class="progress2">cases sold</p>
+            <div>
+                <p class="progressText"> 632 / 1000</p>
+                <p class="progressText2">cases sold</p>
             </div>
-        <br>
-        
- 
-       <br><br>
-       <div class="row">
-         <!-- Top Products -->
-         <div class="col-md-6 col-sm-12">
-            <div class="mainDash">
-               <label class ="label-login" for="inputEmail">Top Products</label>
-                 <p class="dashProd" ng-repeat="(x,y) in vm.prodSalesAr|limitTo:10"> {{x + 1}}  {{y[0]}} {{y[1]}}</p>
-             </div>
+        </div>
+    </div>
+    <div class="row">
+        <!-- Top Products -->
+        <div class="dash-top col-md-6 col-sm-12">
+            <label class ="dash-topLabel">Top Products</label>
+            <p class="dash-topList" ng-repeat="(x,y) in vm.prodSalesAr|limitTo:10"> {{x + 1}}  {{y[0]}} {{y[1]}}</p>
         </div>
         <!-- Top Locations -->
-        <div class="col-md-6 col-sm-12">
-            <div class="mainDash">
-               <label class ="label-login" for="inputEmail">Top Locations</label>
-                 <p class="dashProd" ng-repeat="(x,y) in vm.sales|limitTo:10"> {{x + 1}}  {{y[0]}} {{y[1]}}</p>
-             </div>
+        <div class="dash-top col-md-6 col-sm-12">
+            <label class ="dash-topLabel">Top Locations</label>
+            <p class="dash-topList" ng-repeat="(x,y) in vm.sales|limitTo:10"> {{x + 1}}  {{y[0]}} {{y[1]}}</p>
         </div>
-           <br><br><br><br>
-        </div>
-        
-        <div class="row">
-        <!-- Line Graph -->
+    </div>
+    <div class="row top-buffer">
+        <div class="col-md-12 col-sm-12">
+            <!-- Line Graph -->
             <div id="line">
                 <h2 class="salesTrends"> Sales Trends</h2>
             </div>
@@ -62,4 +54,5 @@
         <br>
             </div>
         </div>
-    </main>
+    </div>
+</div>

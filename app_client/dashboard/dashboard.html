@@ -25,11 +25,11 @@
        <div class="row">
          <!-- Top Products -->
          <div class="col-md-6 col-sm-12">
-            <div class="mainDash"> 
+            <div class="mainDash">
                <label class ="label-login" for="inputEmail">Top Products</label>
                  <p class="dashProd" ng-repeat="(x,y) in vm.prodSalesAr|limitTo:10"> {{x + 1}}  {{y[0]}} {{y[1]}}</p>
              </div>
-        </div> 
+        </div>
         <!-- Top Locations -->
         <div class="col-md-6 col-sm-12">
             <div class="mainDash">
@@ -48,10 +48,16 @@
         </div>
            <br>
             
-      <div class="row">  
+      <div class="row">
       <!-- Bar Graph -->
         <div id="bar">
             <h2 class="totalSales"> Total Sales </h2>
+           <fusioncharts
+    width="600"
+    height="400"
+    type="column2d"
+    datasource="{{vm.myDataSource}}">
+</fusioncharts>
         </div>
         <br>
             </div>

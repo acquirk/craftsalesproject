@@ -6,7 +6,7 @@
 
     dashboardCtrl.$inject = ['$location', 'meanData'];
 
-    function dashboardCtrl($location, meanData) {
+    function dashboardCtrl($location, meanData, ngfusioncharts) {
         var vm = this;
         
         vm.customers = [];
@@ -18,6 +18,30 @@
         vm.barData = [];
         vm.lineData = [];
         
+vm.myDataSource = {
+    chart: {
+        caption: "Harry's SuperMart",
+        subCaption: "Top 5 stores in last month by revenue",
+        numberPrefix: "$",
+        theme: "fint"
+    },
+    data: [{
+        label: "Bakersfield Central",
+        value: "880000"
+    }, {
+        label: "Garden Groove harbour",
+        value: "730000"
+    }, {
+        label: "Los Angeles Topanga",
+        value: "590000"
+    }, {
+        label: "Compton-Rancho Dom",
+        value: "520000"
+    }, {
+        label: "Daly City Serramonte",
+        value: "330000"
+    }]
+};
     
 
     // Line Graph
@@ -159,7 +183,6 @@
     //Bar Graph
     function barGraph() {
         var data = vm.barData;
-        console.log(data);
 
 var margin = {top: 40, right: 20, bottom: 30, left: 40},
     width = 960 - margin.left - margin.right,

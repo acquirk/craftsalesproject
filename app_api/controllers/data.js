@@ -33,7 +33,23 @@ module.exports.upload = function (req, res) {
             sale.reportID = req.body.reportID;
             sale.reportLabel = req.body.reportLabel;
             //set if to determine where we are getting date
-            sale.date = json.json[req.body.date];
+            if (req.body.date == "today") {
+                console.log("today");
+                sale.date = Date().now;
+            } else if (req.body.date === "input") {
+                console.log("input");
+                if (req.body.month < 10) {
+                  req.body.month = "0" + req.body.month;
+                }
+                if (req.body.day < 10) {
+                  req.body.day = "0" + req.body.day;
+                }
+                var d = req.body.year + "-" + req.body.month + "-" + req.body.day + "T00:00:00.000Z";
+                sale.date = new Date(d);
+            } else {
+                sale.date = new Date(req.body.date);
+                console.log("other");
+            }
             customer.sales.push(sale);
             customer.save(function (err) {});
             res.status(200).send();
@@ -58,7 +74,23 @@ module.exports.upload = function (req, res) {
             sale.reportID = req.body.reportID;
             sale.reportLabel = req.body.reportLabel;
             //set if to determine where we are getting date
-            sale.date = json.json[req.body.date];
+            if (req.body.date == "today") {
+                console.log("today");
+                sale.date = Date().now;
+            } else if (req.body.date === "input") {
+                console.log("input");
+                if (req.body.month < 10) {
+                  req.body.month = "0" + req.body.month;
+                }
+                if (req.body.day < 10) {
+                  req.body.day = "0" + req.body.day;
+                }
+                var d = req.body.year + "-" + req.body.month + "-" + req.body.day + "T00:00:00.000Z";
+                sale.date = new Date(d);
+            } else {
+                sale.date = new Date(req.body.date);
+                console.log("other");
+            }
             console.log(json);
             console.log(json.json[req.body.email]);
             console.log(req.body.email);
@@ -152,4 +184,34 @@ module.exports.accountsGrab = function (req, res) {
     });
 
 
+};
+
+module.exports.updateSale = function (req, res) {
+
+    // This is the Settings Change function from the authentication controller!!!!! Similar but not what we want!!! Will change soon
+
+    var id = req.body.id;
+    var email = req.body.email;
+    var firstName = req.body.firstName;
+    var lastName = req.body.lastName;
+
+    User.findOne({
+        _id: id
+    }, function (err, user) {
+        if (err) {
+            console.log("error");
+
+        } else {
+            user.email = email;
+            user.firstName = firstName;
+            user.lastName = lastName;
+            user.save(function (err) {
+                res.status(200).send();
+            });
+            var token = user.generateJwt();
+            res.json({
+                "token": token
+            });
+        }
+    });
 };

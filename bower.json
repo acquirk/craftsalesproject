@@ -1,0 +1,20 @@
+{
+  "name": "cardinalreports",
+  "description": "",
+  "main": "bower.json",
+  "license": "MIT",
+  "homepage": "https://github.com/acquirk/craftsalesproject",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-csv-import": "^0.0.38",
+    "angular-fusioncharts": "^0.0.2",
+    "fusioncharts": "^3.12.1",
+    "md-datepicker": "^1.2.1"
+  }
+}

@@ -4,14 +4,7 @@
     <div class="row">
         <div class="col-md-14 col-sm-12">
             <!-- Progress Bar -->
-            <div id="progress"
-                data-percentage="63"
-                data-track-width="15"
-                data-track-colour="FFFFFF"
-                data-fill-colour="4DA557"
-                data-text-colour="4DA557"
-                data-stroke-colour="E9E9E9"
-                data-stroke-spacing="4">
+            <div id="progress" data-percentage="63" data-track-width="15" data-track-colour="FFFFFF" data-fill-colour="4DA557" data-text-colour="4DA557" data-stroke-colour="E9E9E9" data-stroke-spacing="4">
             </div>
             <div>
                 <p class="progressText"> 632 / 1000</p>
@@ -22,13 +15,13 @@
     <div class="row">
         <!-- Top Products -->
         <div class="dash-top col-md-6 col-sm-12">
-            <label class ="dash-topLabel">Top Products</label>
-            <p class="dash-topList" ng-repeat="(x,y) in vm.prodSalesAr|limitTo:10"> {{x + 1}}  {{y[0]}} {{y[1]}}</p>
+            <label class="dash-topLabel">Top Products</label>
+            <p class="dash-topList" ng-repeat="(x,y) in vm.prodSalesAr|limitTo:10"> {{x + 1}} {{y[0]}} {{y[1]}}</p>
         </div>
         <!-- Top Locations -->
         <div class="dash-top col-md-6 col-sm-12">
-            <label class ="dash-topLabel">Top Locations</label>
-            <p class="dash-topList" ng-repeat="(x,y) in vm.sales|limitTo:10"> {{x + 1}}  {{y[0]}} {{y[1]}}</p>
+            <label class="dash-topLabel">Top Locations</label>
+            <p class="dash-topList" ng-repeat="(x,y) in vm.sales|limitTo:10"> {{x + 1}} {{y[0]}} {{y[1]}}</p>
         </div>
     </div>
     <div class="row top-buffer">
@@ -36,19 +29,20 @@
             <!-- Line Graph -->
             <div id="line">
                 <h2 class="salesTrends"> Sales Trends</h2>
+                <div id="chart-container1"></div>
             </div>
         </div>
-        </div>
-           <br>
-            
-      <div class="row">
-      <!-- Bar Graph -->
+    </div>
+    <br>
+
+    <div class="row">
+        <!-- Bar Graph -->
         <div id="bar">
             <h2 class="totalSales"> Total Sales </h2>
-<div id="chart-container">
-  FusionCharts will render here
- </div>
-        </div>
-        <br>
+            <div id="chart-container2">
+                FusionCharts will render here
             </div>
         </div>
+        <br>
+    </div>
+</div>

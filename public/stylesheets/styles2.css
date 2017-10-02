@@ -5,9 +5,13 @@ General
 */
 
 .top-buffer { 
-    margin-top: 20px; 
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
-
+h1 {
+    text-align: center;
+    font: "Lucida Grande", Helvetica, Arial, sans-serif;
+}
 
 
 
@@ -90,10 +94,6 @@ Login
     padding: 30px;
     max-width: 36%;
     min-width: 36%;
-}
-.h1-login {
-    text-align: center;
-    font: "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 .label-login {
     font-size: 13pt;

@@ -41,7 +41,7 @@
                         vm.lineData1[l] = {
                             key: vm.customers[i].sales[j].productName,
                             value: vm.customers[i].sales[j].bottleCount + (vm.customers[i].sales[j].caseCount * 6),
-                            date: vm.customers[i].sales[j].date.substr(0, 10)
+                            date: vm.customers[i].sales[j].date.substr(0, 7)
                         };
                         l++;
                         vm.product[j] = vm.customers[i].sales[j].productName;
@@ -51,7 +51,7 @@
                             vm.prodSales[vm.product[j]] = vm.prodSales[vm.product[j]] + vm.customers[i].sales[j].bottleCount + (vm.customers[i].sales[j].caseCount * 6);
                         } else {
                             vm.prodSales[vm.product[j]] = vm.customers[i].sales[j].bottleCount + (vm.customers[i].sales[j].caseCount * 6);
-                        };
+                        }
 
 
 
@@ -73,22 +73,32 @@
                     vm.barLabels.push(product);
                     vm.barData.push(vm.prodSales[product]);
                 }
-                var insert = 0
-                for (var i = 0; i < vm.lineData1.length; i++) {
-                    insert = vm.lineLabels.indexOf(vm.lineData1[i].date)
+                var insert = 0;
+                for (i = 0; i < vm.lineData1.length; i++) {
+                    insert = vm.lineLabels.indexOf(vm.lineData1[i].date);
                     if (insert < 0) {
-                        vm.lineLabels.push(vm.lineData1[i].date)
+                        vm.lineLabels.push(vm.lineData1[i].date);
                     }
                 }
                 vm.lineLabels.sort();
-
-                for (var i = 0; i < vm.lineData1.length; i++) {
-                    if (vm.lineData1.key in vm.lineData2) {
-                        vm.lineData2[vm.lineData1.key][vm.lineLabels.indexOf(vm.lineData1.date)] = vm.lineData1.value
+                var dates = [];
+                var keys = [];
+                i = 0;
+                while (i < vm.lineData1.length) {
+                    if (-1 < (jQuery.inArray(vm.lineData1[i].key, keys))) {
+                      console.log(vm.lineData1[i].date);
+                      console.log(jQuery.inArray(vm.lineData1[i].date, vm.lineLabels));
+                      console.log(dates);
+                        vm.lineData2[vm.lineData1[i].key][jQuery.inArray(vm.lineData1[i].date, vm.lineLabels)] += vm.lineData1[i].value;
                     } else {
-                        vm.lineData2[vm.lineData1.key] = Array.apply(null, Array(vm.lineLabels.length)).map(Number.prototype.valueOf, 0);
-                        vm.lineData2[vm.lineData1.key][vm.lineLabels.indexOf(vm.lineData1.date)] = vm.lineData1.value
+                        vm.lineData2[vm.lineData1[i].key] = Array.apply(null, Array(vm.lineLabels.length)).map(Number.prototype.valueOf, 0);
+                        keys.push(vm.lineData1[i].key);
+                        dates.push(vm.lineData1[i].date);
+                        console.log(vm.lineData1[i].date);
+                        console.log(dates);
+                        //vm.lineData2[vm.lineData1.key][vm.lineLabels.indexOf(vm.lineData1.date)] = vm.lineData1.value;
                     }
+                    i += 1;
                 }
                 /*
                     vm.lineData.push({
